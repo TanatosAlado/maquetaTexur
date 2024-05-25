@@ -1,0 +1,8 @@
+.membrete{
+    width: 100%;
+    background-color: lightskyblue;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
