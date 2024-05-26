@@ -2,21 +2,84 @@
 
 <div class="row">
     <div class="col-2 menu" style="background-color: lightgrey;">
+        <h2>Carlos Perez</h2>
         <div class="imagen">
-
+            <img src="../../../assets/user.png">
         </div>
         <div>
             <ul>
-                <li>Perfil</li>
-                <li>Compras</li>
-                <li>Post Venta</li>
-                <li>E-learning</li>
-                <li>Mensajero</li>
+                <li (click)="cambio('perfil'); seleccionar('perfil')" [class.active]="selected === 'perfil'">Perfil</li>
+                <li (click)="cambio('compras'); seleccionar('compras')" [class.active]="selected === 'compras'">Compras</li>
+                <li (click)="cambio('postventa'); seleccionar('postventa')" [class.active]="selected === 'postventa'">Post Venta</li>
+                <li (click)="cambio('elearning'); seleccionar('elearning')" [class.active]="selected === 'elearning'">E-learning</li>
+                <li (click)="cambio('mensajero'); seleccionar('mensajero')" [class.active]="selected === 'mensajero'">Mensajero</li>
             </ul>
         </div>
     </div>
     <div class="col-10" style="background-color:grey;">
-        Cuerpo de Benito
+        <div *ngIf="perfil" class="perfil" >
+            <h2>Perfil del cliente</h2>
+            <div class="login">
+                <div class="imagen">
+                    <img src="../../../assets/user.png">
+                </div>
+                <div class="formulario">
+                    <form class="form">
+                        <label>Username</label>
+                        <input type="text" placeholder="Ingrese su usuario"><br>
+                        <label>Password</label>
+                        <input type="password" placeholder="Ingrese su clave"><br>
+                        <label>CUIT</label>
+                        <input type="text" placeholder="Ingrese su CUIT"><br>
+                        <label>Razon Social</label>
+                        <input type="text" placeholder="Ingrese su Razon Social"><br>
+                        <label>CUIT DISTRIBUIDOR</label>
+                        <input type="text" placeholder="CUIT"><br>
+                        <button (click)="actualizar()">ACTUALIZAR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="compras" class="compras container" >
+          
+            <div class="cuerpoCompras">
+                <div class="productos">
+                    <h2>
+                        Productos disponibles del distribuidor
+                    </h2>
+                    <div class="contenedorCard">
+                        <div *ngFor="let producto of productos">
+                            <div class="card">
+                                <img src="../../../assets/car.png">
+                                <h5>{{producto.nombre}}</h5>
+                                <h6>Precio: {{producto.precio}}</h6>
+                                <button>Agregar a pedido</button>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="resumen">
+                    <h4>Pedido actual</h4>
+                    <div *ngFor="let producto of productosRes">
+                        <div class="cardRes">
+                            <img src="../../../assets/car.png">
+                            <h5>{{producto.nombre}}</h5>
+                            <h6>Precio: {{producto.precio}}</h6>
+                            <div class="botonera">
+                                <a><strong>-</strong></a>
+                                <p>Cantidad: 2</p>
+                                <a><strong>+</strong></a>
+                            </div>
+                            <button>Eliminar</button>
+                        </div>
+                    </div> 
+                    <button>Realizar pedido</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="postventa" class="postventa" ><h1>Post Venta</h1></div>
+        <div *ngIf="elearning" class="elearning" ><h1>E-learning</h1></div>
+        <div *ngIf="mensajero" class="mensajero" ><H1>Mensajero</H1></div>
     </div>
 </div>
 
