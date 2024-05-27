@@ -41,7 +41,6 @@
             </div>
         </div>
         <div *ngIf="compras" class="compras container" >
-          
             <div class="cuerpoCompras">
                 <div class="productos">
                     <h2>
@@ -77,7 +76,42 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="postventa" class="postventa" ><h1>Post Venta</h1></div>
+        <div *ngIf="postventa" class="postventa container" >
+            <div class="cuerpoPV">
+                <div class="misProductos">
+                    <h4>Mis productos</h4>
+                    <div class="cardProd">
+                        <img src="../../../assets/car.png">
+                        <h5>Producto 1</h5>
+                        <button>Ver detalle</button>
+                    </div>
+                    <div class="cardProd">
+                        <img src="../../../assets/car.png">
+                        <h5>Producto 2</h5>
+                        <button>Ver detalle</button>
+                    </div>
+                </div>
+                <div class="infoProductos">
+                    <div class="detallesProd">
+                        <div class="opcionesProd">
+                            <h4>Gestión producto</h4>
+                            <div class="cabecerasProd">
+                                <span>Garantía</span><span>Servicios</span><span>Contrato</span>
+                            </div>
+                        </div>
+                        <div class="detallesCompletos">
+                            <div class="garantiaProd">
+                                <h4>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dolores facere veritatis, repellat doloremque facilis velit ut, quidem iure ea laudantium, non officia. Illo aliquam est quasi possimus exercitationem!
+                                </h4>
+                            </div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div *ngIf="elearning" class="elearning" ><h1>E-learning</h1></div>
         <div *ngIf="mensajero" class="mensajero" ><H1>Mensajero</H1></div>
     </div>

@@ -158,6 +158,7 @@ button{
 
 .productos h2{
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .resumen{
@@ -165,6 +166,12 @@ button{
 }
 
 .cuerpoCompras{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cuerpoPV{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -185,7 +192,7 @@ button{
 
 .resumen button{
     width: 80%;
-    margin-left: 10%;
+    margin-left: 1%;
 }
 
 .resumen{
@@ -213,6 +220,7 @@ button{
     background-color: azure;
     align-items: center;
     margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 .cardRes img{
@@ -222,7 +230,7 @@ button{
 
 .cardRes button{
     width: 80%;
-    margin-left: 10%;
+    margin-left: 1%;
     margin-bottom: 20px;
 }
 
@@ -243,4 +251,70 @@ button{
 .botonera p{
     width: 60%;
     margin-bottom: 0px;
+}
+
+.misProductos{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.misProductos h4{
+    text-align: center;
+}
+
+.infoProductos{
+    width: 80%;
+    background-color: bisque;
+}
+
+.postventa{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+    height: auto;
+}
+
+.cardProd{
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cardProd img{
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+}
+
+.cardProd button{
+    width: 80%;
+    margin-left: 1%;
+    margin-bottom: 20px;
+}
+
+.detallesProd{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.opcionesProd{
+    background-color: aqua;
+}
+
+.opcionesProd h4{
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cabecerasProd{
+    display: flex;
+    justify-content: space-around;
 }
