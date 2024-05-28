@@ -96,17 +96,78 @@
                         <div class="opcionesProd">
                             <h4>Gestión producto</h4>
                             <div class="cabecerasProd">
-                                <span>Garantía</span><span>Servicios</span><span>Contrato</span>
+                                <ul class="opcionesPV">
+                                    <li (click)="cambioOpcionPV('garantiaPV'); seleccionarPV('garantiaPV')" [class.active]="selectedPV === 'garantiaPV'">Garantía</li>
+                                    <li (click)="cambioOpcionPV('serviciosPV'); seleccionarPV('serviciosPV')" [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                                    <li (click)="cambioOpcionPV('contratoPV'); seleccionarPV('contratoPV')" [class.active]="selectedPV === 'contratoPV'">Contrato</li>
+                                </ul>
+                                
                             </div>
                         </div>
                         <div class="detallesCompletos">
-                            <div class="garantiaProd">
+                            <div *ngIf="garantiaPV" class="garantiaProd">
                                 <h4>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dolores facere veritatis, repellat doloremque facilis velit ut, quidem iure ea laudantium, non officia. Illo aliquam est quasi possimus exercitationem!
+                                    <p>Cobertura</p>
                                 </h4>
+                                <h6> 
+                                    <p>La garantía de este producto cubre defectos de fabricación y materiales por un período determinado. Incluye reparaciones o reemplazos sin costo adicional para el cliente, siempre que se cumplan las condiciones del uso adecuado y se presente el comprobante de compra. No cubre daños por mal uso o desgaste normal.</p>
+                                </h6>
                             </div>
-                            <div></div>
-                            <div></div>
+                            <div *ngIf="serviciosPV">
+                                <h4>
+                                    <p>Gestión de servicios</p>
+                                </h4>
+                                <div class="servicios">
+                                    <div class="solicitud">
+                                        <h5> 
+                                            <p>Solicitud de servicio</p>
+                                        </h5>
+                                        <div class="container mt-3">
+                                            
+                                                <div class="form-group mr-2">
+                                                  <label for="tipoSolicitud" class="mr-2">Tipo</label>
+                                                  <select id="tipoSolicitud" class="form-control">
+                                                    <option value="Mantenimiento">Mantenimiento</option>
+                                                    <option value="Reparacion">Reparación</option>
+                                                  </select>
+                                                </div>
+                                                <div class="form-group mr-2">
+                                                  <label for="descripcion" class="mr-2">Descripción</label>
+                                                  <input type="text" id="descripcion" class="form-control" placeholder="Descripción">
+                                                </div>
+                                                <button type="button" (click)="agendado()" class="btn btn-primary">Solicitar</button>
+                                              
+                                        </div>
+                                    </div>
+                                    <div class="seguimiento">
+                                        <h5> 
+                                            <p>Seguimiento de servicio</p>
+                                        </h5>
+                                        <div class="container mt-3">
+                                                <div class="form-group mr-2">
+                                                    <label for="descripcion" class="mr-2">Numero de seguimiento</label>
+                                                    <input type="text" id="descripcion" class="form-control" placeholder="Descripción" value="1234">
+                                                </div>
+                                                <button type="button" (click)="consultado()" class="btn btn-primary">Consulta</button>
+                                                <div *ngIf="hizoConsulta">
+                                                    <br>
+                                                    <p><strong>Estado: </strong>Pendiente</p>
+                                                    <p><strong>Fecha: </strong>01/07/2024</p>
+                                                    <p><strong>Costo: </strong>Sin costo - Corre por garantía</p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div *ngIf="contratoPV">
+                                <h4>
+                                    <p>Contrato</p>
+                                </h4>
+                                <h6> 
+                                    <p>El contrato de servicio incluye los términos y condiciones del servicio prestado, plazos de entrega, responsabilidades de ambas partes, tarifas y métodos de pago, así como las garantías ofrecidas. También detalla el proceso para resolver disputas y las condiciones para la terminación del contrato. Todo en conformidad con la legislación aplicable.</p>
+                                </h6>
+                            </div>
                         </div>
                     </div>
                 </div>
