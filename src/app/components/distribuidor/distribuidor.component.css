@@ -28,11 +28,12 @@ li.active {
 }
 
 .col-10 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-      height: 100vh;
-    background-color: grey;
+     display: flex; 
+     justify-content: center; 
+     align-items: center;
+     height: 100vh;  
+     background-color: grey;
+     margin-top: auto
 }
 
 .col-8 {

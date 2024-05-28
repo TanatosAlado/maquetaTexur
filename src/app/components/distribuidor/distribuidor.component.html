@@ -8,20 +8,28 @@
         </div>
         <div>
             <ul>
-                <li (click)="cambio('perfilDistribuidor'); seleccionar('perfilDistribuidor')" [class.active]="selected === 'perfilDistribuidor'">Perfil</li>
-                <li (click)="cambio('gestionCliente'); seleccionar('gestionCliente')" [class.active]="selected === 'gestionCliente'">Gestion de Clientes</li>
-                <li (click)="cambio('postVenta'); seleccionar('postVenta')" [class.active]="selected === 'postVenta'">Post Venta</li>
-                <li (click)="cambio('eLearning'); seleccionar('eLearning')" [class.active]="selected === 'eLearning'">E-Learning</li>
-                <li (click)="cambio('marketing'); seleccionar('marketing')" [class.active]="selected === 'marketing'">Marketing</li>
-                <li (click)="cambio('compras'); seleccionar('compras')" [class.active]="selected === 'compras'">Compras</li>
+                <li (click)="cambio('perfilDistribuidor'); seleccionar('perfilDistribuidor')"
+                    [class.active]="selected === 'perfilDistribuidor'">Perfil</li>
+                <li (click)="cambio('gestionCliente'); seleccionar('gestionCliente')"
+                    [class.active]="selected === 'gestionCliente'">Gestion de Clientes</li>
+                <li (click)="cambio('postVenta'); seleccionar('postVenta')" [class.active]="selected === 'postVenta'">
+                    Post Venta</li>
+                <li (click)="cambio('eLearning'); seleccionar('eLearning')" [class.active]="selected === 'eLearning'">
+                    E-Learning</li>
+                <li (click)="cambio('marketing'); seleccionar('marketing')" [class.active]="selected === 'marketing'">
+                    Marketing</li>
+                <li (click)="cambio('compras'); seleccionar('compras')" [class.active]="selected === 'compras'">Compras
+                </li>
                 <li (click)="cambio('ventas'); seleccionar('ventas')" [class.active]="selected === 'ventas'">Ventas</li>
-                <li (click)="cambio('analisisdeDatos'); seleccionar('analisisdeDatos')" [class.active]="selected === 'analisisdeDatos'">Análisis de Datos </li>
-                <li (click)="cambio('suscripciones'); seleccionar('suscripciones')" [class.active]="selected === 'suscripciones'">Suscripciones </li>
+                <li (click)="cambio('analisisdeDatos'); seleccionar('analisisdeDatos')"
+                    [class.active]="selected === 'analisisdeDatos'">Análisis de Datos </li>
+                <li (click)="cambio('suscripciones'); seleccionar('suscripciones')"
+                    [class.active]="selected === 'suscripciones'">Suscripciones </li>
             </ul>
         </div>
     </div>
     <div class="col-10" style="background-color:grey;">
-        <div *ngIf="perfilDistribuidor" class="perfil" >
+        <div *ngIf="perfilDistribuidor" class="perfil">
             <h2>Perfil del Distribuidor</h2>
             <div class="login">
                 <div class="imagen">
@@ -39,46 +47,48 @@
                         <input type="text" placeholder="Ingrese su Razon Social"><br>
                         <label>CUIT Distribuidor</label>
                         <input type="text" placeholder="CUIT"><br>
-                         <button (click)="actualizar()">ACTUALIZAR</button> 
+                        <button (click)="actualizar()">ACTUALIZAR</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div *ngIf="gestioncliente" class="container distribuidor" >
-                <div>
-                    <h2 style="text-align: center;">
-                        Clientes disponibles del distribuidor
-                    </h2>
-                    <div class="input-container table">
-                        <input class="table" type="text" placeholder="Ingrese el usuario a buscar">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                  
-                    <div >
-                            <table class="table">
-                                <thead>
-                                  <tr >
-                                    <th style="background-color:  #905868;" scope="col">Apellido</th>
-                                    <th style="background-color:  #905868;"scope="col">Nombre</th>
-                                    <th style="background-color:  #905868;" scope="col">Teléfono</th>
-                                    <th style="background-color:  #905868;"scope="col">CUIT</th>
-                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr *ngFor="let clientes of arrayClientes">
-                                    <td>{{clientes.apellido}}</td>
-                                    <td>{{clientes.nombre}}</td>
-                                    <td>{{clientes.telefono}}</td>
-                                    <td>{{clientes.cuit}}</td>
-                                    <td style="cursor: pointer;"><i (click)="mostrarDetalle()" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                     <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i></td>
-                                  </tr>
-                                
-                                </tbody>
-                              </table>
-                        </div>  
+        <div *ngIf="gestioncliente" class="container distribuidor">
+            <div>
+                <h2 style="text-align: center;">
+                    Clientes disponibles del distribuidor
+                </h2>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el usuario a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
+
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">Apellido</th>
+                                <th style="background-color:  #905868;" scope="col">Nombre</th>
+                                <th style="background-color:  #905868;" scope="col">Teléfono</th>
+                                <th style="background-color:  #905868;" scope="col">CUIT</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let clientes of arrayClientes">
+                                <td>{{clientes.apellido}}</td>
+                                <td>{{clientes.nombre}}</td>
+                                <td>{{clientes.telefono}}</td>
+                                <td>{{clientes.cuit}}</td>
+                                <td style="cursor: pointer;"><i (click)="mostrarDetalle()" class="fa fa-pencil-square-o"
+                                        aria-hidden="true"></i>
+                                    <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <div *ngIf="detallesDistribuidor" class="perfil">
             <h2>Ficha del Distribuidor</h2>
@@ -103,55 +113,87 @@
                     </form>
                 </div>
             </div>
-             <h2>Analisis de "nombre cliente"</h2>
+            <h2>Analisis de "nombre cliente"</h2>
             <div class="">
                 <img src="../../../assets/datos cliente.jpg">
             </div>
 
         </div>
-        <div *ngIf="eLearning" class="postventa container" >
-            <div class="cuerpoPV">
-                <div class="misProductos">
-                    <h4>Mis productos</h4>
-                    <div class="cardProd">
-                        <img src="../../../assets/car.png">
-                        <h5>Producto 1</h5>
-                        <button>Ver detalle</button>
-                    </div>
-                    <div class="cardProd">
-                        <img src="../../../assets/car.png">
-                        <h5>Producto 2</h5>
-                        <button>Ver detalle</button>
-                    </div>
-                </div>
-                <div class="infoProductos">
-                    <div class="detallesProd">
-                        <div class="opcionesProd">
-                            <h4>Gestión producto</h4>
-                            <div class="cabecerasProd">
-                                <span>Garantía</span><span>Servicios</span><span>Contrato</span>
-                            </div>
-                        </div>
-                        <div class="detallesCompletos">
-                            <div class="garantiaProd">
-                                <h4>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dolores facere veritatis, repellat doloremque facilis velit ut, quidem iure ea laudantium, non officia. Illo aliquam est quasi possimus exercitationem!
-                                </h4>
-                            </div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
+        <div *ngIf="eLearning" class="container">
+            <h2 style="text-align: center;">
+                Cursos Disponibles
+            </h2>
+            <div class="input-container table">
+                <input class="table" type="text" placeholder="Ingrese el curso a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
             </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:  #905868;" scope="col">Nombre Curso</th>
+                            <th style="background-color:  #905868;" scope="col">Tipo Curso</th>
+                            <th style="background-color:  #905868;" scope="col">Duración</th>
+                            <th style="background-color:  #905868;" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cursos of arrayCursos">
+                            <td>{{cursos.nombrecurso}}</td>
+                            <td>{{cursos.tipo}}</td>
+                            <td>{{cursos.duracion}}</td>
+                            <td style="cursor: pointer;"><i class="fa fa-pencil-square-o"
+                                    aria-hidden="true"></i>
+                                <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+           
+            <h2 style="text-align: center;">
+                Cargar Curso
+            </h2>
+            <br>
+            <div style="border-radius: 1rem;
+            box-shadow: 0 0 10px rgb(0, 0, 0,0.75);">
+            <div class="formulario">
+                <form class="form">
+                    <label>Curso</label>
+                    <input type="text" placeholder="Nombre Curso"><br>
+                    <label>Tipo</label>
+                    <input type="text" placeholder="Tipo Cursp"><br>
+                    <label>Duración</label>
+                    <input type="text" placeholder="Duración curso"><br>
+                    <label>Cargar Archivo</label>
+                    <div  class="input-container">
+                        <input type="text" placeholder="Cargar Archivo"><br>
+                        <i class="fa fa-upload " aria-hidden="true"></i>
+                    </div>
+                </form>
+            </div>
+            <div style="display: flex;
+            flex-direction: column;
+            align-items: center; padding-bottom: 1%;">
+                <button >SUBIR CURSO</button>
+            </div>
+            
         </div>
-        <div *ngIf="compras" class="elearning" ><h1>Compras</h1></div>
-        <div *ngIf="ventas" class="mensajero" ><H1>Ventas</H1></div>
-        <div *ngIf="analisisDatos" class="elearning" ><h1>Analísis de Datos</h1></div>
-        <div *ngIf="suscripciones" class="mensajero" ><H1>Suscripciones</H1></div>
+        </div>
+        <div *ngIf="compras" class="elearning">
+            <h1>Compras</h1>
+        </div>
+        <div *ngIf="ventas" class="mensajero">
+            <H1>Ventas</H1>
+        </div>
+        <div *ngIf="analisisDatos" class="elearning">
+            <h1>Analísis de Datos</h1>
+        </div>
+        <div *ngIf="suscripciones" class="mensajero">
+            <H1>Suscripciones</H1>
+        </div>
+
     </div>
-</div>
 
-<app-footer></app-footer>
-
-
+    <app-footer></app-footer>

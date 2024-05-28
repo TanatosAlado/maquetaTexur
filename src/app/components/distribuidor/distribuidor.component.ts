@@ -19,7 +19,7 @@ export class DistribuidorComponent {
   detallesDistribuidor:Boolean=false
   selected: string = 'perfilDistribuidor'
   arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
-
+  arrayCursos:any[]=[{nombrecurso:'Curso 1',tipo:'video',duracion:'40 hs'},{nombrecurso:'Curso 2',tipo:'pdf',duracion:'5 hs'},{nombrecurso:'Curso 3',tipo:'pdf',duracion:'16 hs'},{nombrecurso:'Curso 4',tipo:'video',duracion:'8 hs'}]
   constructor(private router: Router){
 
   }
@@ -83,6 +83,10 @@ this.detallesDistribuidor=true
   borrarCliente(){
    alert("Cliente borrado con éxito")
       this.router.navigate(['distribuidor'])
-
   }
+  borrarCurso(){
+    alert("Curso borrado con éxito")
+       this.router.navigate(['distribuidor'])
+ 
+   }
 }
