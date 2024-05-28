@@ -305,7 +305,7 @@ button{
 }
 
 .opcionesProd{
-    background-color: aqua;
+    
 }
 
 .opcionesProd h4{
@@ -317,4 +317,36 @@ button{
 .cabecerasProd{
     display: flex;
     justify-content: space-around;
+}
+
+.opcionesPV{
+    display: flex;
+    flex-direction: row;
+}
+
+.opcionesPV li{
+    margin: 40px;
+}
+
+.servicios{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.solicitud{
+    width: 40%;
+}
+
+.seguimiento{
+    width: 40%;
+}
+
+.detallesCompletos h5{
+    text-align: center;
+}
+
+.detallesCompletos h4{
+    text-align: center;
 }

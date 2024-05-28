@@ -12,7 +12,13 @@ export class ClienteComponent {
   postventa: boolean = false
   elearning: boolean = false
   mensajero: boolean = false
+  garantiaPV: boolean = true
+  serviciosPV: boolean = false
+  contratoPV: boolean = false
+  hizoConsulta: boolean = false
+
   selected: string = 'perfil'
+  selectedPV: string = 'garantiaPV'
   productos: any[] = [{nombre: 'Destornillador', precio: 55},{nombre: 'destornillador', precio: 55},{nombre: 'destornillador', precio: 55}
   ,{nombre: 'destornillador', precio: 55},{nombre: 'destornillador', precio: 55},{nombre: 'Destornillador', precio: 55}]
 
@@ -52,12 +58,40 @@ export class ClienteComponent {
     this.selected = seccion;
   }
 
+  seleccionarPV(seccion: string) {
+    this.selectedPV = seccion;
+  }
+
+  cambioOpcionPV(parametro: string){
+    this.garantiaPV= false
+    this.serviciosPV= false
+    this.contratoPV= false
+    
+
+    switch (parametro) {
+      case 'garantiaPV': 
+        this.garantiaPV = true
+        break;
+      case 'serviciosPV': 
+        this.serviciosPV = true
+        break;
+      case 'contratoPV': 
+        this.contratoPV = true
+        break;
+    }
+  }
+
   actualizar(){
 
   }
 
+  agendado(){
+    alert('Turno agendado con exito. Numero de seguimiento: 1234')
+  }
 
-
+  consultado(){
+    this.hizoConsulta = true
+  }
 
 
 }
