@@ -1,0 +1,168 @@
+.imagen{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: burlywood;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.imagen img{
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+}
+ul {
+    list-style-type: none;
+    padding: 0; 
+}
+
+li {
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+li.active {
+    background-color: lightgray;
+    font-weight: bold; 
+}
+
+.col-10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta esta altura según tus necesidades */
+    background-color: grey;
+}
+
+.col-8 {
+    display: flex;
+    justify-content: center;
+    height: 100vh; /* Ajusta esta altura según tus necesidades */
+    background-color: grey;
+}
+
+.col-2 {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ajusta esta altura según tus necesidades */
+    background-color: grey;
+}
+.perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+}
+.perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+}
+.login{
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgb(0, 0, 0,0.75);
+    width: 27rem;
+    height: 50rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: grid;
+    place-content: center;
+    box-sizing: border-box;
+    /* background-image: url(../assets/MGLDLRBRJVHNFJXBK5V3ATY2OM.avif); */
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1{
+    display: grid;
+    place-content: center;
+    margin-top: -5rem;
+    font-size: 2.5rem;
+    margin-bottom: 75px;
+    color: #905868;
+}
+
+.input{
+    background: transparent;
+    width: 18rem;
+    height: 1.5rem;
+    font-size: 0.9rem;
+    border: 2px solid rgba(116, 116, 116, 0.2);
+    border-radius: 1rem;
+    padding: 5px;
+}
+
+::placeholder{
+    color: rgb(120,116,119);
+    padding: 4px;
+}
+
+label{
+    font-size: 1.3rem;
+    padding: 0.3rem;
+    color: #905868;
+    font-weight: bold;
+}
+
+button{
+    margin-top: 2rem;
+    width: 19rem;
+    height: 2.4rem;
+    font-weight: bold;
+    border: 2px solid #905868;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: #905868;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(76, 76, 76, 0.75);
+}
+
+.perfil h2{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.distribuidor{
+    margin-top: -50%;
+}
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-with-icon {
+    padding-right: 30px; /* Adjust this value to give space for the icon */
+}
+
+.input-container i {
+    position: absolute;
+    right: 10px; /* Adjust this value to position the icon inside the input field */
+    top: 50%;
+    transform: translateY(-80%);
+    cursor: pointer; /* Optional: make the icon clickable */
+    color: #aaa; /* Optional: change the icon color */
+}

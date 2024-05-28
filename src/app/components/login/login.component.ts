@@ -16,8 +16,11 @@ export class LoginComponent {
     this.router.navigate(['registro'])
   }
 
-  ingresar(){
+  ingresarCliente(){
     this.router.navigate(['cliente'])
+  }
+  ingresarDistribuidor(){
+    this.router.navigate(['distribuidor'])
   }
 
 }
