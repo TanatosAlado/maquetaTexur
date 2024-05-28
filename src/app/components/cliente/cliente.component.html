@@ -173,7 +173,29 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="elearning" class="elearning" ><h1>E-learning</h1></div>
+        <div *ngIf="elearning" class="elearning container">
+            <div class="docLibre">
+                <h2>Documentación libre</h2>
+                <div class="file-container">
+                    <a href="path/to/document1.pdf" target="_blank" class="file-item">
+                        <img src="path/to/pdf-icon.png" alt="PDF Icon">
+                        <span>Documento 1</span>
+                    </a>
+                    <a href="path/to/video.mp4" target="_blank" class="file-item">
+                        <img src="path/to/video-icon.png" alt="Video Icon">
+                        <span>Video</span>
+                    </a>
+                    <a href="path/to/document2.pdf" target="_blank" class="file-item">
+                        <img src="path/to/pdf-icon.png" alt="PDF Icon">
+                        <span>Documento 2</span>
+                    </a>
+                </div>
+            </div>
+            <div class="cursos">
+                <h2>Cursos</h2>
+
+            </div>
+        </div>
         <div *ngIf="mensajero" class="mensajero" ><H1>Mensajero</H1></div>
     </div>
 </div>
