@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-membrete',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./membrete.component.css']
 })
 export class MembreteComponent {
+  constructor(private router: Router){
 
+  }
+  logout(){
+    this.router.navigate([''])
+  }
 }
+

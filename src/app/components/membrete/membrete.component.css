@@ -1,8 +1,21 @@
-.membrete{
-    width: 100%;
-    background-color: lightskyblue;
-    height: 75px;
+.membrete {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    height: 50px; 
+    background-color: lightblue;
+}
+
+.membrete h2 {
+    margin: 0; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.membrete i {
+    position: absolute;
+    right: 10px; 
+    cursor: pointer;
 }

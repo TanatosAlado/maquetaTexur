@@ -79,7 +79,7 @@
                                 <td>{{clientes.nombre}}</td>
                                 <td>{{clientes.telefono}}</td>
                                 <td>{{clientes.cuit}}</td>
-                                <td style="cursor: pointer;"><i (click)="mostrarDetalle()" class="fa fa-pencil-square-o"
+                                <td style="cursor: pointer;"><i (click)="mostrarDetalle()" class="fa fa-info-circle"
                                         aria-hidden="true"></i>
                                     <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i>
                                 </td>
@@ -142,45 +142,83 @@
                             <td>{{cursos.nombrecurso}}</td>
                             <td>{{cursos.tipo}}</td>
                             <td>{{cursos.duracion}}</td>
-                            <td style="cursor: pointer;"><i class="fa fa-pencil-square-o"
-                                    aria-hidden="true"></i>
+                            <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
                                 <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                <i (click)="asignarcurso()" class="fa fa-share-alt" aria-hidden="true"></i>
                             </td>
                         </tr>
 
                     </tbody>
                 </table>
             </div>
-           
+
             <h2 style="text-align: center;">
                 Cargar Curso
             </h2>
             <br>
             <div style="border-radius: 1rem;
             box-shadow: 0 0 10px rgb(0, 0, 0,0.75);">
-            <div class="formulario">
-                <form class="form">
-                    <label>Curso</label>
-                    <input type="text" placeholder="Nombre Curso"><br>
-                    <label>Tipo</label>
-                    <input type="text" placeholder="Tipo Cursp"><br>
-                    <label>Duración</label>
-                    <input type="text" placeholder="Duración curso"><br>
-                    <label>Cargar Archivo</label>
-                    <div  class="input-container">
-                        <input type="text" placeholder="Cargar Archivo"><br>
-                        <i class="fa fa-upload " aria-hidden="true"></i>
-                    </div>
-                </form>
-            </div>
-            <div style="display: flex;
+                <div class="formulario">
+                    <form class="form">
+                        <label>Curso</label>
+                        <input type="text" placeholder="Nombre Curso"><br>
+                        <label>Tipo</label>
+                        <input type="text" placeholder="Tipo Cursp"><br>
+                        <label>Duración</label>
+                        <input type="text" placeholder="Duración curso"><br>
+                        <label>Cargar Archivo</label>
+                        <div class="input-container">
+                            <input type="text" placeholder="Cargar Archivo"><br>
+                            <i class="fa fa-upload " aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </div>
+                <div style="display: flex;
             flex-direction: column;
             align-items: center; padding-bottom: 1%;">
-                <button >SUBIR CURSO</button>
+                    <button>SUBIR CURSO</button>
+                </div>
+
             </div>
-            
         </div>
+        <div *ngIf="compartirCurso" class="container">
+            <h2 style="text-align: center;">
+                Asignar Curso
+            </h2>
+            <br>
+            <div style="border-radius: 1rem;
+            box-shadow: 0 0 10px rgb(0, 0, 0,0.75);">
+                <div class="formulario">
+                    <form class="form">
+                        <label>Curso</label>
+                        <input type="text" placeholder="Nombre Curso"><br>
+                        <div class="custom-select">
+                            
+                            <div class="options-container">
+                                <label class="option">
+                                    <input type="checkbox"> Cliente 1
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox"> Cliente 2
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox"> Cliente 3
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox"> Cliente 4
+                                </label>
+                            </div>
+                        </div>
+                            <div style="display: flex;
+                        flex-direction: column;
+                        align-items: center; padding-bottom: 1%;">
+                                <button (click)="cursoAsignado()">ASIGNAR CURSO</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
         </div>
+
         <div *ngIf="compras" class="elearning">
             <h1>Compras</h1>
         </div>
@@ -195,5 +233,5 @@
         </div>
 
     </div>
-
+   
     <app-footer></app-footer>
