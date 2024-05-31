@@ -93,3 +93,40 @@ a{
     position: absolute;
     padding: 320px 0 0 335px;
 }
+
+.membrete {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    height: 50px; 
+    background-color: lightblue;
+}
+
+.membrete h2 {
+    margin: 0; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.membrete i {
+    position: absolute;
+    right: 10px; 
+    cursor: pointer;
+}
+
+.footer{
+    width: 100%;
+    background-color: lightskyblue;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }

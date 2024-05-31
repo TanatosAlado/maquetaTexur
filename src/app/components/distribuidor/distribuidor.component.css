@@ -27,28 +27,6 @@ li.active {
     font-weight: bold;
 }
 
-.col-10 {
-     display: flex; 
-     justify-content: center; 
-     align-items: center;
-     height: 100vh;  
-     background-color: grey;
-     margin-top: auto
-}
-
-.col-8 {
-    display: flex;
-    justify-content: center;
-     height: 100vh;
-    background-color: grey;
-}
-
-.col-2 {
-    display: flex;
-    flex-direction: column;
-     height: 100vh;
-    background-color: grey;
-}
 .perfil{
     display: flex;
     flex-direction: column;
@@ -82,7 +60,6 @@ li.active {
 h1{
     display: grid;
     place-content: center;
-    margin-top: -5rem;
     font-size: 2.5rem;
     margin-bottom: 75px;
     color: #905868;
@@ -142,7 +119,7 @@ button{
     align-items: center;
 }
 .distribuidor{
-    margin-top: -50%;
+    /* margin-top: -50%; */
 }
 .input-container {
     position: relative;
@@ -198,3 +175,46 @@ label{
     justify-content: center;
 }
 
+.membrete {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    height: 50px; 
+    background-color: lightblue;
+}
+
+.membrete h2 {
+    margin: 0; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.membrete i {
+    position: absolute;
+    right: 10px; 
+    cursor: pointer;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: row;
+}
+
+.panelIzq{
+    width: 20%;
+}
+
+.panelDer{
+    width: 80%;
+}
+
+.footer{
+    width: 100%;
+    background-color: lightskyblue;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

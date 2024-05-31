@@ -1,7 +1,9 @@
-<app-membrete></app-membrete>
-
-<div class="row">
-    <div class="col-2 menu" style="background-color: lightgrey;">
+<div class="membrete">
+    <h2 style="text-align: center;">Maqueta - Aplicación web Texur</h2>  
+    <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
+</div>
+<div class="cuerpo">
+    <div class="panelIzq menu" style="background-color: lightgrey;">
         <h2>Carlos Perez</h2>
         <div class="imagen">
             <img src="../../../assets/user.png">
@@ -28,7 +30,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-10" style="background-color:grey;">
+    <div class="panelDer" style="background-color:grey;">
         <div *ngIf="perfilDistribuidor" class="perfil">
             <h2>Perfil del Distribuidor</h2>
             <div class="login">
@@ -118,6 +120,9 @@
                 <img src="../../../assets/datos cliente.jpg">
             </div>
 
+        </div>
+        <div *ngIf="postVenta" class="mensajero">
+            <H1>Post Venta</H1>
         </div>
         <div *ngIf="eLearning" class="container">
             <h2 style="text-align: center;">
@@ -218,7 +223,9 @@
                 </div>
             </div>
         </div>
-
+        <div *ngIf="marketing" class="mensajero">
+            <H1>Marketing</H1>
+        </div>
         <div *ngIf="compras" class="elearning">
             <h1>Compras</h1>
         </div>
@@ -233,5 +240,7 @@
         </div>
 
     </div>
-   
-    <app-footer></app-footer>
+</div>   
+<div class="footer">
+    <h4>Desarrollado por <span>EsteroTech</span></h4>
+</div>

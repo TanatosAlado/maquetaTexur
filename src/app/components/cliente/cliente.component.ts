@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente',
@@ -24,7 +25,7 @@ export class ClienteComponent {
 
   productosRes: any[] = [{nombre: 'destornillador', precio: 55}]
 
-  constructor(){
+  constructor(private router: Router){
 
   }
 
@@ -93,5 +94,8 @@ export class ClienteComponent {
     this.hizoConsulta = true
   }
 
+  logout(){
+    this.router.navigate([''])
+  }
 
 }

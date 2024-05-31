@@ -23,4 +23,8 @@ export class LoginComponent {
     this.router.navigate(['distribuidor'])
   }
 
+  logout(){
+    this.router.navigate([''])
+  }
+
 }

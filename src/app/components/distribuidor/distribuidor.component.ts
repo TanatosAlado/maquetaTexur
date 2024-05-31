@@ -16,8 +16,8 @@ export class DistribuidorComponent {
   ventas: boolean = false
   analisisDatos: boolean = false
   suscripciones: boolean = false
-  detallesDistribuidor:Boolean=false
-  compartirCurso:Boolean =false
+  detallesDistribuidor: boolean=false
+  compartirCurso: boolean =false
   selected: string = 'perfilDistribuidor'
   arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
   arrayCursos:any[]=[{nombrecurso:'Curso 1',tipo:'video',duracion:'40 hs'},{nombrecurso:'Curso 2',tipo:'pdf',duracion:'5 hs'},{nombrecurso:'Curso 3',tipo:'pdf',duracion:'16 hs'},{nombrecurso:'Curso 4',tipo:'video',duracion:'8 hs'}]
@@ -61,7 +61,7 @@ export class DistribuidorComponent {
         case 'ventas': 
         this.ventas= true
         break;
-        case 'analisdeDatos': 
+        case 'analisisdeDatos': 
         this.analisisDatos= true
         break;
         case 'suscripciones': 
@@ -99,4 +99,8 @@ this.detallesDistribuidor=true
     alert("Curso asignado con éxito")
        this.router.navigate(['distribuidor'])
    }
+
+   logout(){
+    this.router.navigate([''])
+  }
 }

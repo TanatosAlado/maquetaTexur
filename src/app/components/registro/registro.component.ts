@@ -17,4 +17,8 @@ export class RegistroComponent {
     this.router.navigate([''])
   }
 
+  logout(){
+    this.router.navigate([''])
+  }
+
 }

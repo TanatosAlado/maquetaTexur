@@ -68,7 +68,6 @@ li.active {
 h1{
     display: grid;
     place-content: center;
-    margin-top: -5rem;
     font-size: 2.5rem;
     margin-bottom: 75px;
     color: #905868;
@@ -392,4 +391,48 @@ button{
     align-items: center;
     margin-bottom: 75px;
     height: auto;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: row;
+}
+
+.panelIzq{
+    width: 20%;
+}
+
+.panelDer{
+    width: 80%;
+}
+
+.membrete {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    height: 50px; 
+    background-color: lightblue;
+}
+
+.membrete h2 {
+    margin: 0; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.membrete i {
+    position: absolute;
+    right: 10px; 
+    cursor: pointer;
+}
+
+.footer{
+    width: 100%;
+    background-color: lightskyblue;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
