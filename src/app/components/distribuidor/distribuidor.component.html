@@ -146,7 +146,76 @@
         </div>
 
         <div *ngIf="postVenta" class="mensajero">
-            <H1>Post Venta</H1>
+            <ul class="menuPostVenta">
+                <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')" [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
+                <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')" [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')" [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
+                <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')" [class.active]="selectedPV === 'informacionPV'">Información</li>
+                <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')" [class.active]="selectedPV === 'contratosPV'">Contratos</li>
+                <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')" [class.active]="selectedPV === 'analisisPV'">Análisis</li>
+            </ul>
+            <div class="container">
+                <div *ngIf="garantiasPV" class="garantiasPV">
+                    <h3>Garantías - Productos vendidos</h3>
+                    <div class="addGarantia">
+                        <button>Agregar garantía</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">N° Garantía</th>
+                                <th style="background-color:  #905868;" scope="col">Producto</th>
+                                <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                <th style="background-color:  #905868;" scope="col">Inicio</th>
+                                <th style="background-color:  #905868;" scope="col">Fin</th>
+                                <th style="background-color:  #905868;" scope="col">Condiciones</th>
+                                <th style="background-color:  #905868;" scope="col">Cobertura</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let garantia of garantiasVendidas">
+                                <td>{{garantia.ngarantia}}</td>
+                                <td>{{garantia.producto}}</td>
+                                <td>{{garantia.cliente}}</td>
+                                <td>{{garantia.desde}}</td>
+                                <td>{{garantia.hasta}}</td>
+                                <td>{{garantia.condicion}}</td>
+                                <td>{{garantia.cobertura}}</td>
+                                <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <i (click)="borrarGarantia()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="detallar" class="detallarGarPvs">
+                        <div class="detalleGarPV">
+                            <p>Estado de garantía: <strong>ACTIVA</strong></p>
+                            <p>Cumplimiento de condiciones: <strong>Cumplido 100%</strong></p>
+                            <p>Problemas con productos: <strong>No tuvo</strong></p>
+                            <button (click)="closeDetallarGar()">Cerrar</button>
+                        </div>
+                        <div class="mensajeGarPV">
+                            <p>Mensaje al cliente <strong>JUAN PEREZ</strong></p>
+                            <p><input type="text" placeholder="Ingrese asunto"></p> 
+                            <p><input type="text" placeholder="Ingrese mensaje"></p>
+                            <button (click)="mensajeGar()">Enviar y Cerrar</button>
+                        </div>
+                    </div>
+                    <div class="estadisticasPV">
+                        <h2>Estadísticas</h2>
+                        <div class="estadisticasPVimg">
+                            <img src="../../../assets/probxprod.png">
+                            <img src="../../../assets/probxtipo.png">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="serviciosPV">Servicios</div>
+                <div *ngIf="repuestosPV">Repuestos</div>
+                <div *ngIf="informacionPV">Informacion</div>
+                <div *ngIf="contratosPV">Contratos</div>
+                <div *ngIf="analisisPV">Analisis</div>
+            </div>
         </div>
         <div *ngIf="eLearning" class="container eLearning">
             <h2 style="text-align: center;">

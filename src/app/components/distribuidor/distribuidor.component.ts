@@ -19,15 +19,60 @@ export class DistribuidorComponent {
   detallesDistribuidor: boolean=false
   compartirCurso: boolean =false
   selected: string = 'perfilDistribuidor'
+  selectedPV: string = 'garantiasPV'
   arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
   arrayCursos:any[]=[{nombrecurso:'Curso 1',tipo:'../../../assets/video.png',duracion:'40 hs'},{nombrecurso:'Curso 2',tipo:'../../../assets/pdf.png',duracion:'5 hs'},{nombrecurso:'Curso 3',tipo:'../../../assets/pp.png',duracion:'16 hs'},{nombrecurso:'Curso 4',tipo:'../../../assets/video.png',duracion:'8 hs'}]
   prodAdquiridos: any[] = [{fecha: '09/09/2021', producto: 'Tester hidráulico', garantia: 'No'},{fecha: '03/10/2022', producto: 'Sopladora', garantia:'No'},{fecha: '09/01/2024', producto: 'Extractor', garantia:'Si'}]
+  garantiasVendidas: any[] = [{ngarantia: '364', producto: 'Sellador térmico', cliente: 'Taller Paraná', desde: '03/05/2022', hasta: '03/06/2023', condicion: 'Realizar service', cobertura: 'Defectos en fabricación'},
+    {ngarantia: '385', producto: 'Extensor', cliente: 'Taller Polirubro', desde: '04/08/2022', hasta: '04/08/2023', condicion: 'Cambio de carbones', cobertura: 'Defectos en fabricación'},
+    {ngarantia: '694', producto: 'Restablecedor señal', cliente: 'Service Haroldos', desde: '03/09/2023', hasta: '03/09/2024', condicion: 'Reubicación', cobertura: 'Defectos en fabricación'}]
+
+  detallar: boolean = false
 
 
+  garantiasPV: boolean = true
+  serviciosPV: boolean = false
+  repuestosPV: boolean = false
+  informacionPV: boolean = false
+  contratosPV: boolean = false
+  analisisPV: boolean = false
+  
 
   constructor(private router: Router){
 
   }
+
+  cambioPV(parametro: string){
+    this.garantiasPV = false
+    this.serviciosPV = false
+    this.repuestosPV = false
+    this.informacionPV = false
+    this.contratosPV = false
+    this.analisisPV = false
+
+    switch (parametro) {
+      case 'garantiasPV': 
+      this.garantiasPV = true
+      break;
+      case 'serviciosPV': 
+        this.serviciosPV = true
+        break;
+      case 'repuestosPV': 
+        this.repuestosPV = true
+        break;
+      case 'informacionPV': 
+        this.informacionPV = true
+        break;
+      case 'contratosPV': 
+        this.contratosPV = true
+        break;
+      case 'analisisPV': 
+        this.analisisPV= true
+        break;
+    }
+  }
+
+
 
   cambio(parametro: string){
     this.perfilDistribuidor=false
@@ -76,6 +121,10 @@ export class DistribuidorComponent {
   seleccionar(seccion: string) {
     this.selected = seccion;
   }
+
+  seleccionarPV(seccion: string) {
+    this.selectedPV = seccion;
+  }
   
   actualizar(){
 
@@ -107,4 +156,23 @@ this.detallesDistribuidor=true
    logout(){
     this.router.navigate([''])
   }
+
+  borrarGarantia(){
+    alert('La garantía se borró exitosamente')
+  }
+
+  detallarGar(){
+    this.detallar = true
+  }
+
+  closeDetallarGar(){
+    this.detallar = false
+  }
+
+mensajeGar(){
+  alert('Mensaje enviado con exito')
+  this.detallar = false
+}
+
+
 }
