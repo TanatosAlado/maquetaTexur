@@ -128,27 +128,13 @@ button{
     justify-content: center;
 }
 
-.col-10 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta esta altura según tus necesidades */
-    background-color: grey;
-}
-
-.col-2 {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Ajusta esta altura según tus necesidades */
-    background-color: grey;
-}
-
 .compras{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 75px;
     height: auto;
+    margin-top: 50px;
 }
 
 .productos{
@@ -303,10 +289,6 @@ button{
     margin-left: 5%;
 }
 
-.opcionesProd{
-    
-}
-
 .opcionesProd h4{
     margin-top: 15px;
     text-align: center;
@@ -351,10 +333,15 @@ button{
 }
 
 .docLibre{
-    width: 100%
+    width: 100%;
+    margin-top: 50px;
 }
 
 .docLibre h2{
+    text-align: center;
+}
+
+.docLibre h6{
     text-align: center;
 }
 
@@ -436,3 +423,174 @@ button{
     align-items: center;
     justify-content: center;
 }
+
+.mensajero{
+    margin-top: 50px;
+}
+
+.tablaMensajes{
+    margin-bottom: 100px;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-with-icon {
+    padding-right: 30px; /* Adjust this value to give space for the icon */
+}
+
+.input-container i {
+    position: absolute;
+    right: 10px; /* Adjust this value to position the icon inside the input field */
+    top: 50%;
+    transform: translateY(-80%);
+    cursor: pointer; /* Optional: make the icon clickable */
+    color: #aaa; /* Optional: change the icon color */
+}
+.input{
+    background: transparent;
+    width: 18rem;
+    height: 1.5rem;
+    font-size: 0.9rem;
+    border: 2px solid rgba(116, 116, 116, 0.2);
+    border-radius: 1rem;
+    padding: 5px;
+}
+
+.table img{
+    width: 50px;
+    height: 50px;
+}
+
+.cursos{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cursos h2{
+    text-align: center;
+}
+
+.cursos h6{
+    text-align: center;
+}
+
+.cursoDisponible{
+    width: 300px;
+    height: 190px;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.cursoDisponible h5{
+    margin-bottom: 15px;
+}
+
+.cursoDisponible img{
+    width: 100px;
+    height: 130px;
+}
+
+.cursoDisponible button{
+    width: 50%;
+}
+
+.disponibles{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.cuerpoCard{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cuerpoI{
+    width: 40%;
+}
+
+.cuerpoD{
+    width: 60%;
+}
+
+.cuerpoD button{
+    margin-top: 20px;
+}
+
+.pasosCurso{
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    opacity: 0.5
+}
+
+.pasosCurso button{
+    width: 60%;
+}
+
+.pasosCurso h5{
+    margin-top: 10px;
+}
+
+.seguimientoCurso{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 45px;
+}
+
+.pasosCurso.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .pasosCurso.disabled h5 {
+    text-decoration: line-through;
+  }
+  
+  .pasosCurso {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .estadisticasPersonales{
+    margin-top: 60px;
+    width: 100%;
+  }
+
+  .estadisticasPersonales h2{
+    text-align: center;
+    color: black;
+  }
+
+  .resumenTotal{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .resumen{
+    width: 30%;
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  .resumen img{
+    width: 240px;
+    height: 200px;
+  }
+
+  .uno h4{
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }

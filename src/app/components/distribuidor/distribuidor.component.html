@@ -145,7 +145,7 @@
                     <tbody>
                         <tr *ngFor="let cursos of arrayCursos">
                             <td>{{cursos.nombrecurso}}</td>
-                            <td>{{cursos.tipo}}</td>
+                            <td><img src="{{cursos.tipo}}"></td>
                             <td>{{cursos.duracion}}</td>
                             <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
                                 <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>

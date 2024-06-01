@@ -17,6 +17,16 @@ export class ClienteComponent {
   serviciosPV: boolean = false
   contratoPV: boolean = false
   hizoConsulta: boolean = false
+  seguimientoCurso: boolean = false
+
+  currentStep = 0;
+
+  steps = [
+    { name: 'Descripción', isDisabled: false },
+    { name: 'Material', isDisabled: true },
+    { name: 'Evaluación', isDisabled: true },
+    { name: 'Encuesta', isDisabled: true }
+  ];
 
   selected: string = 'perfil'
   selectedPV: string = 'garantiaPV'
@@ -25,8 +35,41 @@ export class ClienteComponent {
 
   productosRes: any[] = [{nombre: 'destornillador', precio: 55}]
 
+  mensajes: any[] = [{asunto: 'Renovación de licencia', cuerpo: 'Se informa que el período de licencia está cercano a su fin', fecha: '20/05/2024', de: 'Distribuidor Oficial'}, 
+  {asunto: 'Oferta en productos', cuerpo: 'Oferta semanal: 30% off en repuestos marca Agro', fecha: '27/05/2024', de: 'Distribuidor Oficial'}, 
+  {asunto: 'Mantanimiento equipo XX', cuerpo: 'Se informa que el service deberá realizar en 30 días', fecha: '31/05/2024', de: 'Distribuidor Oficial'},
+  ]
+
+  materialLibre: any[] = [{nombre: 'Instructivo puesta en marcha', descripcion: 'Paso a paso para poner en marcha equipos XX', duracion: '30 minutos' , tipo: "../../../assets/pdf.png"},
+  {nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png"},
+  {nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos',  tipo: "../../../assets/video.png"}]
+
+
   constructor(private router: Router){
 
+  }
+
+  nextStep() {
+    if (this.currentStep < this.steps.length - 1) {
+      this.currentStep++;
+      this.steps[this.currentStep].isDisabled = false;
+    } else {
+      this.finalizar();
+    }
+  }
+
+  finalizar() {
+    this.seguimientoCurso = false;
+    this.currentStep = 0;
+    this.seguimientoCurso = true;
+    this.steps = [
+      { name: 'Descripción', isDisabled: false },
+      { name: 'Material', isDisabled: true },
+      { name: 'Evaluación', isDisabled: true },
+      { name: 'Encuesta', isDisabled: true }
+    ];
+    this.seguimientoCurso = false;
+    alert('Curso finalizado exitosamente')
   }
 
   cambio(parametro: string){
@@ -97,5 +140,10 @@ export class ClienteComponent {
   logout(){
     this.router.navigate([''])
   }
+
+  habilitarDemo(){
+    this.seguimientoCurso = true
+  }
+
 
 }
