@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="gestioncliente" class="container distribuidor">
+        <div *ngIf="gestioncliente" class="container gestioncliente">
             <div>
                 <h2 style="text-align: center;">
                     Clientes disponibles del distribuidor
@@ -91,40 +91,64 @@
                     </table>
                 </div>
             </div>
+            <div *ngIf="detallesDistribuidor" class="detalleDistribuidor">
+                <div class="detalleDistribuidorI">
+                    <h2>Ficha del Cliente</h2>
+                    <div class="login">
+                        <div class="imagen">
+                            <img src="../../../assets/user.png">
+                        </div>
+                        <div class="formulario">
+                            <form class="form">
+                                <label>Apellido</label>
+                                <input type="text" placeholder="Apellido Cliente"><br>
+                                <label>Nombre</label>
+                                <input type="text" placeholder="Nombre Cliente"><br>
+                                <label>CUIT</label>
+                                <input type="text" placeholder="CUIT Cliente"><br>
+                                <label>Razon Social</label>
+                                <input type="text" placeholder="Razón Social Cliente"><br>
+                                <label>Celular</label>
+                                <input type="text" placeholder="Nro Celular Cliente"><br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="detalleDistribuidorD">
+                    <div>
+                        <h2>Analisis de "nombre cliente"</h2>
+                        <div class="">
+                            <img src="../../../assets/datos cliente.jpg">
+                        </div>
+                    </div>
+                    <div class="prodAdquiridos">
+                        <h2>Productos adquiridos por el cliente</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Fecha adquirido</th>
+                                    <th style="background-color:  #905868;" scope="col">Producto</th>
+                                    <th style="background-color:  #905868;" scope="col">Garantía activa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let producto of prodAdquiridos">
+                                    <td>{{producto.fecha}}</td>
+                                    <td>{{producto.producto}}</td>
+                                    <td>{{producto.garantia}}</td>
+                                </tr>
+    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div *ngIf="detallesDistribuidor" class="perfil">
-            <h2>Ficha del Distribuidor</h2>
-            <div class="login">
-                <div class="imagen">
-                    <img src="../../../assets/user.png">
-                </div>
-                <div class="formulario">
-                    <form class="form">
-                        <label>Apellido</label>
-                        <input type="text" placeholder="Apellido Distribuidor"><br>
-                        <label>Nombre</label>
-                        <input type="text" placeholder="Nombre Distribuidor"><br>
-                        <label>CUIT</label>
-                        <input type="text" placeholder="CUIT Distribuidor"><br>
-                        <label>Razon Social</label>
-                        <input type="text" placeholder="Razón Social Distribuidor"><br>
-                        <label>CUIT Distribuidor</label>
-                        <input type="text" placeholder="CUIT Distribuidor"><br>
-                        <label>Celular</label>
-                        <input type="text" placeholder="Nro Celular Distribuidor"><br>
-                    </form>
-                </div>
-            </div>
-            <h2>Analisis de "nombre cliente"</h2>
-            <div class="">
-                <img src="../../../assets/datos cliente.jpg">
-            </div>
 
-        </div>
         <div *ngIf="postVenta" class="mensajero">
             <H1>Post Venta</H1>
         </div>
-        <div *ngIf="eLearning" class="container">
+        <div *ngIf="eLearning" class="container eLearning">
             <h2 style="text-align: center;">
                 Cursos Disponibles
             </h2>
