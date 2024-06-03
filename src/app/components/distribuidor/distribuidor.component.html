@@ -147,197 +147,320 @@
             </div>
         </div>
 
-        <div *ngIf="postVenta" class="mensajero">
-            <ul class="menuPostVenta">
-                <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
-                    [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
-                <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
-                    [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
-                <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
-                    [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
-                <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
-                    [class.active]="selectedPV === 'informacionPV'">Información</li>
-                <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
-                    [class.active]="selectedPV === 'contratosPV'">Contratos</li>
-                <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
-                    [class.active]="selectedPV === 'analisisPV'">Análisis</li>
-            </ul>
-            <div class="container">
-                <div *ngIf="garantiasPV" class="garantiasPV">
-                    <h3>Garantías - Productos vendidos</h3>
-                    <div class="addGarantia">
-                        <button>Agregar garantía</button>
+            <div *ngIf="postVenta">
+                <ul class="menuPostVenta">
+                    <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
+                        [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
+                    <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
+                        [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                    <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
+                        [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
+                    <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
+                        [class.active]="selectedPV === 'informacionPV'">Información</li>
+                    <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
+                        [class.active]="selectedPV === 'contratosPV'">Contratos</li>
+                    <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
+                        [class.active]="selectedPV === 'analisisPV'">Análisis</li>
+                </ul>
+                <div class="container">
+                    <div *ngIf="garantiasPV" class="garantiasPV">
+                        <h3>Garantías - Productos vendidos</h3>
+                        <div class="addGarantia">
+                            <button>Agregar garantía</button>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">N° Garantía</th>
+                                    <th style="background-color:  #905868;" scope="col">Producto</th>
+                                    <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                    <th style="background-color:  #905868;" scope="col">Inicio</th>
+                                    <th style="background-color:  #905868;" scope="col">Fin</th>
+                                    <th style="background-color:  #905868;" scope="col">Condiciones</th>
+                                    <th style="background-color:  #905868;" scope="col">Cobertura</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let garantia of garantiasVendidas">
+                                    <td>{{garantia.ngarantia}}</td>
+                                    <td>{{garantia.producto}}</td>
+                                    <td>{{garantia.cliente}}</td>
+                                    <td>{{garantia.desde}}</td>
+                                    <td>{{garantia.hasta}}</td>
+                                    <td>{{garantia.condicion}}</td>
+                                    <td>{{garantia.cobertura}}</td>
+                                    <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
+                                            aria-hidden="true"></i>
+                                        <i (click)="borrarGarantia()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="detallar" class="detallarGarPvs">
+                            <div class="detalleGarPV">
+                                <p>Estado de garantía: <strong>ACTIVA</strong></p>
+                                <p>Cumplimiento de condiciones: <strong>Cumplido 100%</strong></p>
+                                <p>Problemas con productos: <strong>No tuvo</strong></p>
+                                <button (click)="closeDetallarGar()">Cerrar</button>
+                            </div>
+                            <div class="mensajeGarPV">
+                                <p>Mensaje al cliente <strong>JUAN PEREZ</strong></p>
+                                <p><input type="text" placeholder="Ingrese asunto"></p>
+                                <p><input type="text" placeholder="Ingrese mensaje"></p>
+                                <button (click)="mensajeGar()">Enviar y Cerrar</button>
+                            </div>
+                        </div>
+                        <div class="estadisticasPV">
+                            <h2>Estadísticas</h2>
+                            <div class="estadisticasPVimg">
+                                <img src="../../../assets/probxprod.png">
+                                <img src="../../../assets/probxtipo.png">
+                            </div>
+                        </div>
                     </div>
+                    <div *ngIf="serviciosPV" class="serviciosPV">
+                        <h3>Servicios en agenda</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Fecha</th>
+                                    <th style="background-color:  #905868;" scope="col">Tipo</th>
+                                    <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                    <th style="background-color:  #905868;" scope="col">Estado</th>
+                                    <th style="background-color:  #905868;" scope="col">Técnico</th>
+                                    <th style="background-color:  #905868;" scope="col">Recursos</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let service of serviceAgenda">
+                                    <td>{{service.fecha}}</td>
+                                    <td>{{service.tipo}}</td>
+                                    <td>{{service.cliente}}</td>
+                                    <td>{{service.estado}}</td>
+                                    <td>{{service.tecnico}}</td>
+                                    <td>{{service.recursos}}</td>
+                                    <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
+                                            aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="agendaServicio">
+                            <div>
+                                <h4>Agendar nuevo servicio</h4>
+                            </div>
+                            <div>
+                                <select class="agendaServicioInput">
+                                    <option value="">Reparación</option>
+                                    <option value="">Mantenimiento</option>
+                                </select>
+                                <input class="agendaServicioInput" type="text" placeholder="Cliente">
+                                <input class="agendaServicioInput" type="text" placeholder="Trabajo a realizar">
+                                <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
+                            </div>
+                            <div>
+                                <button>Confirmar</button>
+                            </div>
+                        </div>
+                        <div class="serviciosPVfact">
+                            <h4>
+                                Facturación
+                            </h4>
+                            <div class="facturasEnPv">
+                                <div class="facturasEnPvI">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="background-color:  #905868;" scope="col">Fecha</th>
+                                                <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>31/05/2024</td>
+                                                <td>Taller Privado</td>
+                                            </tr>
+                                            <tr>
+                                                <td>31/05/2024</td>
+                                                <td>Carlos Lopez</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/06/2024</td>
+                                                <td>Cliente 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="facturasEnPvD">
+                                    <input type="text" placeholder="Cliente">
+                                    <input type="text" placeholder="Monto $$">
+                                    <input type="text" placeholder="Fecha">
+                                    <button>Cargar</button>
+                                </div>
+                            </div>
+
+                    </div>
+
+                    </div>
+                    <div *ngIf="repuestosPV" class="repuestosPV">
+                        <h3>Repuestos en Stock</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Codigo</th>
+                                    <th style="background-color:  #905868;" scope="col">Descripción</th>
+                                    <th style="background-color:  #905868;" scope="col">Fabricante</th>
+                                    <th style="background-color:  #905868;" scope="col">Stock</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let repuesto of listaRepuestos">
+                                    <td>{{repuesto.codigo}}</td>
+                                    <td>{{repuesto.descripcion}}</td>
+                                    <td>{{repuesto.fabricante}}</td>
+                                    <td>{{repuesto.stock}}</td>
+                                    <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="agendaServicio">
+                            <div>
+                                <h4>Solicitud de repuesto</h4>
+                            </div>
+                            <div>
+                                <select class="agendaServicioInput">
+                                    <option value="">Proveedor Urquiza</option>
+                                    <option value="">Proveedor Ramirez</option>
+                                    <option value="">Proveedor Gonzalez</option>
+                                </select>
+                                <input class="agendaServicioInput" type="text" placeholder="N° de parte">
+                                <input class="agendaServicioInput" type="text" placeholder="Fabricante">
+                                <input class="agendaServicioInput" type="text" placeholder="Cantidad">
+                            </div>
+                            <div>
+                                <button>Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="informacionPV" class="informacionPV">
+                        <h3>
+                            Base de conomicimiento
+                        </h3>
+                        <table class="table informacionPVTabla">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Título</th>
+                                    <th style="background-color:  #905868;" scope="col">Descripción</th>
+                                    <th style="background-color:  #905868;" scope="col">Tipo</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let instructivo of instructivos">
+                                    <td>{{instructivo.titulo}}</td>
+                                    <td>{{instructivo.descripcion}}</td>
+                                    <td><img src="{{instructivo.tipo}}"></td>
+                                    <td style="cursor: pointer;">
+                                        <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="agendaServicio">
+                            <div>
+                                <h4>Carga de material</h4>
+                            </div>
+                            <div>
+                                <input class="agendaServicioInput" type="text" placeholder="Título">
+                                <input class="agendaServicioInput" type="text" placeholder="Descripción">
+                                <div class="input-container">
+                                    <input type="text" placeholder="Cargar Archivo"><br>
+                                    <i class="fa fa-upload " aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <button>Confirmar</button>
+                            </div>
+                        </div>
+                        <div class="faq">
+                            <h3>FaQ</h3>
+                            <table class="table informacionPVTabla">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:  #905868;" scope="col">Preguntas</th>
+                                        <th style="background-color:  #905868;" scope="col">Respuestas</th>
+                                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let faq of faqListado">
+                                        <td>{{faq.pregunta}}</td>
+                                        <td>{{faq.respuesta}}</td>
+                                        <td style="cursor: pointer;">
+                                            <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="agendaServicio">
+                                <div>
+                                    <h4>Carga de FaQ</h4>
+                                </div>
+                                <div>
+                                    <input class="agendaServicioInput" type="text" placeholder="Pregunta">
+                                    <input class="agendaServicioInput" type="text" placeholder="Respuesta">
+                                </div>
+                                <div>
+                                    <button>Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="foro">
+                            <h3>
+                                Foro
+                            </h3>
+                            <div>
+                                Espacio reservado para el Foro de Preguntas y Respuestas
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="contratosPV">Contratos</div>
+                    <div *ngIf="analisisPV">Analisis</div>
+                </div>
+            </div>
+            <div *ngIf="eLearning" class="container eLearning">
+                <h2 style="text-align: center;">
+                    Cursos Disponibles
+                </h2>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el curso a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="background-color:  #905868;" scope="col">N° Garantía</th>
-                                <th style="background-color:  #905868;" scope="col">Producto</th>
-                                <th style="background-color:  #905868;" scope="col">Cliente</th>
-                                <th style="background-color:  #905868;" scope="col">Inicio</th>
-                                <th style="background-color:  #905868;" scope="col">Fin</th>
-                                <th style="background-color:  #905868;" scope="col">Condiciones</th>
-                                <th style="background-color:  #905868;" scope="col">Cobertura</th>
+                                <th style="background-color:  #905868;" scope="col">Nombre Curso</th>
+                                <th style="background-color:  #905868;" scope="col">Tipo Curso</th>
+                                <th style="background-color:  #905868;" scope="col">Duración</th>
                                 <th style="background-color:  #905868;" scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let garantia of garantiasVendidas">
-                                <td>{{garantia.ngarantia}}</td>
-                                <td>{{garantia.producto}}</td>
-                                <td>{{garantia.cliente}}</td>
-                                <td>{{garantia.desde}}</td>
-                                <td>{{garantia.hasta}}</td>
-                                <td>{{garantia.condicion}}</td>
-                                <td>{{garantia.cobertura}}</td>
-                                <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
-                                        aria-hidden="true"></i>
-                                    <i (click)="borrarGarantia()" class="fa fa-trash-o" aria-hidden="true"></i>
+                            <tr *ngFor="let cursos of arrayCursos">
+                                <td>{{cursos.nombrecurso}}</td>
+                                <td><img src="{{cursos.tipo}}"></td>
+                                <td>{{cursos.duracion}}</td>
+                                <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                    <i (click)="asignarcurso()" class="fa fa-share-alt" aria-hidden="true"></i>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <div *ngIf="detallar" class="detallarGarPvs">
-                        <div class="detalleGarPV">
-                            <p>Estado de garantía: <strong>ACTIVA</strong></p>
-                            <p>Cumplimiento de condiciones: <strong>Cumplido 100%</strong></p>
-                            <p>Problemas con productos: <strong>No tuvo</strong></p>
-                            <button (click)="closeDetallarGar()">Cerrar</button>
-                        </div>
-                        <div class="mensajeGarPV">
-                            <p>Mensaje al cliente <strong>JUAN PEREZ</strong></p>
-                            <p><input type="text" placeholder="Ingrese asunto"></p>
-                            <p><input type="text" placeholder="Ingrese mensaje"></p>
-                            <button (click)="mensajeGar()">Enviar y Cerrar</button>
-                        </div>
-                    </div>
-                    <div class="estadisticasPV">
-                        <h2>Estadísticas</h2>
-                        <div class="estadisticasPVimg">
-                            <img src="../../../assets/probxprod.png">
-                            <img src="../../../assets/probxtipo.png">
-                        </div>
-                    </div>
-                </div>
-                <div *ngIf="serviciosPV" class="serviciosPV">
-                    <h3>Servicios en agenda</h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th style="background-color:  #905868;" scope="col">Fecha</th>
-                                <th style="background-color:  #905868;" scope="col">Tipo</th>
-                                <th style="background-color:  #905868;" scope="col">Cliente</th>
-                                <th style="background-color:  #905868;" scope="col">Estado</th>
-                                <th style="background-color:  #905868;" scope="col">Técnico</th>
-                                <th style="background-color:  #905868;" scope="col">Recursos</th>
-                                <th style="background-color:  #905868;" scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let service of serviceAgenda">
-                                <td>{{service.fecha}}</td>
-                                <td>{{service.tipo}}</td>
-                                <td>{{service.cliente}}</td>
-                                <td>{{service.estado}}</td>
-                                <td>{{service.tecnico}}</td>
-                                <td>{{service.recursos}}</td>
-                                <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
-                                        aria-hidden="true"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="agendaServicio">
-                        <div>
-                            <h4>Agendar nuevo servicio</h4>
-                        </div>
-                        <div>
-                            <select class="agendaServicioInput">
-                                <option value="">Reparación</option>
-                                <option value="">Mantenimiento</option>
-                            </select>
-                            <input class="agendaServicioInput" type="text" placeholder="Cliente">
-                            <input class="agendaServicioInput" type="text" placeholder="Trabajo a realizar">
-                            <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
-                        </div>
-                        <div>
-                            <button>Confirmar</button>
-                        </div>
-                    </div>
-                    <div class="serviciosPVfact">
-                        <h4>
-                            Facturación
-                        </h4>
-                        <div class="facturasEnPv">
-                            <div class="facturasEnPvI">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th style="background-color:  #905868;" scope="col">Fecha</th>
-                                            <th style="background-color:  #905868;" scope="col">Cliente</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>31/05/2024</td>
-                                            <td>Taller Privado</td>
-                                        </tr>
-                                        <tr>
-                                            <td>31/05/2024</td>
-                                            <td>Carlos Lopez</td>
-                                        </tr>
-                                        <tr>
-                                            <td>01/06/2024</td>
-                                            <td>Cliente 25</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="facturasEnPvD">
-                                <input type="text" placeholder="Cliente">
-                                <input type="text" placeholder="Monto $$">
-                                <input type="text" placeholder="Fecha">
-                                <button>Cargar</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div *ngIf="repuestosPV">Repuestos</div>
-                <div *ngIf="informacionPV">Informacion</div>
-                <div *ngIf="contratosPV">Contratos</div>
-                <div *ngIf="analisisPV">Analisis</div>
-            </div>
-        </div>
-        <div *ngIf="eLearning" class="container eLearning">
-            <h2 style="text-align: center;">
-                Cursos Disponibles
-            </h2>
-            <div class="input-container table">
-                <input class="table" type="text" placeholder="Ingrese el curso a buscar">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-            <div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th style="background-color:  #905868;" scope="col">Nombre Curso</th>
-                            <th style="background-color:  #905868;" scope="col">Tipo Curso</th>
-                            <th style="background-color:  #905868;" scope="col">Duración</th>
-                            <th style="background-color:  #905868;" scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let cursos of arrayCursos">
-                            <td>{{cursos.nombrecurso}}</td>
-                            <td><img src="{{cursos.tipo}}"></td>
-                            <td>{{cursos.duracion}}</td>
-                            <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
-                                <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
-                                <i (click)="asignarcurso()" class="fa fa-share-alt" aria-hidden="true"></i>
-                            </td>
-                        </tr>
 
                     </tbody>
                 </table>
