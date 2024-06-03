@@ -7,6 +7,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { DistribuidorComponent } from './components/distribuidor/distribuidor.component';
+import { environment } from './environment/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { DistribuidorComponent } from './components/distribuidor/distribuidor.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]

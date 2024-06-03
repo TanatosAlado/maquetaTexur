@@ -150,7 +150,7 @@
                 </div>
             </div>
 
-            <div *ngIf="postVenta" class="mensajero">
+            <div *ngIf="postVenta">
                 <ul class="menuPostVenta">
                     <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
                         [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
@@ -307,8 +307,131 @@
                         </div>
 
                     </div>
-                    <div *ngIf="repuestosPV">Repuestos</div>
-                    <div *ngIf="informacionPV">Informacion</div>
+                    <div *ngIf="repuestosPV" class="repuestosPV">
+                        <h3>Repuestos en Stock</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Codigo</th>
+                                    <th style="background-color:  #905868;" scope="col">Descripción</th>
+                                    <th style="background-color:  #905868;" scope="col">Fabricante</th>
+                                    <th style="background-color:  #905868;" scope="col">Stock</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let repuesto of listaRepuestos">
+                                    <td>{{repuesto.codigo}}</td>
+                                    <td>{{repuesto.descripcion}}</td>
+                                    <td>{{repuesto.fabricante}}</td>
+                                    <td>{{repuesto.stock}}</td>
+                                    <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="agendaServicio">
+                            <div>
+                                <h4>Solicitud de repuesto</h4>
+                            </div>
+                            <div>
+                                <select class="agendaServicioInput">
+                                    <option value="">Proveedor Urquiza</option>
+                                    <option value="">Proveedor Ramirez</option>
+                                    <option value="">Proveedor Gonzalez</option>
+                                </select>
+                                <input class="agendaServicioInput" type="text" placeholder="N° de parte">
+                                <input class="agendaServicioInput" type="text" placeholder="Fabricante">
+                                <input class="agendaServicioInput" type="text" placeholder="Cantidad">
+                            </div>
+                            <div>
+                                <button>Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="informacionPV" class="informacionPV">
+                        <h3>
+                            Base de conomicimiento
+                        </h3>
+                        <table class="table informacionPVTabla">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Título</th>
+                                    <th style="background-color:  #905868;" scope="col">Descripción</th>
+                                    <th style="background-color:  #905868;" scope="col">Tipo</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let instructivo of instructivos">
+                                    <td>{{instructivo.titulo}}</td>
+                                    <td>{{instructivo.descripcion}}</td>
+                                    <td><img src="{{instructivo.tipo}}"></td>
+                                    <td style="cursor: pointer;">
+                                        <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="agendaServicio">
+                            <div>
+                                <h4>Carga de material</h4>
+                            </div>
+                            <div>
+                                <input class="agendaServicioInput" type="text" placeholder="Título">
+                                <input class="agendaServicioInput" type="text" placeholder="Descripción">
+                                <div class="input-container">
+                                    <input type="text" placeholder="Cargar Archivo"><br>
+                                    <i class="fa fa-upload " aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <button>Confirmar</button>
+                            </div>
+                        </div>
+                        <div class="faq">
+                            <h3>FaQ</h3>
+                            <table class="table informacionPVTabla">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:  #905868;" scope="col">Preguntas</th>
+                                        <th style="background-color:  #905868;" scope="col">Respuestas</th>
+                                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let faq of faqListado">
+                                        <td>{{faq.pregunta}}</td>
+                                        <td>{{faq.respuesta}}</td>
+                                        <td style="cursor: pointer;">
+                                            <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="agendaServicio">
+                                <div>
+                                    <h4>Carga de FaQ</h4>
+                                </div>
+                                <div>
+                                    <input class="agendaServicioInput" type="text" placeholder="Pregunta">
+                                    <input class="agendaServicioInput" type="text" placeholder="Respuesta">
+                                </div>
+                                <div>
+                                    <button>Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="foro">
+                            <h3>
+                                Foro
+                            </h3>
+                            <div>
+                                Espacio reservado para el Foro de Preguntas y Respuestas
+                            </div>
+                        </div>
+                    </div>
                     <div *ngIf="contratosPV">Contratos</div>
                     <div *ngIf="analisisPV">Analisis</div>
                 </div>

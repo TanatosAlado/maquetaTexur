@@ -356,7 +356,9 @@ label{
 }
 
 .serviciosPV h3{
+    margin-top: 50px;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .serviciosPVfact{
@@ -384,4 +386,35 @@ label{
 
 .facturasEnPv input{
     margin-top: 10px;
+}
+
+.repuestosPV h3{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.faq{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+}
+
+.informacionPV{
+    text-align: center;
+}
+
+.informacionPVTabla{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.foro{
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 75px;
+    background-color: white;
 }
