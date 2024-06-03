@@ -475,6 +475,39 @@
                 <img src="../../../assets/datos proveedores.jpg">
             </div>
         </div>
+        <div *ngIf="pedidosProveedor" class="container">
+            <div class="input-container table">
+              
+                <br>
+                <input class="table" type="text" placeholder="Ingrese el Proveedor a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Codigo</th>
+                        <th style="background-color:  #905868;" scope="col">Nombre</th>
+                        <th style="background-color:  #905868;" scope="col">Cantidad</th>
+                        <th style="background-color:  #905868;" scope="col">Precio</th>
+                        <th style="background-color:  #905868;" scope="col">Forma Entrega</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedidos of arrayPedidos">
+                        <td>{{pedidos.codigo}}</td>
+                        <td>{{pedidos.nombre}}</td>
+                        <td>{{pedidos.cantidad}}</td>
+                        <td>{{pedidos.precio}}</td>
+                        <td>{{pedidos.entrega}}</td>
+                        <td (click)="mostrarGraficoProveedor()" style="cursor: pointer;"><i class="fa fa-info-circle"
+                                aria-hidden="true"></i>
+                            <i (click)="borrarProveedor()" class="fa fa-trash-o" aria-hidden="true"></i>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
         <div *ngIf="ventas" class="mensajero">
             <H1>Ventas</H1>
         </div>

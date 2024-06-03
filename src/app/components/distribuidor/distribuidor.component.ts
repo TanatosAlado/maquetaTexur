@@ -30,7 +30,7 @@ export class DistribuidorComponent {
 
   serviceAgenda: any[] = [{fecha: '30/05/2024', tipo: 'Mantenimiento', cliente: 'Taller Galicia', estado: 'En Ejecución', tecnico: 'Carlos', recursos: 'En Stock'},{fecha: '01/06/2024', tipo: 'Reparación', cliente: 'Taller privado', estado: 'En Espera', tecnico: 'Carlos', recursos: 'En Stock'},{fecha: '7/6/2024', tipo: 'Mantenimiento', cliente: 'Taller MetroFe', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados'},{fecha: '3/06/2024', tipo: 'Mantenimiento', cliente: 'Taller Lopez', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados'}]
   arrayProveedores:any[]=[{codigo:1478,razon:'Taller Perez',telefono:1111111111,cuit:'11-111111111-1'},{codigo:1698,razon:'Taller Gomez',telefono:2222222222,cuit:'22-111111111-2'},{codigo:903,razon:'Taller Garcia',telefono:3333333333,cuit:'33-111111111-3'},{codigo:6589,razon:'Taller Martinez',telefono:4444444444,cuit:'44-111111111-4'}]
-
+  arrayPedidos:any[]=[{codigo:1987,nombre:'correa',cantidad:'7',precio:'$1000',entrega:'Envio'},{codigo:4789,nombre:'motor',cantidad:'3',precio:'$2000',entrega:'Envio'},{codigo:3265,nombre:'bujias',cantidad:'12',precio:'$145000',entrega:'Retiro'},{codigo:698,nombre:'Engranajes',cantidad:'17',precio:'$26000',entrega:'Envio'},]
   detallar: boolean = false
 
 
@@ -45,6 +45,7 @@ export class DistribuidorComponent {
   inventarioCompra:boolean=false
   pagosCompra:boolean=false
   graficoProveedor:Boolean=false
+  pedidosProveedor:boolean=false
   
 
   constructor(private router: Router){
@@ -94,6 +95,7 @@ export class DistribuidorComponent {
       break;
       case 'pedidosCompra': 
         this.pedidosCompra = true
+        this.pedidosProveedor=true
         break;
       case 'inventarioCompra': 
         this.inventarioCompra = true
