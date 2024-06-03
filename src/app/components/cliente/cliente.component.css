@@ -377,12 +377,13 @@ button{
     flex-direction: column;
     align-items: center;
     margin-bottom: 75px;
-    height: auto;
+    height: 100vh;
 }
 
 .cuerpo{
     display: flex;
     flex-direction: row;
+    height: 100vh;
 }
 
 .panelIzq{
@@ -416,12 +417,12 @@ button{
 }
 
 .footer{
-    width: 100%;
     background-color: lightskyblue;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+    text-align: center;
+    font-size: 15px;
 }
 
 .mensajero{

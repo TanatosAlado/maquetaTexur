@@ -177,5 +177,9 @@ mensajeGar(){
   this.detallar = false
 }
 
+mensajeCurso(){
+  alert('Curso asignado con éxito')
+  this.detallar = false
+}
 
 }
