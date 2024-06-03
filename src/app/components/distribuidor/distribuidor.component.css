@@ -328,3 +328,53 @@ label{
 .estadisticasPVimg img{
     width: 35%;
 }
+
+.agendaServicio{
+    width: 70%;
+    margin-left: 15%;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.agendaServicio button{
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+.agendaServicioInput{
+    width: 20%;
+    margin: 10px;
+    height: 30px;
+}
+
+.serviciosPV h3{
+    text-align: center;
+}
+
+.serviciosPVfact{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.facturasEnPv{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.facturasEnPvI{
+    width: 40%;
+}
+
+.facturasEnPvD{
+    border: 1px solid black;
+    width: 40%;
+}
+
+.facturasEnPv input{
+    margin-top: 10px;
+}

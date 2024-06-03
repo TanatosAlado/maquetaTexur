@@ -210,7 +210,90 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="serviciosPV">Servicios</div>
+                <div *ngIf="serviciosPV" class="serviciosPV">
+                    <h3>Servicios en agenda</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">Fecha</th>
+                                <th style="background-color:  #905868;" scope="col">Tipo</th>
+                                <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                <th style="background-color:  #905868;" scope="col">Estado</th>
+                                <th style="background-color:  #905868;" scope="col">Técnico</th>
+                                <th style="background-color:  #905868;" scope="col">Recursos</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let service of serviceAgenda">
+                                <td>{{service.fecha}}</td>
+                                <td>{{service.tipo}}</td>
+                                <td>{{service.cliente}}</td>
+                                <td>{{service.estado}}</td>
+                                <td>{{service.tecnico}}</td>
+                                <td>{{service.recursos}}</td>
+                                <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="agendaServicio">
+                        <div>
+                            <h4>Agendar nuevo servicio</h4>
+                        </div>
+                        <div>
+                            <select class="agendaServicioInput">
+                                <option value="">Reparación</option>
+                                <option value="">Mantenimiento</option>
+                            </select>
+                            <input class="agendaServicioInput" type="text" placeholder="Cliente">
+                            <input class="agendaServicioInput" type="text" placeholder="Trabajo a realizar">
+                            <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
+                        </div>
+                        <div>
+                            <button>Confirmar</button>
+                        </div>
+                    </div>
+                    <div class="serviciosPVfact">
+                        <h4>
+                            Facturación
+                        </h4>
+                        <div class="facturasEnPv">
+                            <div class="facturasEnPvI">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color:  #905868;" scope="col">Fecha</th>
+                                            <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>31/05/2024</td>
+                                            <td>Taller Privado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>31/05/2024</td>
+                                            <td>Carlos Lopez</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01/06/2024</td>
+                                            <td>Cliente 25</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="facturasEnPvD">
+                                <input type="text" placeholder="Cliente">
+                                <input type="text" placeholder="Monto $$">
+                                <input type="text" placeholder="Fecha">
+                                <button>Cargar</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
                 <div *ngIf="repuestosPV">Repuestos</div>
                 <div *ngIf="informacionPV">Informacion</div>
                 <div *ngIf="contratosPV">Contratos</div>
