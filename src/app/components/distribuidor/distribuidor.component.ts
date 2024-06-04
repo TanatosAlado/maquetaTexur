@@ -229,6 +229,11 @@ borrarPedido(){
   alert('Pedido borrado con éxito')
   this.detallar = false
 }
+borrarProducto(){
+  alert('Producto borrado con éxito')
+  this.detallar = false
+}
+
 mostrarGraficoProveedor(){
 this.graficoProveedor=true
 }
