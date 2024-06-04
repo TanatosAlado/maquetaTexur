@@ -27,7 +27,7 @@ export class DistribuidorComponent {
   garantiasVendidas: any[] = [{ngarantia: '364', producto: 'Sellador térmico', cliente: 'Taller Paraná', desde: '03/05/2022', hasta: '03/06/2023', condicion: 'Realizar service', cobertura: 'Defectos en fabricación'},
     {ngarantia: '385', producto: 'Extensor', cliente: 'Taller Polirubro', desde: '04/08/2022', hasta: '04/08/2023', condicion: 'Cambio de carbones', cobertura: 'Defectos en fabricación'},
     {ngarantia: '694', producto: 'Restablecedor señal', cliente: 'Service Haroldos', desde: '03/09/2023', hasta: '03/09/2024', condicion: 'Reubicación', cobertura: 'Defectos en fabricación'}]
-
+   arrayPagos:any=[{nroFactura:'13257498',fecha:'14/05/2021',proveedor:'Taller Sanchez',monto:'$145874'},{nroFactura:'8585744',fecha:'21/07/2022',proveedor:'Taller Perez',monto:'$205878'},{nroFactura:'1325487',fecha:'30/01/2023',proveedor:'Taller Gutierrez',monto:'$587471'},{nroFactura:'3698585',fecha:'08/04/2020',proveedor:'Taller García',monto:'$25874'},]
   serviceAgenda: any[] = [{fecha: '30/05/2024', tipo: 'Mantenimiento', cliente: 'Taller Galicia', estado: 'En Ejecución', tecnico: 'Carlos', recursos: 'En Stock'},{fecha: '01/06/2024', tipo: 'Reparación', cliente: 'Taller privado', estado: 'En Espera', tecnico: 'Carlos', recursos: 'En Stock'},{fecha: '7/6/2024', tipo: 'Mantenimiento', cliente: 'Taller MetroFe', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados'},{fecha: '3/06/2024', tipo: 'Mantenimiento', cliente: 'Taller Lopez', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados'}]
   listaRepuestos: any[] = [{codigo: 'ar488', descripcion: 'Bobina XX', fabricante: 'Compañia Virtus', stock: '12'},{codigo: 'ar490', descripcion: 'Contra bobina XX', fabricante: 'Compañia Virtus', stock: '12'},{codigo: 'ag635', descripcion: 'Zonda XX', fabricante: 'Magallanes SRL', stock: '6'}]
   instructivos: any[] = [{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'}]
@@ -231,6 +231,11 @@ borrarPedido(){
 }
 borrarProducto(){
   alert('Producto borrado con éxito')
+  this.detallar = false
+}
+
+borrarPagos(){
+  alert('Pago borrado con éxito')
   this.detallar = false
 }
 

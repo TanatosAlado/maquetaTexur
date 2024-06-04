@@ -684,23 +684,97 @@
             <h4 style="text-align: center;">Estadísticas productos</h4>
             <br>
             <div class="estadisticasPVimg">
-                <img src="../../../assets/probxprod.png">
-                <img src="../../../assets/probxtipo.png">
+                <img src="../../../assets/grafico inventario 1.jpg">
+                <img src="../../../assets/grafico inventario 2.jpg">
             </div>
         </div>
+        <div *ngIf="pagosCompra" class="container">
+            <div class="input-container table">
 
-        <div *ngIf="ventas" class="mensajero">
-            <H1>Ventas</H1>
-        </div>
-        <div *ngIf="analisisDatos" class="elearning">
-            <h1>Analísis de Datos</h1>
-        </div>
-        <div *ngIf="suscripciones" class="mensajero">
-            <H1>Suscripciones</H1>
-        </div>
+                <br>
+                <input class="table" type="text" placeholder="Ingrese el Pago a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Nro.Factura</th>
+                        <th style="background-color:  #905868;" scope="col">Codigo</th>
+                        <th style="background-color:  #905868;" scope="col">Razon Social</th>
+                        <th style="background-color:  #905868;" scope="col">Cantidad</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pagos of arrayPagos">
+                        <td>{{pagos.nroFactura}}</td>
+                        <td>{{pagos.fecha}}</td>
+                        <td>{{pagos.proveedor}}</td>
+                        <td>{{pagos.monto}}</td>
+                        <td><i (click)="borrarPagos()" style="cursor: pointer;" class="fa fa-trash-o"
+                                aria-hidden="true"></i></td>
 
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <div class="agendaServicio">
+
+                <div>
+                    <h4>Realizar Pago</h4>
+                </div>
+                <div>
+                    <select class="agendaServicioInput">
+                        <option value="">Nro. Factura</option>
+                        <option value="">13257498</option>
+                        <option value="">8585744</option>
+                        <option value="">1325487</option>
+                        <option value="">3698585</option>
+                    </select>
+                    <input class="agendaServicioInput" type="text" placeholder="Razon Social">
+                    <input class="agendaServicioInput" type="text" placeholder="Monto">
+                  <br>
+                  <br>
+                  <div>
+                    <input  type="radio" id="tarjeta" name="drone" value="huey" checked />
+                   Forma Pago 1
+                    <div>
+                        <input type="radio" id="cheque" name="drone" value="huey" />
+                       Forma Pago 2
+                      </div>
+
+                      <div>
+                        <input type="radio" id="transferencia" name="drone" value="huey" />
+                       Forma Pago 3
+                      </div>
+                      
+                      <div>
+                        <input type="radio" id="deposito" name="drone" value="huey" />
+                       Forma Pago 4
+                      </div>
+                    
+                  </div>
+                
+                    <div>
+                        <button>Realizar Pago</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="ventas" class="mensajero">
+                <H1>Ventas</H1>
+            </div>
+            <div *ngIf="analisisDatos" class="elearning">
+                <h1>Analísis de Datos</h1>
+            </div>
+            <div *ngIf="suscripciones" class="mensajero">
+                <H1>Suscripciones</H1>
+            </div>
+
+        </div>
     </div>
-</div>
-<div class="footer">
-    <h4>Desarrollado por <span>EsteroTech</span></h4>
-</div>
+    <div class="footer">
+        <h4>Desarrollado por <span>EsteroTech</span></h4>
+    </div>
