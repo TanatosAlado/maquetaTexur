@@ -533,6 +533,7 @@
 
                     </tbody>
                 </table>
+                
                 <div style="display: flex;
                 flex-direction: column;
                 align-items: center; padding-bottom: 1%;">
@@ -614,6 +615,7 @@
                         <th style="background-color:  #905868;" scope="col">Cantidad</th>
                         <th style="background-color:  #905868;" scope="col">Precio</th>
                         <th style="background-color:  #905868;" scope="col">Forma Entrega</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -623,14 +625,32 @@
                         <td>{{pedidos.cantidad}}</td>
                         <td>{{pedidos.precio}}</td>
                         <td>{{pedidos.entrega}}</td>
-                        <td (click)="mostrarGraficoProveedor()" style="cursor: pointer;"><i class="fa fa-info-circle"
-                                aria-hidden="true"></i>
-                            <i (click)="borrarProveedor()" class="fa fa-trash-o" aria-hidden="true"></i>
+                        <td><i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                            
                     </tr>
 
                 </tbody>
             </table>
+            <div class="agendaServicio">
+                <div>
+                    <h4>Solicitud de Pedido</h4>
+                </div>
+                <div>
+                    <select class="agendaServicioInput">
+                        <option value="">Proveedor Urquiza</option>
+                        <option value="">Proveedor Ramirez</option>
+                        <option value="">Proveedor Gonzalez</option>
+                    </select>
+                    <input class="agendaServicioInput" type="text" placeholder="Nombre Repuesto">
+                    <input class="agendaServicioInput" type="text" placeholder="Fabricante">
+                    <input class="agendaServicioInput" type="text" placeholder="Cantidad">
+                </div>
+                <div>
+                    <button>Confirmar</button>
+                </div>
+            </div>
         </div>
+        
         <div *ngIf="ventas" class="mensajero">
             <H1>Ventas</H1>
         </div>

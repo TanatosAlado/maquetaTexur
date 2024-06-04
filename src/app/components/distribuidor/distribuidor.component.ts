@@ -32,7 +32,8 @@ export class DistribuidorComponent {
   listaRepuestos: any[] = [{codigo: 'ar488', descripcion: 'Bobina XX', fabricante: 'Compañia Virtus', stock: '12'},{codigo: 'ar490', descripcion: 'Contra bobina XX', fabricante: 'Compañia Virtus', stock: '12'},{codigo: 'ag635', descripcion: 'Zonda XX', fabricante: 'Magallanes SRL', stock: '6'}]
   instructivos: any[] = [{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'}]
   faqListado: any[] = [{pregunta: 'Puedo extender mi suscrpción?', respuesta: 'Las suscripciones pueden extenderse y  pueden cambiar el tipo de membresía'},{pregunta: 'No puedo ver el material de E-Learning', respuesta: 'Los contenidos se retiran cuando el cliente no renovo su membresía'},{pregunta: 'Como reservo un servicio', respuesta: 'En la sección Post Venta, apartado #Servicios, se puede generar la solicitud'},{pregunta: 'Donde encuentro la garantía de mi producto?', respuesta: 'Puede consultar la garantía de un producto en la sección Post Venta, apartado Garantía y seleccionando el producto deseado.'}]
-
+  arrayProveedores:any=[{codigo:14568,razon:'Taller Perez',telefono:'1111111111',cuit:'11-111111111-1'},{codigo:47898,razon:'Taller Gomez',telefono:'2222222222',cuit:'22-111111111-2'},{codigo:25478,razon:'Taller Sanchez',telefono:'3333333333',cuit:'33-111111111-3'},{codigo:19872,razon:'Taller Ortega',telefono:'4444444444',cuit:'44-111111111-4'}]
+  arrayPedidos:any=[{codigo:'36589',nombre:'Bujias',cantidad:'45',precio:'$45874',entrega:'Retiro'},{codigo:'14587',nombre:'Sondas',cantidad:'30',precio:'$75894',entrega:'Retiro'},{codigo:'33699',nombre:'Aceites',cantidad:'4',precio:'$12125',entrega:'Envio'},{codigo:'59874',nombre:'Correas',cantidad:'10',precio:'$25478',entrega:'Retiro'}]
   detallar: boolean = false
 
 
@@ -221,6 +222,11 @@ mensajeCurso(){
 
 borrarProveedor(){
   alert('Proveedor borrado con éxito')
+  this.detallar = false
+}
+
+borrarPedido(){
+  alert('Pedido borrado con éxito')
   this.detallar = false
 }
 mostrarGraficoProveedor(){
