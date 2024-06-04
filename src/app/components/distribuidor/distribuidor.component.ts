@@ -49,6 +49,7 @@ export class DistribuidorComponent {
   pagosCompra:boolean=false
   graficoProveedor:Boolean=false
   pedidosProveedor:boolean=false
+  comprasProveedor:Boolean=false
   
 
   constructor(private router: Router){
