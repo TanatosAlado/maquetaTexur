@@ -541,8 +541,24 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="marketing" class="mensajero">
-            <H1>Marketing</H1>
+        <div *ngIf="marketing" class="marketing">
+            <ul class="menuMarketing">
+                <li (click)="cambioMK('campanasMK'); seleccionarMK('campanasMK')"
+                    [class.active]="selectedMK === 'campanasMK'">Campañas</li>
+                <li (click)="cambioMK('leadsMK'); seleccionarMK('leadsMK')"
+                    [class.active]="selectedMK === 'leadsMK'">Leads</li>
+                <li (click)="cambioMK('contactosMK'); seleccionarMK('contactosMK')"
+                    [class.active]="selectedMK === 'contactosMK'">Contactos</li>
+                <li (click)="cambioMK('analisisMK'); seleccionarMK('analisisMK')"
+                    [class.active]="selectedMK === 'analisisMK'">Análisis</li>
+                <li (click)="cambioMK('automatizacionMK'); seleccionarMK('automatizacionMK')"
+                    [class.active]="selectedMK === 'automatizacionMK'">Automatización</li>
+            </ul>
+            <div *ngIf="campanasMK"><h1>Campaña</h1></div>
+            <div *ngIf="leadsMK"><h1>Leads</h1></div>
+            <div *ngIf="contactosMK"><h1>Contactos</h1></div>
+            <div *ngIf="analisisMK"><h1>analisis</h1></div>
+            <div *ngIf="automatizacionMK"><h1>automatizacion</h1></div>
         </div>
         <div *ngIf="compras" class="elearning">
             <ul class="menuPostVenta">

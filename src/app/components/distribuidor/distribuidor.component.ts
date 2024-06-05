@@ -20,6 +20,7 @@ export class DistribuidorComponent {
   compartirCurso: boolean =false
   selected: string = 'perfilDistribuidor'
   selectedPV: string = 'garantiasPV'
+  selectedMK: string = 'campanasMK'
   selectedCompra: string = 'proveedoresCompra'
   arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
   arrayCursos:any[]=[{nombrecurso:'Curso 1',tipo:'../../../assets/video.png',duracion:'40 hs'},{nombrecurso:'Curso 2',tipo:'../../../assets/pdf.png',duracion:'5 hs'},{nombrecurso:'Curso 3',tipo:'../../../assets/pp.png',duracion:'16 hs'},{nombrecurso:'Curso 4',tipo:'../../../assets/video.png',duracion:'8 hs'}]
@@ -47,9 +48,17 @@ export class DistribuidorComponent {
   pedidosCompra:boolean=false
   inventarioCompra:boolean=false
   pagosCompra:boolean=false
-  graficoProveedor:Boolean=false
+  graficoProveedor:boolean=false
   pedidosProveedor:boolean=false
-  comprasProveedor:Boolean=false
+  comprasProveedor:boolean=false
+
+  campanasMK:boolean=true
+  leadsMK:boolean=false
+  contactosMK:boolean=false
+  analisisMK:boolean=false
+  automatizacionMK:boolean=false
+
+
   
 
   constructor(private router: Router){
@@ -118,6 +127,32 @@ export class DistribuidorComponent {
       this.pedidosCompra=false
       this.inventarioCompra=false
        this.pagosCompra=true
+        break;
+    }
+  }
+
+  cambioMK(parametro: string){
+    this.campanasMK = false
+    this.leadsMK = false
+    this.contactosMK = false
+    this.analisisMK = false
+    this.automatizacionMK = false
+
+    switch (parametro) {
+      case 'campanasMK': 
+      this.campanasMK = true
+      break;
+      case 'leadsMK': 
+        this.leadsMK = true
+        break;
+      case 'contactosMK': 
+        this.contactosMK = true
+        break;
+      case 'analisisMK': 
+        this.analisisMK = true
+        break;
+      case 'automatizacionMK': 
+        this.automatizacionMK = true
         break;
     }
   }
@@ -193,6 +228,10 @@ export class DistribuidorComponent {
 
   seleccionarPV(seccion: string) {
     this.selectedPV = seccion;
+  }
+
+  seleccionarMK(seccion: string) {
+    this.selectedMK = seccion;
   }
 
   seleccionarCompra(seccion: string) {
