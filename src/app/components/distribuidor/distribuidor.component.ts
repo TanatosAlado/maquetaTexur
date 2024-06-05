@@ -20,6 +20,7 @@ export class DistribuidorComponent {
   compartirCurso: boolean =false
   selected: string = 'perfilDistribuidor'
   selectedPV: string = 'garantiasPV'
+  selectedVenta:string='ventaCliente'
   selectedMK: string = 'campanasMK'
   selectedCompra: string = 'proveedoresCompra'
   arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
@@ -50,7 +51,13 @@ export class DistribuidorComponent {
   pagosCompra:boolean=false
   graficoProveedor:boolean=false
   pedidosProveedor:boolean=false
-  comprasProveedor:boolean=false
+  comprasProveedor:Boolean=false
+  ventaCliente:boolean=true
+  ventaSuscripciones:boolean=false
+  ventaPedidos:boolean=false
+  ventaFacturas:boolean=false
+  ventaAnalisis:boolean=false
+ 
 
   campanasMK:boolean=true
   leadsMK:boolean=false
@@ -63,6 +70,33 @@ export class DistribuidorComponent {
 
   constructor(private router: Router){
 
+  }
+
+  cambioVenta(parametro: string){
+    this.ventaCliente = false
+    this.ventaSuscripciones = false
+    this.ventaPedidos = false
+    this.ventaFacturas = false
+    this.ventaAnalisis = false
+   
+
+    switch (parametro) {
+      case 'ventaCliente': 
+      this.ventaCliente = true
+      break;
+      case 'ventaSuscripciones': 
+        this.ventaSuscripciones = true
+        break;
+      case 'ventaPedidos': 
+        this.ventaPedidos = true
+        break;
+      case 'ventaFacturas': 
+        this.ventaFacturas = true
+        break;
+      case 'ventaAnalisis': 
+        this.ventaAnalisis = true
+        break;
+    }
   }
 
   cambioPV(parametro: string){
@@ -177,48 +211,66 @@ export class DistribuidorComponent {
       this.detallesDistribuidor=false
       this.proveedoresCompra=false
       this.compartirCurso=false
+      this.pedidosCompra=false
+      this.pagosCompra = false
       break;
       case 'gestionCliente': 
         this.gestioncliente = true
         this.detallesDistribuidor=false
         this.proveedoresCompra=false
         this.compartirCurso=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
       case 'postVenta': 
         this.postVenta = true
         this.proveedoresCompra=false
         this.compartirCurso=false
         this.detallar=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
       case 'eLearning': 
         this.eLearning = true
         this.proveedoresCompra=false
         this.compartirCurso=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
       case 'marketing': 
         this.marketing = true
         this.proveedoresCompra=false
         this.compartirCurso=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
       case 'compras': 
         this.compras= true
         this.proveedoresCompra=true
-        this.compartirCurso=false        
+        this.compartirCurso=false    
+        this.pedidosCompra=false    
+        this.pagosCompra = false
         break;
         case 'ventas': 
         this.ventas= true
         this.proveedoresCompra=false
         this.compartirCurso=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
         case 'analisisdeDatos': 
         this.analisisDatos= true
         this.proveedoresCompra=false
         this.compartirCurso=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
         case 'suscripciones': 
         this.suscripciones= true
         this.proveedoresCompra=false
         this.compartirCurso=false
+        this.pedidosCompra=false
+        this.pagosCompra = false
         break;
     }
   }
@@ -236,6 +288,10 @@ export class DistribuidorComponent {
 
   seleccionarCompra(seccion: string) {
     this.selectedCompra = seccion;
+  }
+
+  seleccionarVenta(seccion: string) {
+    this.selectedVenta = seccion;
   }
   
   actualizar(){
