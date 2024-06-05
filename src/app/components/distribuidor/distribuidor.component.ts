@@ -67,6 +67,7 @@ export class DistribuidorComponent {
     switch (parametro) {
       case 'garantiasPV': 
       this.garantiasPV = true
+      this.detallar=false
       break;
       case 'serviciosPV': 
         this.serviciosPV = true
@@ -96,16 +97,27 @@ export class DistribuidorComponent {
     switch (parametro) {
       case 'proveedoresCompra': 
       this.proveedoresCompra = true
+      this.pedidosCompra=false
+      this.inventarioCompra=false
+       this.pagosCompra=false
       break;
       case 'pedidosCompra': 
-        this.pedidosCompra = true
-        this.pedidosProveedor=true
+      this.proveedoresCompra = false
+      this.pedidosCompra=true
+      this.inventarioCompra=false
+       this.pagosCompra=false
         break;
       case 'inventarioCompra': 
-        this.inventarioCompra = true
+      this.proveedoresCompra = false
+      this.pedidosCompra=false
+      this.inventarioCompra=true
+       this.pagosCompra=false
         break;
       case 'pagosCompra': 
-        this.pagosCompra = true
+      this.proveedoresCompra = false
+      this.pedidosCompra=false
+      this.inventarioCompra=false
+       this.pagosCompra=true
         break;
     }
   }
@@ -128,31 +140,50 @@ export class DistribuidorComponent {
       case 'perfilDistribuidor': 
       this.perfilDistribuidor = true
       this.detallesDistribuidor=false
+      this.proveedoresCompra=false
+      this.compartirCurso=false
       break;
       case 'gestionCliente': 
         this.gestioncliente = true
         this.detallesDistribuidor=false
+        this.proveedoresCompra=false
+        this.compartirCurso=false
         break;
       case 'postVenta': 
         this.postVenta = true
+        this.proveedoresCompra=false
+        this.compartirCurso=false
+        this.detallar=false
         break;
       case 'eLearning': 
         this.eLearning = true
+        this.proveedoresCompra=false
+        this.compartirCurso=false
         break;
       case 'marketing': 
         this.marketing = true
+        this.proveedoresCompra=false
+        this.compartirCurso=false
         break;
       case 'compras': 
         this.compras= true
+        this.proveedoresCompra=true
+        this.compartirCurso=false        
         break;
         case 'ventas': 
         this.ventas= true
+        this.proveedoresCompra=false
+        this.compartirCurso=false
         break;
         case 'analisisdeDatos': 
         this.analisisDatos= true
+        this.proveedoresCompra=false
+        this.compartirCurso=false
         break;
         case 'suscripciones': 
         this.suscripciones= true
+        this.proveedoresCompra=false
+        this.compartirCurso=false
         break;
     }
   }

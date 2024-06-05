@@ -456,7 +456,7 @@
                             <td>{{cursos.nombrecurso}}</td>
                             <td><img src="{{cursos.tipo}}"></td>
                             <td>{{cursos.duracion}}</td>
-                            <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                            <td style="cursor: pointer;">
                                 <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
                                 <i (click)="asignarcurso()" class="fa fa-share-alt" aria-hidden="true"></i>
                             </td>
@@ -599,7 +599,7 @@
                 <img src="../../../assets/datos proveedores.jpg">
             </div>
         </div>
-        <div *ngIf="pedidosProveedor" class="container">
+        <div *ngIf="pedidosCompra" class="container">
             <div class="input-container table">
 
                 <br>
