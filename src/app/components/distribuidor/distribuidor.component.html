@@ -554,8 +554,91 @@
                 <li (click)="cambioMK('automatizacionMK'); seleccionarMK('automatizacionMK')"
                     [class.active]="selectedMK === 'automatizacionMK'">Automatización</li>
             </ul>
-            <div *ngIf="campanasMK"><h1>Campaña</h1></div>
-            <div *ngIf="leadsMK"><h1>Leads</h1></div>
+            <div *ngIf="campanasMK" class="campanasMK">
+                <h2>Campañas lanzadas</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:  #905868;" scope="col">Título</th>
+                            <th style="background-color:  #905868;" scope="col">Descripción</th>
+                            <th style="background-color:  #905868;" scope="col">Aplicación</th>
+                            <th style="background-color:  #905868;" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let campana of campanasLista">
+                            <td>{{campana.titulo}}</td>
+                            <td>{{campana.descripcion}}</td>
+                            <td>{{campana.aplica}}</td>
+                            <td><i style="cursor: pointer;" class="fa fa-trash-o"
+                                    aria-hidden="true"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="agendaServicio campanasL">
+                    <div>
+                        <h4>Nueva Campaña</h4>
+                    </div>
+                    <input class="agendaServicioInput" type="text" placeholder="Título">
+                    <input class="agendaServicioInput" type="text" placeholder="Descripción">
+                        <select class="agendaServicioInput">
+                            <option value="">Membresía Nivel 0</option>
+                            <option value="">Membresía Nivel 1</option>
+                            <option value="">Membresía Nivel 2</option>
+                            <option value="">Todos los niveles</option>
+                        </select>
+                        <select class="agendaServicioInput">
+                            <option value="">Campaña por mail</option>
+                            <option value="">Campaña por RRSS</option>
+                            <option value="">Campaña telefónica</option>
+                        </select>
+                        <input class="agendaServicioInput" type="text" placeholder="Objetivo">
+                        <input class="agendaServicioInput" type="text" placeholder="Presupuesto">
+                        <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
+                    <div>
+                        <button>Confirmar</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="leadsMK" class="leadsMK">
+                <h2>Leads</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:  #905868;" scope="col">Nombre</th>
+                            <th style="background-color:  #905868;" scope="col">Origen Leads</th>
+                            <th style="background-color:  #905868;" scope="col">Objetivo</th>
+                            <th style="background-color:  #905868;" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let lead of leadsLista">
+                            <td>{{lead.nombre}}</td>
+                            <td>{{lead.origen}}</td>
+                            <td>{{lead.objetivo}}</td>
+                            <td><i style="cursor: pointer;" class="fa fa-trash-o"
+                                    aria-hidden="true"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="agendaServicio">
+                    <div>
+                        <h4>Alta leads</h4>
+                    </div>
+                    <input class="agendaServicioInput" type="text" placeholder="Nombre">
+                    <input class="agendaServicioInput" type="text" placeholder="Objetivo">
+                        <select class="agendaServicioInput">
+                            <option value="">RRSS</option>
+                            <option value="">Campaña</option>
+                            <option value="">Recomendación</option>
+                            <option value="">Otro</option>
+                        </select>
+                    <div>
+                        <button>Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
             <div *ngIf="contactosMK"><h1>Contactos</h1></div>
             <div *ngIf="analisisMK"><h1>analisis</h1></div>
             <div *ngIf="automatizacionMK"><h1>automatizacion</h1></div>
