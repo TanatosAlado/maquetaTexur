@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.css']
 })
-export class LoginComponent {
+export class IndexComponent {
 
   constructor(private router: Router){
 
@@ -26,5 +26,6 @@ export class LoginComponent {
   logout(){
     this.router.navigate([''])
   }
+
 
 }
