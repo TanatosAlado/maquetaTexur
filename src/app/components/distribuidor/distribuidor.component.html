@@ -907,6 +907,57 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="ventaPedidos" class="container">
+            <h2 style="text-align: center;">
+                Pedidos por Clientes
+            </h2>
+            <div class="addGarantia">
+                <button>Agregar Pedido</button>
+            </div>
+            <div class="input-container table">
+                
+                <br>
+                <input class="table" type="text" placeholder="Ingrese el Pedido a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Cod. Pedido</th>
+                        <th style="background-color:  #905868;" scope="col">Cliente</th>
+                        <th style="background-color:  #905868;" scope="col">Producto</th>
+                        <th style="background-color:  #905868;" scope="col">Cantidad</th>
+                        <th style="background-color:  #905868;" scope="col">Precio</th>
+                        <th style="background-color:  #905868;" scope="col">Forma Entrega</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedidos of arrayPedidos">
+                        <td>{{pedidos.codigo}}</td>
+                        <td>{{pedidos.cliente}}</td>
+                        <td>{{pedidos.nombre}}</td>
+                        <td>{{pedidos.cantidad}}</td>
+                        <td>{{pedidos.precio}}</td>
+                        <td>{{pedidos.entrega}}</td>
+                        <td><i style="cursor: pointer;" (click)="habilitarDemo()"
+                            class="fa fa-info-circle" aria-hidden="true"></i>
+                            <i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o"
+                                aria-hidden="true"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="seguimientoEnvio" class="seguimientoCurso">
+            <div *ngFor="let step of steps; let i = index" [ngClass]="{'disabled': step.isDisabled}" class="pasosCurso">
+                <h5>{{ step.name }}</h5>
+                <button (click)="nextStep()" [disabled]="step.isDisabled">
+                    {{ i === steps.length - 1 ? 'Finalizar' : 'Siguiente' }}
+                </button>
+            </div>
+        </div>
+        <div></div>
         <div *ngIf="analisisDatos" class="elearning">
             <h1>Analísis de Datos</h1>
         </div>

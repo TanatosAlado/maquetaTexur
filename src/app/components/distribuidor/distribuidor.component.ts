@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./distribuidor.component.css']
 })
 export class DistribuidorComponent {
+
   perfilDistribuidor=true
   gestioncliente: boolean = false
   postVenta: boolean = false
@@ -34,11 +35,19 @@ export class DistribuidorComponent {
   instructivos: any[] = [{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'}]
   faqListado: any[] = [{pregunta: 'Puedo extender mi suscrpción?', respuesta: 'Las suscripciones pueden extenderse y  pueden cambiar el tipo de membresía'},{pregunta: 'No puedo ver el material de E-Learning', respuesta: 'Los contenidos se retiran cuando el cliente no renovo su membresía'},{pregunta: 'Como reservo un servicio', respuesta: 'En la sección Post Venta, apartado #Servicios, se puede generar la solicitud'},{pregunta: 'Donde encuentro la garantía de mi producto?', respuesta: 'Puede consultar la garantía de un producto en la sección Post Venta, apartado Garantía y seleccionando el producto deseado.'}]
   arrayProveedores:any=[{codigo:14568,razon:'Taller Perez',telefono:'1111111111',cuit:'11-111111111-1'},{codigo:47898,razon:'Taller Gomez',telefono:'2222222222',cuit:'22-111111111-2'},{codigo:25478,razon:'Taller Sanchez',telefono:'3333333333',cuit:'33-111111111-3'},{codigo:19872,razon:'Taller Ortega',telefono:'4444444444',cuit:'44-111111111-4'}]
-  arrayPedidos:any=[{codigo:'36589',nombre:'Bujias',cantidad:'45',precio:'$45874',entrega:'Retiro'},{codigo:'14587',nombre:'Sondas',cantidad:'30',precio:'$75894',entrega:'Retiro'},{codigo:'33699',nombre:'Aceites',cantidad:'4',precio:'$12125',entrega:'Envio'},{codigo:'59874',nombre:'Correas',cantidad:'10',precio:'$25478',entrega:'Retiro'}]
+  arrayPedidos:any=[{codigo:'36589',nombre:'Bujias',cantidad:'45',precio:'$45874',entrega:'Retiro',cliente:'Taller Sanchez'},{codigo:'14587',nombre:'Sondas',cantidad:'30',precio:'$75894',entrega:'Retiro',cliente:'Taller Perez'},{codigo:'33699',nombre:'Aceites',cantidad:'4',precio:'$12125',entrega:'Envio',cliente:'Taller Gomez'},{codigo:'59874',nombre:'Correas',cantidad:'10',precio:'$25478',entrega:'Retiro',cliente:'Taller Garcia'}]
   detallar: boolean = false
   detallesVentasClientes:boolean=false
   detalleSuscripciones:boolean=false
+  seguimientoEnvio: boolean = false
+  currentStep = 0;
 
+  steps = [
+    { name: 'Pendiente', isDisabled: false },
+    { name: 'En Curso', isDisabled: true },
+    { name: 'En Transporte', isDisabled: true },
+    { name: 'Entregado', isDisabled: true }
+  ];
 
 
   garantiasPV: boolean = true
@@ -339,5 +348,36 @@ mostrarDetalleVenta(){
 
 mostrarDetalleSuscripciones(){
 this.detalleSuscripciones=true
+}
+
+mostrarDetallePedidosClientes(){
+
+}
+
+
+finalizar() {
+  this.seguimientoEnvio = false;
+  this.currentStep = 0;
+  this.seguimientoEnvio = true;
+  this.steps = [
+    { name: 'Descripción', isDisabled: false },
+    { name: 'Material', isDisabled: true },
+    { name: 'Evaluación', isDisabled: true },
+    { name: 'Encuesta', isDisabled: true }
+  ];
+  this.seguimientoEnvio = false;
+  alert('Pedido Entregado exitosamente')
+}
+
+nextStep() {
+  if (this.currentStep < this.steps.length - 1) {
+    this.currentStep++;
+    this.steps[this.currentStep].isDisabled = false;
+  } else {
+    this.finalizar();
+  }
+}
+habilitarDemo(){
+  this.seguimientoEnvio = true
 }
 }
