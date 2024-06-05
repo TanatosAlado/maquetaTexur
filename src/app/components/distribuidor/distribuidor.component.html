@@ -763,16 +763,26 @@
                 </div>
             </div>
 
-            <div *ngIf="ventas" class="mensajero">
-                <H1>Ventas</H1>
-            </div>
-            <div *ngIf="analisisDatos" class="elearning">
-                <h1>Analísis de Datos</h1>
-            </div>
-            <div *ngIf="suscripciones" class="mensajero">
-                <H1>Suscripciones</H1>
-            </div>
-
+        </div>
+        <div *ngIf="ventas" class="elearning">
+            <ul class="menuPostVenta">
+                <li (click)="cambioVenta('ventaCliente'); seleccionarVenta('ventaCliente')"
+                    [class.active]="selectedVenta === 'ventaCliente'">Cliente</li>
+                <li (click)="cambioVenta('ventaSuscripciones'); seleccionarVenta('ventaSuscripciones')"
+                    [class.active]="selectedVenta === 'ventaSuscripciones'">Suscricion</li>
+                <li (click)="cambioVenta('ventaPedidos'); seleccionarVenta('ventaPedidos')"
+                    [class.active]="selectedVenta === 'ventaPedidos'">Pedidos</li>
+                <li (click)="cambioVenta('ventaFacturas'); seleccionarVenta('ventaFacturas')"
+                    [class.active]="selectedVenta === 'ventaFacturas'">Facturas</li>
+                    <li (click)="cambioVenta('ventaAnalisis'); seleccionarVenta('ventaAnalisis')"
+                    [class.active]="selectedVenta === 'ventaAnalisis'">Analisis</li>
+            </ul>
+        </div>
+        <div *ngIf="analisisDatos" class="elearning">
+            <h1>Analísis de Datos</h1>
+        </div>
+        <div *ngIf="suscripciones" class="mensajero">
+            <H1>Suscripciones</H1>
         </div>
     </div>
     <div class="footer">
