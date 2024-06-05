@@ -22,7 +22,7 @@ export class DistribuidorComponent {
   selectedPV: string = 'garantiasPV'
   selectedVenta:string='ventaCliente'
   selectedCompra: string = 'proveedoresCompra'
-  arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
+  arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789,nivel:'Nivel 0'},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321,nivel:'Nivel 1'},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788,nivel:'Nivel 0'},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547,nivel:'Nivel 2'},]
   arrayCursos:any[]=[{nombrecurso:'Curso 1',tipo:'../../../assets/video.png',duracion:'40 hs'},{nombrecurso:'Curso 2',tipo:'../../../assets/pdf.png',duracion:'5 hs'},{nombrecurso:'Curso 3',tipo:'../../../assets/pp.png',duracion:'16 hs'},{nombrecurso:'Curso 4',tipo:'../../../assets/video.png',duracion:'8 hs'}]
   prodAdquiridos: any[] = [{fecha: '09/09/2021', producto: 'Tester hidráulico', garantia: 'No'},{fecha: '03/10/2022', producto: 'Sopladora', garantia:'No'},{fecha: '09/01/2024', producto: 'Extractor', garantia:'Si'}]
   garantiasVendidas: any[] = [{ngarantia: '364', producto: 'Sellador térmico', cliente: 'Taller Paraná', desde: '03/05/2022', hasta: '03/06/2023', condicion: 'Realizar service', cobertura: 'Defectos en fabricación'},
@@ -36,6 +36,9 @@ export class DistribuidorComponent {
   arrayProveedores:any=[{codigo:14568,razon:'Taller Perez',telefono:'1111111111',cuit:'11-111111111-1'},{codigo:47898,razon:'Taller Gomez',telefono:'2222222222',cuit:'22-111111111-2'},{codigo:25478,razon:'Taller Sanchez',telefono:'3333333333',cuit:'33-111111111-3'},{codigo:19872,razon:'Taller Ortega',telefono:'4444444444',cuit:'44-111111111-4'}]
   arrayPedidos:any=[{codigo:'36589',nombre:'Bujias',cantidad:'45',precio:'$45874',entrega:'Retiro'},{codigo:'14587',nombre:'Sondas',cantidad:'30',precio:'$75894',entrega:'Retiro'},{codigo:'33699',nombre:'Aceites',cantidad:'4',precio:'$12125',entrega:'Envio'},{codigo:'59874',nombre:'Correas',cantidad:'10',precio:'$25478',entrega:'Retiro'}]
   detallar: boolean = false
+  detallesVentasClientes:boolean=false
+  detalleSuscripciones:boolean=false
+
 
 
   garantiasPV: boolean = true
@@ -328,5 +331,13 @@ borrarPagos(){
 
 mostrarGraficoProveedor(){
 this.graficoProveedor=true
+}
+
+mostrarDetalleVenta(){
+  this.detallesVentasClientes=true
+}
+
+mostrarDetalleSuscripciones(){
+this.detalleSuscripciones=true
 }
 }
