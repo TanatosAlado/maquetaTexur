@@ -302,6 +302,10 @@ label{
     display: flex;
     flex-direction: row-reverse;
 }
+.container-pagos{
+    display: flex;
+
+}
 
 .addGarantia button{
     width: 12%;
@@ -339,13 +343,24 @@ label{
 
 .agendaServicio{
     width: 70%;
-    margin-left: 15%;
+    margin-left: 1%;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.agendaServicioPagos{
+    width: 70%;
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
 }
 
 .agendaServicio button{
+    width: 30%;
+    margin-bottom: 10px;
+}
+.agendaServicioPagos button{
     width: 30%;
     margin-bottom: 10px;
 }

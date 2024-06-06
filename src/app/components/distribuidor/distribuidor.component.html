@@ -915,7 +915,7 @@
                 <button>Agregar Pedido</button>
             </div>
             <div class="input-container table">
-                
+
                 <br>
                 <input class="table" type="text" placeholder="Ingrese el Pedido a buscar">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -941,10 +941,11 @@
                         <td>{{pedidos.cantidad}}</td>
                         <td>{{pedidos.precio}}</td>
                         <td>{{pedidos.entrega}}</td>
-                        <td><i style="cursor: pointer;" (click)="habilitarDemo()"
-                            class="fa fa-info-circle" aria-hidden="true"></i>
+                        <td><i style="cursor: pointer;" (click)="habilitarDemo()" class="fa fa-info-circle"
+                                aria-hidden="true"></i>
                             <i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o"
-                                aria-hidden="true"></i></td>
+                                aria-hidden="true"></i>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -957,7 +958,94 @@
                 </button>
             </div>
         </div>
-        <div></div>
+        <div *ngIf="ventaFacturas" class="container">
+            <h2 style="text-align: center;">
+                Gestión de Facturas
+            </h2>
+            <div class="addGarantia">
+                <button>Agregar Factura</button>
+            </div>
+            <div class="input-container table">
+
+                <br>
+                <input class="table" type="text" placeholder="Ingrese la factura a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Cod. Pedido</th>
+                        <th style="background-color:  #905868;" scope="col">Cliente</th>
+                        <th style="background-color:  #905868;" scope="col">Producto</th>
+                        <th style="background-color:  #905868;" scope="col">Cantidad</th>
+                        <th style="background-color:  #905868;" scope="col">Precio</th>
+                        <th style="background-color:  #905868;" scope="col">Forma Entrega</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedidos of arrayPedidos">
+                        <td>{{pedidos.codigo}}</td>
+                        <td>{{pedidos.cliente}}</td>
+                        <td>{{pedidos.nombre}}</td>
+                        <td>{{pedidos.cantidad}}</td>
+                        <td>{{pedidos.precio}}</td>
+                        <td>{{pedidos.entrega}}</td>
+                        <td><i style="cursor: pointer;" (click)="habilitarDemo()" class="fa fa-info-circle"
+                                aria-hidden="true"></i>
+                            <i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o"
+                                aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="container-pagos">
+                <div class="agendaServicioPagos"style="margin-rigth: 1%">
+
+                    <div>
+                        <h4>Realizar Cobro</h4>
+                    </div>
+                    <div>
+                        <select class="agendaServicioInput">
+                            <option value="">Nombre Cliente</option>
+                            <option value="">Taller Sanchez</option>
+                            <option value="">Taller Perez</option>
+                            <option value="">Taller Gomez</option>
+                            <option value="">Taller Garcia</option>
+                        </select>
+                        <input class="agendaServicioInput" type="text" placeholder="Nro Factura">
+
+                        <br>
+                        
+                        <div>
+                            <button>Enviar Facturas</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="agendaServicioPagos" style="margin-left: 1%;">
+
+                    <div>
+                        <h4>Realizar Pago</h4>
+                    </div>
+                    <div>
+                        <select class="agendaServicioInput">
+                            <option value="">Nombre Cliente</option>
+                            <option value="">Taller Sanchez</option>
+                            <option value="">Taller Perez</option>
+                            <option value="">Taller Gomez</option>
+                            <option value="">Taller Garcia</option>
+                        </select>
+                        <input class="agendaServicioInput" type="text" placeholder="Nro Factura">
+                        <br>
+                        <div>
+                            <button>Cobrar Facturas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div *ngIf="analisisDatos" class="elearning">
             <h1>Analísis de Datos</h1>
         </div>
