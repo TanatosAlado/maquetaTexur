@@ -1162,8 +1162,65 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="ventaAnalisis" class="container">
+            <h2 style="text-align: center;">
+                Análisis de Ventas
+            </h2>
+            <div class="input-container table">
+
+                <br>
+                <input class="table" type="text" placeholder="Ingrese el análisis de venta a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Cod. Producto</th>
+                        <th style="background-color:  #905868;" scope="col">Nombre</th>
+                        <th style="background-color:  #905868;" scope="col">Vta. Mensual</th>
+                        <th style="background-color:  #905868;" scope="col">Vta. Semestral</th>
+                        <th style="background-color:  #905868;" scope="col">Vta. Anual</th>
+                        <th style="background-color:  #905868;" scope="col">Totales</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let analisis of arrayAnalisisVentas">
+                        <td>{{analisis.codProducto}}</td>
+                        <td>{{analisis.nombreProducto}}</td>
+                        <td>{{analisis.vtaMensual}}</td>
+                        <td>{{analisis.vtaSemestral}}</td>
+                        <td>{{analisis.vtaAnual}}</td>
+                        <td>{{analisis.totalFacturacion}}</td>
+                        <td><i style="cursor: pointer;" (click)="mostrarAnalisisVentas()" class="fa fa-info-circle"
+                                aria-hidden="true"></i>
+                            <i (click)="borrarAnalisis()" style="cursor: pointer;" class="fa fa-trash-o"
+                                aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="analisisGraficos" class="container">
+            <div class="estadisticasPV">
+                <h2>Estadísticas</h2>
+                <br>
+                <div class="estadisticasPVimg">
+                    <img src="../../../assets/metricas facturacion.jpg">
+                    <img src="../../../assets/metricas venta.jpg">
+                </div>
+                <div class="estadisticasPV">
+                    <div class="estadisticasPVimg">
+                        <img src="../../../assets/analisis mercados.jpg">
+                        <img src="../../../assets/analisis competencia.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div *ngIf="analisisDatos" class="elearning">
-            <h1>Analísis de Datos</h1>
+            <h1>Gestión de Análisis</h1>
         </div>
         <div *ngIf="suscripciones" class="mensajero">
             <H1>Suscripciones</H1>
