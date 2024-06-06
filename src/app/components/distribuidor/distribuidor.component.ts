@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./distribuidor.component.css']
 })
 export class DistribuidorComponent {
+
   perfilDistribuidor=true
   gestioncliente: boolean = false
   postVenta: boolean = false
@@ -23,7 +24,7 @@ export class DistribuidorComponent {
   selectedVenta:string='ventaCliente'
   selectedMK: string = 'campanasMK'
   selectedCompra: string = 'proveedoresCompra'
-  arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547},]
+  arrayClientes: any[] = [{nombre: 'Juan', apellido:'Perez', cuit: '11-111111111-1',telefono:123456789,nivel:'Nivel 0'},{nombre: 'Manuel', apellido:'Gomez', cuit: '22-111111111-2',telefono:987654321,nivel:'Nivel 1'},{nombre: 'Mauro', apellido:'Garcia', cuit: '33-111111111-3',telefono:789789788,nivel:'Nivel 0'},{nombre: 'Alberto', apellido:'Sanchez', cuit: '44-111111111-4',telefono:478885547,nivel:'Nivel 2'},]
   arrayCursos:any[]=[{nombrecurso:'Curso 1',tipo:'../../../assets/video.png',duracion:'40 hs'},{nombrecurso:'Curso 2',tipo:'../../../assets/pdf.png',duracion:'5 hs'},{nombrecurso:'Curso 3',tipo:'../../../assets/pp.png',duracion:'16 hs'},{nombrecurso:'Curso 4',tipo:'../../../assets/video.png',duracion:'8 hs'}]
   prodAdquiridos: any[] = [{fecha: '09/09/2021', producto: 'Tester hidráulico', garantia: 'No'},{fecha: '03/10/2022', producto: 'Sopladora', garantia:'No'},{fecha: '09/01/2024', producto: 'Extractor', garantia:'Si'}]
   garantiasVendidas: any[] = [{ngarantia: '364', producto: 'Sellador térmico', cliente: 'Taller Paraná', desde: '03/05/2022', hasta: '03/06/2023', condicion: 'Realizar service', cobertura: 'Defectos en fabricación'},
@@ -35,11 +36,23 @@ export class DistribuidorComponent {
   instructivos: any[] = [{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'},{titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png'}]
   faqListado: any[] = [{pregunta: 'Puedo extender mi suscrpción?', respuesta: 'Las suscripciones pueden extenderse y  pueden cambiar el tipo de membresía'},{pregunta: 'No puedo ver el material de E-Learning', respuesta: 'Los contenidos se retiran cuando el cliente no renovo su membresía'},{pregunta: 'Como reservo un servicio', respuesta: 'En la sección Post Venta, apartado #Servicios, se puede generar la solicitud'},{pregunta: 'Donde encuentro la garantía de mi producto?', respuesta: 'Puede consultar la garantía de un producto en la sección Post Venta, apartado Garantía y seleccionando el producto deseado.'}]
   arrayProveedores:any=[{codigo:14568,razon:'Taller Perez',telefono:'1111111111',cuit:'11-111111111-1'},{codigo:47898,razon:'Taller Gomez',telefono:'2222222222',cuit:'22-111111111-2'},{codigo:25478,razon:'Taller Sanchez',telefono:'3333333333',cuit:'33-111111111-3'},{codigo:19872,razon:'Taller Ortega',telefono:'4444444444',cuit:'44-111111111-4'}]
-  arrayPedidos:any=[{codigo:'36589',nombre:'Bujias',cantidad:'45',precio:'$45874',entrega:'Retiro'},{codigo:'14587',nombre:'Sondas',cantidad:'30',precio:'$75894',entrega:'Retiro'},{codigo:'33699',nombre:'Aceites',cantidad:'4',precio:'$12125',entrega:'Envio'},{codigo:'59874',nombre:'Correas',cantidad:'10',precio:'$25478',entrega:'Retiro'}]
+  arrayPedidos:any=[{codigo:'36589',nombre:'Bujias',cantidad:'45',precio:'$45874',entrega:'Retiro',cliente:'Taller Sanchez'},{codigo:'14587',nombre:'Sondas',cantidad:'30',precio:'$75894',entrega:'Retiro',cliente:'Taller Perez'},{codigo:'33699',nombre:'Aceites',cantidad:'4',precio:'$12125',entrega:'Envio',cliente:'Taller Gomez'},{codigo:'59874',nombre:'Correas',cantidad:'10',precio:'$25478',entrega:'Retiro',cliente:'Taller Garcia'}]
+  arrayFacturas:any=[{nroFactura:'12646',cliente:'Taller Sanchez',monto:'$14587',tipoFactura:'Exento Iva'},{nroFactura:'12646',cliente:'Taller Sanchez',monto:'$14587',tipoFactura:'Exento Iva'},{nroFactura:'12646',cliente:'Taller Sanchez',monto:'$14587',tipoFactura:'Exento Iva'},{nroFactura:'12646',cliente:'Taller Sanchez',monto:'$14587',tipoFactura:'Exento Iva',}]
   campanasLista: any[] = [{titulo: 'Renovación anticipada', descripcion: 'Renovación de membresía anticipada con 15% de descuento', aplica: 'Membresia nivel 2'},{titulo: 'Ofertas Salenko', descripcion: 'Descuento de 20% en repuestos marca Salenko', aplica: 'Todos'}]
   leadsLista:any[] = [{nombre: 'Rogelio Water', origen: 'RRSS', objetivo: 'Incorporación a clientes'},{nombre: 'Jonnhy Cash', origen: 'RRSS', objetivo: 'Incorporación a clientes'},{nombre: 'Mariano Mastrangelo', origen: 'RRSS', objetivo: 'Venta inmediata'},{nombre: 'Taller Refugio', origen: 'Campaña', objetivo: 'Incorporación a clientes'},{nombre: 'Taller Marijuan', origen: 'Campaña', objetivo: 'Incorporación a clientes'}]
   
   detallar: boolean = false
+  detallesVentasClientes:boolean=false
+  detalleSuscripciones:boolean=false
+  seguimientoEnvio: boolean = false
+  currentStep = 0;
+
+  steps = [
+    { name: 'Pendiente', isDisabled: false },
+    { name: 'En Curso', isDisabled: true },
+    { name: 'En Transporte', isDisabled: true },
+    { name: 'Entregado', isDisabled: true }
+  ];
 
 
   garantiasPV: boolean = true
@@ -371,5 +384,44 @@ borrarPagos(){
 
 mostrarGraficoProveedor(){
 this.graficoProveedor=true
+}
+
+mostrarDetalleVenta(){
+  this.detallesVentasClientes=true
+}
+
+mostrarDetalleSuscripciones(){
+this.detalleSuscripciones=true
+}
+
+mostrarDetallePedidosClientes(){
+
+}
+
+
+finalizar() {
+  this.seguimientoEnvio = false;
+  this.currentStep = 0;
+  this.seguimientoEnvio = true;
+  this.steps = [
+    { name: 'Descripción', isDisabled: false },
+    { name: 'Material', isDisabled: true },
+    { name: 'Evaluación', isDisabled: true },
+    { name: 'Encuesta', isDisabled: true }
+  ];
+  this.seguimientoEnvio = false;
+  alert('Pedido Entregado exitosamente')
+}
+
+nextStep() {
+  if (this.currentStep < this.steps.length - 1) {
+    this.currentStep++;
+    this.steps[this.currentStep].isDisabled = false;
+  } else {
+    this.finalizar();
+  }
+}
+habilitarDemo(){
+  this.seguimientoEnvio = true
 }
 }

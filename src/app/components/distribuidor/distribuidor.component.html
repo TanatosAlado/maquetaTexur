@@ -851,28 +851,28 @@
                     </select>
                     <input class="agendaServicioInput" type="text" placeholder="Razon Social">
                     <input class="agendaServicioInput" type="text" placeholder="Monto">
-                  <br>
-                  <br>
-                  <div>
-                    <input  type="radio" id="tarjeta" name="drone" value="huey" checked />
-                   Forma Pago 1
+                    <br>
+                    <br>
                     <div>
-                        <input type="radio" id="cheque" name="drone" value="huey" />
-                       Forma Pago 2
-                      </div>
+                        <input type="radio" id="tarjeta" name="drone" value="huey" checked />
+                        Forma Pago 1
+                        <div>
+                            <input type="radio" id="cheque" name="drone" value="huey" />
+                            Forma Pago 2
+                        </div>
 
-                      <div>
-                        <input type="radio" id="transferencia" name="drone" value="huey" />
-                       Forma Pago 3
-                      </div>
-                      
-                      <div>
-                        <input type="radio" id="deposito" name="drone" value="huey" />
-                       Forma Pago 4
-                      </div>
-                    
-                  </div>
-                
+                        <div>
+                            <input type="radio" id="transferencia" name="drone" value="huey" />
+                            Forma Pago 3
+                        </div>
+
+                        <div>
+                            <input type="radio" id="deposito" name="drone" value="huey" />
+                            Forma Pago 4
+                        </div>
+
+                    </div>
+
                     <div>
                         <button>Realizar Pago</button>
                     </div>
@@ -885,14 +885,282 @@
                 <li (click)="cambioVenta('ventaCliente'); seleccionarVenta('ventaCliente')"
                     [class.active]="selectedVenta === 'ventaCliente'">Cliente</li>
                 <li (click)="cambioVenta('ventaSuscripciones'); seleccionarVenta('ventaSuscripciones')"
-                    [class.active]="selectedVenta === 'ventaSuscripciones'">Suscricion</li>
+                    [class.active]="selectedVenta === 'ventaSuscripciones'">Suscripcion</li>
                 <li (click)="cambioVenta('ventaPedidos'); seleccionarVenta('ventaPedidos')"
                     [class.active]="selectedVenta === 'ventaPedidos'">Pedidos</li>
                 <li (click)="cambioVenta('ventaFacturas'); seleccionarVenta('ventaFacturas')"
                     [class.active]="selectedVenta === 'ventaFacturas'">Facturas</li>
-                    <li (click)="cambioVenta('ventaAnalisis'); seleccionarVenta('ventaAnalisis')"
+                <li (click)="cambioVenta('ventaAnalisis'); seleccionarVenta('ventaAnalisis')"
                     [class.active]="selectedVenta === 'ventaAnalisis'">Analisis</li>
             </ul>
+        </div>
+        <div *ngIf="ventaCliente" class="container gestioncliente">
+            <div>
+                <h2 style="text-align: center;">
+                    Ventas Detalladas por clientes
+                </h2>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el cliente a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">Apellido</th>
+                                <th style="background-color:  #905868;" scope="col">Nombre</th>
+                                <th style="background-color:  #905868;" scope="col">Teléfono</th>
+                                <th style="background-color:  #905868;" scope="col">CUIT</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let clientes of arrayClientes">
+                                <td>{{clientes.apellido}}</td>
+                                <td>{{clientes.nombre}}</td>
+                                <td>{{clientes.telefono}}</td>
+                                <td>{{clientes.cuit}}</td>
+                                <td style="cursor: pointer;"><i (click)="mostrarDetalleVenta()"
+                                        class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="detallesVentasClientes" class="detalleDistribuidor">
+                <div class="detalleproductosClientes">
+                    <div class="prodAdquiridos">
+                        <h2>Productos adquiridos por el cliente</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">Fecha adquirido</th>
+                                    <th style="background-color:  #905868;" scope="col">Producto</th>
+                                    <th style="background-color:  #905868;" scope="col">Garantía activa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let producto of prodAdquiridos">
+                                    <td>{{producto.fecha}}</td>
+                                    <td>{{producto.producto}}</td>
+                                    <td>{{producto.garantia}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="ventaSuscripciones" class="elearning container">
+            <div>
+                <h2 style="text-align: center;">
+                    Suscripciones por clientes
+                </h2>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el cliente a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">Apellido</th>
+                                <th style="background-color:  #905868;" scope="col">Nombre</th>
+                                <th style="background-color:  #905868;" scope="col">Teléfono</th>
+                                <th style="background-color:  #905868;" scope="col">CUIT</th>
+                                <th style="background-color:  #905868;" scope="col">Membresia</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let clientes of arrayClientes">
+                                <td>{{clientes.apellido}}</td>
+                                <td>{{clientes.nombre}}</td>
+                                <td>{{clientes.telefono}}</td>
+                                <td>{{clientes.cuit}}</td>
+                                <td>{{clientes.nivel}}</td>
+                                <td style="cursor: pointer;"><i (click)="mostrarDetalleSuscripciones()"
+                                        class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div *ngIf="detalleSuscripciones">
+            <div class="agendaServicio">
+                <div>
+                    <h4>Modificar Membresía</h4>
+                </div>
+                <div>
+                    <select class="agendaServicioInput">
+                        <option value="">Perez Juan</option>
+                        <option value="">Gomez Manuel</option>
+                        <option value="">Garcia Mauro</option>
+                        <option value="">Sanchez Alberto</option>
+                    </select>
+                    <select class="agendaServicioInput">
+                        <option value="">Membresía Nivel 0</option>
+                        <option value="">Membresía Nivel 1</option>
+                        <option value="">Membresía Nivel 2</option>
+                    </select>
+
+                    <br>
+                    <div>
+                        <button>Actualizar Membresía</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="ventaPedidos" class="container">
+            <h2 style="text-align: center;">
+                Pedidos por Clientes
+            </h2>
+            <div class="addGarantia">
+                <button>Agregar Pedido</button>
+            </div>
+            <div class="input-container table">
+
+                <br>
+                <input class="table" type="text" placeholder="Ingrese el Pedido a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Cod. Pedido</th>
+                        <th style="background-color:  #905868;" scope="col">Cliente</th>
+                        <th style="background-color:  #905868;" scope="col">Producto</th>
+                        <th style="background-color:  #905868;" scope="col">Cantidad</th>
+                        <th style="background-color:  #905868;" scope="col">Precio</th>
+                        <th style="background-color:  #905868;" scope="col">Forma Entrega</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedidos of arrayPedidos">
+                        <td>{{pedidos.codigo}}</td>
+                        <td>{{pedidos.cliente}}</td>
+                        <td>{{pedidos.nombre}}</td>
+                        <td>{{pedidos.cantidad}}</td>
+                        <td>{{pedidos.precio}}</td>
+                        <td>{{pedidos.entrega}}</td>
+                        <td><i style="cursor: pointer;" (click)="habilitarDemo()" class="fa fa-info-circle"
+                                aria-hidden="true"></i>
+                            <i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o"
+                                aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="seguimientoEnvio" class="seguimientoCurso">
+            <div *ngFor="let step of steps; let i = index" [ngClass]="{'disabled': step.isDisabled}" class="pasosCurso">
+                <h5>{{ step.name }}</h5>
+                <button (click)="nextStep()" [disabled]="step.isDisabled">
+                    {{ i === steps.length - 1 ? 'Finalizar' : 'Siguiente' }}
+                </button>
+            </div>
+        </div>
+        <div *ngIf="ventaFacturas" class="container">
+            <h2 style="text-align: center;">
+                Gestión de Facturas
+            </h2>
+            <div class="addGarantia">
+                <button>Agregar Factura</button>
+            </div>
+            <div class="input-container table">
+
+                <br>
+                <input class="table" type="text" placeholder="Ingrese la factura a buscar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background-color:  #905868;" scope="col">Cod. Pedido</th>
+                        <th style="background-color:  #905868;" scope="col">Cliente</th>
+                        <th style="background-color:  #905868;" scope="col">Producto</th>
+                        <th style="background-color:  #905868;" scope="col">Cantidad</th>
+                        <th style="background-color:  #905868;" scope="col">Precio</th>
+                        <th style="background-color:  #905868;" scope="col">Forma Entrega</th>
+                        <th style="background-color:  #905868;" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedidos of arrayPedidos">
+                        <td>{{pedidos.codigo}}</td>
+                        <td>{{pedidos.cliente}}</td>
+                        <td>{{pedidos.nombre}}</td>
+                        <td>{{pedidos.cantidad}}</td>
+                        <td>{{pedidos.precio}}</td>
+                        <td>{{pedidos.entrega}}</td>
+                        <td><i style="cursor: pointer;" (click)="habilitarDemo()" class="fa fa-info-circle"
+                                aria-hidden="true"></i>
+                            <i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o"
+                                aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="container-pagos">
+                <div class="agendaServicioPagos"style="margin-rigth: 1%">
+
+                    <div>
+                        <h4>Realizar Cobro</h4>
+                    </div>
+                    <div>
+                        <select class="agendaServicioInput">
+                            <option value="">Nombre Cliente</option>
+                            <option value="">Taller Sanchez</option>
+                            <option value="">Taller Perez</option>
+                            <option value="">Taller Gomez</option>
+                            <option value="">Taller Garcia</option>
+                        </select>
+                        <input class="agendaServicioInput" type="text" placeholder="Nro Factura">
+
+                        <br>
+                        
+                        <div>
+                            <button>Enviar Facturas</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="agendaServicioPagos" style="margin-left: 1%;">
+
+                    <div>
+                        <h4>Realizar Pago</h4>
+                    </div>
+                    <div>
+                        <select class="agendaServicioInput">
+                            <option value="">Nombre Cliente</option>
+                            <option value="">Taller Sanchez</option>
+                            <option value="">Taller Perez</option>
+                            <option value="">Taller Gomez</option>
+                            <option value="">Taller Garcia</option>
+                        </select>
+                        <input class="agendaServicioInput" type="text" placeholder="Nro Factura">
+                        <br>
+                        <div>
+                            <button>Cobrar Facturas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="analisisDatos" class="elearning">
             <h1>Analísis de Datos</h1>
