@@ -639,7 +639,24 @@
                 </div>
             </div>
 
-            <div *ngIf="contactosMK"><h1>Contactos</h1></div>
+            <div *ngIf="contactosMK">
+                <div class="detallarGarPvs">
+                    <div class="detalleGarPV">
+                        <p>Campaña: <strong>Descuento 10% por primer membresía</strong></p>
+                        <p>Tipo de contacto: <strong>Lista de mail</strong></p>
+                        <p>Problemas con productos: <strong>No tuvo</strong></p>
+                        <button>Lanzar acción</button>
+                    </div>
+                    <div class="detalleGarPV">
+                        <p>Estado de garantía: <strong>ACTIVA</strong></p>
+                        <p>Cumplimiento de condiciones: <strong>Cumplido 100%</strong></p>
+                        <p>Problemas con productos: <strong>No tuvo</strong></p>
+                        <button (click)="closeDetallarGar()">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+
             <div *ngIf="analisisMK"><h1>analisis</h1></div>
             <div *ngIf="automatizacionMK"><h1>automatizacion</h1></div>
         </div>
