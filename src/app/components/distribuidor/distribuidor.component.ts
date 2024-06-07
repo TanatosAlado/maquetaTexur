@@ -41,6 +41,9 @@ export class DistribuidorComponent {
   arrayFacturas: any = [{ nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva' }, { nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva' }, { nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva' }, { nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva', }]
   campanasLista: any[] = [{ titulo: 'Renovación anticipada', descripcion: 'Renovación de membresía anticipada con 15% de descuento', aplica: 'Membresia nivel 2' }, { titulo: 'Ofertas Salenko', descripcion: 'Descuento de 20% en repuestos marca Salenko', aplica: 'Todos' }]
   leadsLista: any[] = [{ nombre: 'Rogelio Water', origen: 'RRSS', objetivo: 'Incorporación a clientes' }, { nombre: 'Jonnhy Cash', origen: 'RRSS', objetivo: 'Incorporación a clientes' }, { nombre: 'Mariano Mastrangelo', origen: 'RRSS', objetivo: 'Venta inmediata' }, { nombre: 'Taller Refugio', origen: 'Campaña', objetivo: 'Incorporación a clientes' }, { nombre: 'Taller Marijuan', origen: 'Campaña', objetivo: 'Incorporación a clientes' }]
+  contratosListado: any[] = [{numero: '3465', cliente: 'Taller Federal', condicion: 'Cumplimiento de 3 service', precio: 'U$S 250', fecha:'30/06/2024'},{numero: '2385', cliente: 'Taller Continental', condicion: 'Cumplimiento de 3 service + mantenimiento', precio: 'U$S 450', fecha:'07/06/2025'}]
+  automatizacionLista: any[] = [{nombre: 'Amigos referidos', descripcion: 'Traé un amigo y llevate 40% off en proximo service', fecha: '15/06/2024'},{nombre: 'Beneficio Sumatra', descripcion: '15% descuento en repuestos marca Sumatra', fecha: '21/06/2024'}]
+
 
   detallar: boolean = false
   detallesVentasClientes: boolean = false

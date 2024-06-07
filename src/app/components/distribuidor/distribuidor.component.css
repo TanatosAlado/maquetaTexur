@@ -507,3 +507,83 @@ label{
     width: 90%;
     margin-left: 5%;
 }
+
+.contratosVencer{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contratosVencer button{
+    width: 20%;
+    margin-top: 0px;
+}
+
+.contratosPV{
+    text-align: center;
+}
+
+.graficosVentas{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.graficosVentasI {
+    width: 40%;
+}
+
+.graficosVentas img{
+    width: 100%;
+}
+
+.analisisPV{
+    text-align: center;
+}
+
+.informesPVf{
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 15px;
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 15px;
+    padding-bottom: 15px ;
+}
+
+.contactosMK{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.analisisMK{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.analisisMK button{
+    width: 30%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.accionesR{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.automatizacionMK{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.automatizacionMK table{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 50px;
+}

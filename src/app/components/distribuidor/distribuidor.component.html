@@ -429,8 +429,93 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="contratosPV">Contratos</div>
-                <div *ngIf="analisisPV">Analisis</div>
+                <div *ngIf="contratosPV" class="contratosPV">
+                    <h3>Contratos vigentes</h3>
+                    <table class="table informacionPVTabla">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">N°</th>
+                                <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                <th style="background-color:  #905868;" scope="col">Condiciones</th>
+                                <th style="background-color:  #905868;" scope="col">Precio</th>
+                                <th style="background-color:  #905868;" scope="col">Fecha fin de contrato</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contrato of contratosListado">
+                                <td>{{contrato.numero}}</td>
+                                <td>{{contrato.cliente}}</td>
+                                <td>{{contrato.condicion}}</td>
+                                <td>{{contrato.precio}}</td>
+                                <td>{{contrato.fecha}}</td>
+                                <td style="cursor: pointer;">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="agendaServicio">
+                        <div>
+                            <h4>Alta contrato</h4>
+                        </div>
+                        <div>
+                            <input class="agendaServicioInput" type="text" placeholder="Cliente">
+                            <input class="agendaServicioInput" type="text" placeholder="Condiciones">
+                            <input class="agendaServicioInput" type="text" placeholder="Precio">
+                            <input class="agendaServicioInput" type="text" placeholder="Fecha fin contrato">
+                        </div>
+                        <div>
+                            <button>Confirmar</button>
+                        </div>
+                    </div>
+                    <div class="contratosVencer">
+                        <h4>Contratos con menos de 30 días a vencer</h4>
+                        <table class="table informacionPVTabla">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:  #905868;" scope="col">N°</th>
+                                    <th style="background-color:  #905868;" scope="col">Cliente</th>
+                                    <th style="background-color:  #905868;" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>3465</td>
+                                    <td>Taller Federal</td>
+                                    <td style="cursor: pointer;">
+                                        <button>Renovar</button>
+                                        <!-- <i class="fa fa-trash-o" aria-hidden="true"></i> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div *ngIf="analisisPV" class="analisisPV">
+                    <h3>
+                        Informe y análisis
+                    </h3>
+                    <div class="graficosVentas">
+                        <div class="graficosVentasI"><img src="../../../assets/prodVentas.png"></div>
+                        <div class="graficosVentasI"><img src="../../../assets/servVentas.png"></div>
+                    </div>
+
+                    <div class="informesPVf">
+                        <h5>Informes de rentabilidad del servicio</h5>
+                        <h6>Indicadores de ingresos (y resultados): <strong>80%</strong></h6>
+                        <h6>Indicador de desempeño: <strong>95% eficiencia</strong></h6>
+                        <h6>Indicadores de actividad: <strong>Crecimiento 12%</strong></h6>
+                    </div>
+
+                    <div class="informesPVf">
+                        <h5>Informes de satisfacción del cliente</h5>
+                        <h6>Valuación promedio de servicio: <strong>7/10</strong></h6>
+                        <h6>Tasa de recomendación: <strong>25%</strong></h6>
+                        <h6>Tasa de retención de clientes: <strong>38%</strong></h6>
+                        <h6>Tiempo de respuesta efectivo: <strong>5 días</strong></h6>
+                    </div>
+                </div>
             </div>
         </div>
         <div *ngIf="eLearning" class="container eLearning">
@@ -639,26 +724,102 @@
                 </div>
             </div>
 
-            <div *ngIf="contactosMK">
+            <div *ngIf="contactosMK" class="contactosMK">
+                <h3>
+                    Acciones disponibles
+                </h3>
                 <div class="detallarGarPvs">
                     <div class="detalleGarPV">
                         <p>Campaña: <strong>Descuento 10% por primer membresía</strong></p>
                         <p>Tipo de contacto: <strong>Lista de mail</strong></p>
-                        <p>Problemas con productos: <strong>No tuvo</strong></p>
+                        <p>Alcance: <strong>Clientes potenciales</strong></p>
                         <button>Lanzar acción</button>
                     </div>
                     <div class="detalleGarPV">
-                        <p>Estado de garantía: <strong>ACTIVA</strong></p>
-                        <p>Cumplimiento de condiciones: <strong>Cumplido 100%</strong></p>
-                        <p>Problemas con productos: <strong>No tuvo</strong></p>
-                        <button (click)="closeDetallarGar()">Cerrar</button>
+                        <p>Campaña: <strong>Renovación anticipada</strong></p>
+                        <p>Tipo de contacto: <strong>Lista de mail</strong></p>
+                        <p>Alcance: <strong>Clientes con contratos próximos a vencer</strong></p>
+                        <button>Lanzar acción</button>
                     </div>
                 </div>
 
             </div>
 
-            <div *ngIf="analisisMK"><h1>analisis</h1></div>
-            <div *ngIf="automatizacionMK"><h1>automatizacion</h1></div>
+            <div *ngIf="analisisMK" class="analisisMK">
+                <h3>
+                    Acciones realizadas
+                </h3>
+                <div class="accionesR">
+                    <div class="detalleGarPV">
+                        <p>Campaña: <strong>Renovación anticipada</strong></p>
+                        <p>Tipo de contacto: <strong>Lista de mail</strong></p>
+                        <p>Alcance: <strong>Clientes con contratos próximos a vencer</strong></p>
+                        <p>Porcentaje logrado: <strong>48%</strong></p>
+                        <button>Relanzar</button>
+                        <button>Eliminar</button>
+                    </div>
+                    <div class="detalleGarPV">
+                        <p>Campaña: <strong>Tu primer membresía</strong></p>
+                        <p>Tipo de contacto: <strong>Lista de mail</strong></p>
+                        <p>Alcance: <strong>Clientes potenciales</strong></p>
+                        <p>Porcentaje logrado: <strong>23%</strong></p>
+                        <button>Relanzar</button>
+                        <button>Eliminar</button>
+                    </div>
+                    <div class="detalleGarPV">
+                        <p>Campaña: <strong>4 x 3 en servicios</strong></p>
+                        <p>Tipo de contacto: <strong>Lista de mail</strong></p>
+                        <p>Alcance: <strong>Clientes con contratos activos</strong></p>
+                        <p>Porcentaje logrado: <strong>79%</strong></p>
+                        <button>Relanzar</button>
+                        <button>Eliminar</button>
+                    </div>
+                </div>
+                <h4>
+                    Acciones en tendencia
+                </h4>
+                <div class="informesPVf">
+                    
+                    <h6>Objetivo: Ventas - <strong>Acción: Completá tu KIT</strong></h6>
+                    <h6>Objetivo: Reclutamiento - <strong>Acción: Referí a un amigo</strong></h6>
+                    <h6>Objetivo: Fidelización - <strong>Acción: Bonos de descuento</strong></h6>
+                </div>
+            </div>
+            <div *ngIf="automatizacionMK" class="automatizacionMK">
+                <h3>
+                    Tareas programadas
+                </h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:  #905868;" scope="col">Nombre</th>
+                            <th style="background-color:  #905868;" scope="col">Descripción</th>
+                            <th style="background-color:  #905868;" scope="col">Fecha ejecución</th>
+                            <th style="background-color:  #905868;" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let automatizacion of automatizacionLista">
+                            <td>{{automatizacion.nombre}}</td>
+                            <td>{{automatizacion.descripcion}}</td>
+                            <td>{{automatizacion.fecha}}</td>
+                            <td><i style="cursor: pointer;" class="fa fa-trash-o"
+                                    aria-hidden="true"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="agendaServicio">
+                    <div>
+                        <h4>Alta tarea</h4>
+                    </div>
+                    <input class="agendaServicioInput" type="text" placeholder="Nombre">
+                    <input class="agendaServicioInput" type="text" placeholder="Descripción">
+                    <input class="agendaServicioInput" type="text" placeholder="Fecha de ejecución">
+                    <div>
+                        <button>Confirmar</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="compras" class="elearning">
             <ul class="menuPostVenta">
