@@ -1380,8 +1380,71 @@
             </div>
         </div>
 
-        <div *ngIf="analisisDatos" class="elearning">
-            <h1>Gestión de Análisis</h1>
+        <div *ngIf="analisisDatos" class="analisisDatos">
+            <ul class="menuPostVenta">
+                <li (click)="cambioAnalisis('almacenamiento'); seleccionarAnalisis('almacenamiento')"
+                    [class.active]="selectedAnalisis === 'almacenamiento'">Almacenamiento datos</li>
+                <li (click)="cambioAnalisis('analisis'); seleccionarAnalisis('analisis')"
+                    [class.active]="selectedAnalisis === 'analisis'">Analisis datos</li>
+            </ul>
+            <div *ngIf="almacenamientoDatos" class="almacenamientoDatos">
+                <h3>
+                    Estadísticas
+                </h3>
+                <div class="informesPVf">
+                    <h6>Alta de clientes año 2024: <strong>214</strong></h6>
+                    <h6>Total de ventas: <strong>U$S 6.150.750</strong></h6>
+                    <h6>Porcentaje satisfacción Post Venta: <strong>89%</strong></h6>
+                    <h6>Cantidad de garantías vendidas: <strong>119</strong></h6>
+                    <h6>Cantidad de garantías utilizadas: <strong>34 (28,5%)</strong></h6>
+                    <h6>Porcentaje renovación garantías: <strong>83%</strong></h6>
+                </div>
+            </div>
+            <div *ngIf="analisisDeDatos" class="analisisDeDatosT">
+                <h3>Análisis de datos</h3>
+                <div class="estudioDatos">
+                    <div class="datosLinea">
+                        <div class="losDatos">
+                            <div class="datosKpi">
+                                <h5>KPI - Clientes</h5>
+                                <h6>Clientes potenciales año 2024 - <strong>250</strong></h6>
+                                <h6>Clientes nuevos año 2024 - <strong>135</strong></h6>
+                                <h6>Tasa de conersión - <strong>54%</strong></h6>
+                            </div>
+                        </div>
+                        <div class="losDatos">
+                            <img src="../../../assets/tasaConversion.png">
+                        </div>
+                    </div>
+                
+                    <div class="datosLinea">
+                        <div class="losDatos">
+                            <div class="datosKpi">
+                                <h5>KPI Financiera</h5>
+                                <h6>Inversión en campañas - <strong>U$S 850</strong></h6>
+                                <h6>Retribución ajustada - <strong>U$S 2422</strong></h6>
+                                <h6>Retorno de inversión - <strong>285%</strong></h6>
+                            </div>
+                        </div>
+                        <div class="losDatos">
+                            <img src="../../../assets/retorno.png">
+                        </div>
+                    </div>
+                
+                    <div class="datosLinea">
+                        <div class="losDatos">
+                            <div class="datosKpi">
+                                <h5>KPI Fidelización</h5>
+                                <h6>Clientes renovados - <strong>83%</strong></h6>
+                                <h6>Rentabilidad recurrente - <strong>U$S 8250/mes</strong></h6>
+                            </div>
+                        </div>
+                        <div class="losDatos">
+                            <img src="../../../assets/rentabilidad.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="suscripciones" class="mensajero">
             <H1>Suscripciones</H1>

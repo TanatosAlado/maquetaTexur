@@ -19,11 +19,14 @@ export class DistribuidorComponent {
   suscripciones: boolean = false
   detallesDistribuidor: boolean = false
   compartirCurso: boolean = false
+  almacenamientoDatos: boolean = true
+  analisisDeDatos: boolean = false
   selected: string = 'perfilDistribuidor'
   selectedPV: string = 'garantiasPV'
   selectedVenta: string = 'ventaCliente'
   selectedMK: string = 'campanasMK'
   selectedCompra: string = 'proveedoresCompra'
+  selectedAnalisis: string ='almacenamiento'
   arrayClientes: any[] = [{ nombre: 'Juan', apellido: 'Perez', cuit: '11-111111111-1', telefono: 123456789, nivel: 'Nivel 0' }, { nombre: 'Manuel', apellido: 'Gomez', cuit: '22-111111111-2', telefono: 987654321, nivel: 'Nivel 1' }, { nombre: 'Mauro', apellido: 'Garcia', cuit: '33-111111111-3', telefono: 789789788, nivel: 'Nivel 0' }, { nombre: 'Alberto', apellido: 'Sanchez', cuit: '44-111111111-4', telefono: 478885547, nivel: 'Nivel 2' },]
   arrayCursos: any[] = [{ nombrecurso: 'Curso 1', tipo: '../../../assets/video.png', duracion: '40 hs' }, { nombrecurso: 'Curso 2', tipo: '../../../assets/pdf.png', duracion: '5 hs' }, { nombrecurso: 'Curso 3', tipo: '../../../assets/pp.png', duracion: '16 hs' }, { nombrecurso: 'Curso 4', tipo: '../../../assets/video.png', duracion: '8 hs' }]
   prodAdquiridos: any[] = [{ fecha: '09/09/2021', producto: 'Tester hidráulico', garantia: 'No' }, { fecha: '03/10/2022', producto: 'Sopladora', garantia: 'No' }, { fecha: '09/01/2024', producto: 'Extractor', garantia: 'Si' }]
@@ -147,6 +150,20 @@ export class DistribuidorComponent {
         break;
       case 'analisisPV':
         this.analisisPV = true
+        break;
+    }
+  }
+
+  cambioAnalisis(parametro: string) {
+    this.almacenamientoDatos = false
+    this.analisisDeDatos = false
+
+    switch (parametro) {
+      case 'almacenamiento':
+        this.almacenamientoDatos = true
+        break;
+      case 'analisis':
+        this.analisisDeDatos = true
         break;
     }
   }
@@ -380,6 +397,10 @@ export class DistribuidorComponent {
   }
   seleccionar(seccion: string) {
     this.selected = seccion;
+  }
+  
+  seleccionarAnalisis(seccion: string) {
+    this.selectedAnalisis = seccion;
   }
 
   seleccionarPV(seccion: string) {
