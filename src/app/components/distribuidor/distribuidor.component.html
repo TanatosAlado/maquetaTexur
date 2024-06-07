@@ -630,8 +630,8 @@
             <ul class="menuMarketing">
                 <li (click)="cambioMK('campanasMK'); seleccionarMK('campanasMK')"
                     [class.active]="selectedMK === 'campanasMK'">Campañas</li>
-                <li (click)="cambioMK('leadsMK'); seleccionarMK('leadsMK')"
-                    [class.active]="selectedMK === 'leadsMK'">Leads</li>
+                <li (click)="cambioMK('leadsMK'); seleccionarMK('leadsMK')" [class.active]="selectedMK === 'leadsMK'">
+                    Leads</li>
                 <li (click)="cambioMK('contactosMK'); seleccionarMK('contactosMK')"
                     [class.active]="selectedMK === 'contactosMK'">Contactos</li>
                 <li (click)="cambioMK('analisisMK'); seleccionarMK('analisisMK')"
@@ -655,8 +655,7 @@
                             <td>{{campana.titulo}}</td>
                             <td>{{campana.descripcion}}</td>
                             <td>{{campana.aplica}}</td>
-                            <td><i style="cursor: pointer;" class="fa fa-trash-o"
-                                    aria-hidden="true"></i></td>
+                            <td><i style="cursor: pointer;" class="fa fa-trash-o" aria-hidden="true"></i></td>
                         </tr>
                     </tbody>
                 </table>
@@ -666,20 +665,20 @@
                     </div>
                     <input class="agendaServicioInput" type="text" placeholder="Título">
                     <input class="agendaServicioInput" type="text" placeholder="Descripción">
-                        <select class="agendaServicioInput">
-                            <option value="">Membresía Nivel 0</option>
-                            <option value="">Membresía Nivel 1</option>
-                            <option value="">Membresía Nivel 2</option>
-                            <option value="">Todos los niveles</option>
-                        </select>
-                        <select class="agendaServicioInput">
-                            <option value="">Campaña por mail</option>
-                            <option value="">Campaña por RRSS</option>
-                            <option value="">Campaña telefónica</option>
-                        </select>
-                        <input class="agendaServicioInput" type="text" placeholder="Objetivo">
-                        <input class="agendaServicioInput" type="text" placeholder="Presupuesto">
-                        <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
+                    <select class="agendaServicioInput">
+                        <option value="">Membresía Nivel 0</option>
+                        <option value="">Membresía Nivel 1</option>
+                        <option value="">Membresía Nivel 2</option>
+                        <option value="">Todos los niveles</option>
+                    </select>
+                    <select class="agendaServicioInput">
+                        <option value="">Campaña por mail</option>
+                        <option value="">Campaña por RRSS</option>
+                        <option value="">Campaña telefónica</option>
+                    </select>
+                    <input class="agendaServicioInput" type="text" placeholder="Objetivo">
+                    <input class="agendaServicioInput" type="text" placeholder="Presupuesto">
+                    <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
                     <div>
                         <button>Confirmar</button>
                     </div>
@@ -701,8 +700,7 @@
                             <td>{{lead.nombre}}</td>
                             <td>{{lead.origen}}</td>
                             <td>{{lead.objetivo}}</td>
-                            <td><i style="cursor: pointer;" class="fa fa-trash-o"
-                                    aria-hidden="true"></i></td>
+                            <td><i style="cursor: pointer;" class="fa fa-trash-o" aria-hidden="true"></i></td>
                         </tr>
                     </tbody>
                 </table>
@@ -712,12 +710,12 @@
                     </div>
                     <input class="agendaServicioInput" type="text" placeholder="Nombre">
                     <input class="agendaServicioInput" type="text" placeholder="Objetivo">
-                        <select class="agendaServicioInput">
-                            <option value="">RRSS</option>
-                            <option value="">Campaña</option>
-                            <option value="">Recomendación</option>
-                            <option value="">Otro</option>
-                        </select>
+                    <select class="agendaServicioInput">
+                        <option value="">RRSS</option>
+                        <option value="">Campaña</option>
+                        <option value="">Recomendación</option>
+                        <option value="">Otro</option>
+                    </select>
                     <div>
                         <button>Confirmar</button>
                     </div>
@@ -779,7 +777,7 @@
                     Acciones en tendencia
                 </h4>
                 <div class="informesPVf">
-                    
+
                     <h6>Objetivo: Ventas - <strong>Acción: Completá tu KIT</strong></h6>
                     <h6>Objetivo: Reclutamiento - <strong>Acción: Referí a un amigo</strong></h6>
                     <h6>Objetivo: Fidelización - <strong>Acción: Bonos de descuento</strong></h6>
@@ -803,8 +801,7 @@
                             <td>{{automatizacion.nombre}}</td>
                             <td>{{automatizacion.descripcion}}</td>
                             <td>{{automatizacion.fecha}}</td>
-                            <td><i style="cursor: pointer;" class="fa fa-trash-o"
-                                    aria-hidden="true"></i></td>
+                            <td><i style="cursor: pointer;" class="fa fa-trash-o" aria-hidden="true"></i></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1269,9 +1266,8 @@
                         <td>{{pedidos.cantidad}}</td>
                         <td>{{pedidos.precio}}</td>
                         <td>{{pedidos.entrega}}</td>
-                        <td><i style="cursor: pointer;" (click)="habilitarDemo()" class="fa fa-info-circle"
-                                aria-hidden="true"></i>
-                            <i (click)="borrarPedido()" style="cursor: pointer;" class="fa fa-trash-o"
+                        <td>
+                            <i (click)="borrarFactura()" style="cursor: pointer;" class="fa fa-trash-o"
                                 aria-hidden="true"></i>
                         </td>
                     </tr>
@@ -1279,7 +1275,7 @@
             </table>
             <br>
             <div class="container-pagos">
-                <div class="agendaServicioPagos"style="margin-rigth: 1%">
+                <div class="agendaServicioPagos" style="margin-right: 1%;">
 
                     <div>
                         <h4>Realizar Cobro</h4>
@@ -1295,7 +1291,7 @@
                         <input class="agendaServicioInput" type="text" placeholder="Nro Factura">
 
                         <br>
-                        
+
                         <div>
                             <button>Enviar Facturas</button>
                         </div>
@@ -1383,8 +1379,102 @@
         <div *ngIf="analisisDatos" class="elearning">
             <h1>Gestión de Análisis</h1>
         </div>
-        <div *ngIf="suscripciones" class="mensajero">
-            <H1>Suscripciones</H1>
+        <div *ngIf="suscripciones" class="mensajero container">
+            <div>
+                <h2 style="text-align: center;">
+                    Suscripciones Clientes
+                </h2>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el usuario a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #905868;" scope="col">Apellido</th>
+                                <th style="background-color:  #905868;" scope="col">Nombre</th>
+                                <th style="background-color:  #905868;" scope="col">Teléfono</th>
+                                <th style="background-color:  #905868;" scope="col">CUIT</th>
+                                <th style="background-color:  #905868;" scope="col">Suscripción</th>
+                                <th style="background-color:  #905868;" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let clientes of arrayClientes">
+                                <td>{{clientes.apellido}}</td>
+                                <td>{{clientes.nombre}}</td>
+                                <td>{{clientes.telefono}}</td>
+                                <td>{{clientes.cuit}}</td>
+                                <td>{{clientes.nivel}}</td>
+                                <td style="cursor: pointer;"><i (click)="mostrarFichaSuscripcion()" class="fa fa-info-circle"
+                                        aria-hidden="true"></i>
+                                    <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br><br>
+            <div *ngIf=" fichaSuscripcion" class="container-suscripcion">
+                <div class="detalleSuscripcion">
+                    <h2>Ficha del Cliente</h2>
+                    <div class="loginSuscripcion">
+                        <div class="imagen">
+                            <img src="../../../assets/user.png">
+                        </div>
+                        <div class="formulario">
+                            <form class="form">
+                                <label>Apellido</label>
+                                <input type="text" placeholder="Apellido Cliente"><br>
+                                <label>Nombre</label>
+                                <input type="text" placeholder="Nombre Cliente"><br>
+                                <label>Suscripcion</label>
+                                <div>
+                                    <select style=" 
+                                 width: 18rem;
+                                 height: 1.5rem;
+                                 font-size: 0.9rem;
+                                 border: 2px solid rgba(116, 116, 116, 0.2);
+                                ">
+                                        <option value="">Nivel 0</option>
+                                        <option value="">Nivel 1</option>
+                                        <option value="">Nivel 2</option>
+                                    </select>
+                                </div>
+                                <br><br>
+                                <button>ACTUALIZAR SUSCRIPCION</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="precioSuscripcion">
+                    <div class="detalleproductosClientes">
+                        <div class="prodAdquiridos"style="text-align: center;">
+                            <h2 style="margin-top: -37px;" >Precios Suscripciones</h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:  #905868;" scope="col">Nivel Suscripcion</th>
+                                        <th style="background-color:  #905868;" scope="col">Beneficios</th>
+                                        <th style="background-color:  #905868;" scope="col">Costo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let nivel of arraySuscripciones">
+                                        <td>{{nivel.nivel}}</td>
+                                        <td>{{nivel.beneficios}}</td>
+                                        <td>{{nivel.costo}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer">
