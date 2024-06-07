@@ -46,7 +46,7 @@ export class DistribuidorComponent {
   leadsLista: any[] = [{ nombre: 'Rogelio Water', origen: 'RRSS', objetivo: 'Incorporación a clientes' }, { nombre: 'Jonnhy Cash', origen: 'RRSS', objetivo: 'Incorporación a clientes' }, { nombre: 'Mariano Mastrangelo', origen: 'RRSS', objetivo: 'Venta inmediata' }, { nombre: 'Taller Refugio', origen: 'Campaña', objetivo: 'Incorporación a clientes' }, { nombre: 'Taller Marijuan', origen: 'Campaña', objetivo: 'Incorporación a clientes' }]
   contratosListado: any[] = [{numero: '3465', cliente: 'Taller Federal', condicion: 'Cumplimiento de 3 service', precio: 'U$S 250', fecha:'30/06/2024'},{numero: '2385', cliente: 'Taller Continental', condicion: 'Cumplimiento de 3 service + mantenimiento', precio: 'U$S 450', fecha:'07/06/2025'}]
   automatizacionLista: any[] = [{nombre: 'Amigos referidos', descripcion: 'Traé un amigo y llevate 40% off en proximo service', fecha: '15/06/2024'},{nombre: 'Beneficio Sumatra', descripcion: '15% descuento en repuestos marca Sumatra', fecha: '21/06/2024'}]
-
+  arraySuscripciones:any[]=[{nivel:'Nivel 0',beneficios:'Manuales mantenimeinto maquinas, contenido multimedia',costo:'Sin Costo'},{nivel:'Nivel 1',beneficios:'Diagarmas vehículos, procedimientos cusmotizados, generación de reportes por vehículos',costo:'$ 308545'},{nivel:'Nivel 1',beneficios:'Acceso Módulo Elearning, acceso a foro consultas',costo:'$ 587478'}]
 
   detallar: boolean = false
   detallesVentasClientes: boolean = false
@@ -81,7 +81,7 @@ export class DistribuidorComponent {
   ventaFacturas: boolean = false
   ventaAnalisis: boolean = false
   analisisGraficos: boolean = false
-
+  fichaSuscripcion:boolean=false
 
   campanasMK: boolean = true
   leadsMK: boolean = false
@@ -107,18 +107,38 @@ export class DistribuidorComponent {
     switch (parametro) {
       case 'ventaCliente':
         this.ventaCliente = true
+        this.detalleSuscripciones=false
+        this.seguimientoEnvio = false
+        this.analisisGraficos=false
+        this.detallesVentasClientes=false
         break;
       case 'ventaSuscripciones':
         this.ventaSuscripciones = true
+        this.detalleSuscripciones=false
+        this.seguimientoEnvio = false
+        this.analisisGraficos=false
+        this.detallesVentasClientes=false
         break;
       case 'ventaPedidos':
         this.ventaPedidos = true
+        this.detalleSuscripciones=false
+        this.seguimientoEnvio = false
+        this.analisisGraficos=false
+        this.detallesVentasClientes=false
         break;
       case 'ventaFacturas':
         this.ventaFacturas = true
+        this.detalleSuscripciones=false
+        this.seguimientoEnvio = false
+        this.analisisGraficos=false
+        this.detallesVentasClientes=false
         break;
       case 'ventaAnalisis':
         this.ventaAnalisis = true
+        this.detalleSuscripciones=false
+        this.seguimientoEnvio = false
+        this.analisisGraficos=false
+        this.detallesVentasClientes=false
         break;
     }
   }
@@ -392,6 +412,7 @@ export class DistribuidorComponent {
         this.ventaFacturas = false
         this.ventaAnalisis = false
         this.analisisGraficos = false
+        this.fichaSuscripcion=false
         break;
     }
   }
@@ -440,7 +461,9 @@ export class DistribuidorComponent {
     this.eLearning = false
     this.compartirCurso = true
   }
-
+  mostrarFichaSuscripcion(){
+    this.fichaSuscripcion=true
+  }
   cursoAsignado() {
     alert("Curso asignado con éxito")
     this.router.navigate(['distribuidor'])
@@ -493,6 +516,11 @@ export class DistribuidorComponent {
 
   borrarAnalisis() {
     alert('Analisis borrado con éxito')
+    this.detallar = false
+  }
+
+  borrarFactura() {
+    alert('Factura borrada con éxito')
     this.detallar = false
   }
 
