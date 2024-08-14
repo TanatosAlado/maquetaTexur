@@ -361,9 +361,9 @@
             </div>
             <div class="carousel-inner">
               <div *ngFor="let image of imagenesCarrusel; let i = index" 
-                   class="carousel-item" 
+                   class="carousel-item" style="width: 100%;" 
                    [class.active]="i === 0">
-                <img [src]="image.src" class="d-block w-100" [alt]="image.alt">
+                <img [src]="image.src" class="d-block w-100"  [alt]="image.alt">
               </div>
             </div>
             <button class="carousel-control-prev boton-carrusel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
