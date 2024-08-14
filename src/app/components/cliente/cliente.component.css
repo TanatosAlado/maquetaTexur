@@ -419,6 +419,10 @@ i{
     cursor: pointer;
 }
 
+.carritoIcon {
+    margin-right: 25px;
+}
+
 .footer{
     background-color: #054f71;
     position: fixed;

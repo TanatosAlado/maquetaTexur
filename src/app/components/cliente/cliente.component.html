@@ -1,5 +1,6 @@
     <div class="membrete">
         <h2 style="text-align: center;color: white;">Aplicación Web Texur</h2>  
+        <i (click)="carritoOn()" class="fa fa-shopping-cart carritoIcon" aria-hidden="true"></i>
         <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
     </div>
     <div class="cuerpo">
@@ -54,21 +55,21 @@
                             Productos disponibles del distribuidor
                         </h2>
                         <div class="contenedorCard">
-                            <div *ngFor="let producto of productos">
+                            <div *ngFor="let producto of productos; let i = index">
                                 <div class="card">
                                     <img src="{{producto.imagenP}}">
                                     <h5>{{producto.nombre}}</h5>
                                     <h6>Precio: {{producto.precio}}</h6>
-                                    <button>Agregar a pedido</button>
+                                    <button (click)="cargarProd(i)">Agregar a pedido</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="resumen">
+                    <div *ngIf="mostrarCarro" class="resumen">
                         <h4>Pedido actual</h4>
-                        <div *ngFor="let producto of productosRes">
+                        <div *ngFor="let producto of productosRes; let i = index">
                             <div class="cardRes">
-                                <img src="../../../assets/car.png">
+                                <img src="{{producto.imagenP}}">
                                 <h5>{{producto.nombre}}</h5>
                                 <h6>Precio: {{producto.precio}}</h6>
                                 <div class="botonera">
@@ -76,10 +77,11 @@
                                     <p>Cantidad: 2</p>
                                     <a><strong>+</strong></a>
                                 </div>
-                                <button>Eliminar</button>
+                                <button (click)="borrarProd(i)">Eliminar</button>
                             </div>
                         </div>
                         <button>Realizar pedido</button>
+                        <button (click)="carritoOff()">Cerrar</button>
                     </div>
                 </div>
             </div>

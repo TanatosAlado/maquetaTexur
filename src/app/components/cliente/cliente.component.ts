@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent {
-
+  mostrarCarro:boolean = false
   perfil: boolean = true
   compras: boolean = false
   postventa: boolean = false
@@ -33,7 +33,7 @@ export class ClienteComponent {
   productos: any[] = [{nombre: 'Icegard Oro', precio: 55, imagenP: '../../../assets/Icegard Oro.png'},{nombre: 'Rally Pro', precio: 55, imagenP: '../../../assets/Rally Pro.png'},{nombre: 'Icegard Verde', precio: 55, imagenP: '../../../assets/Icegard Verde.png'}
   ,{nombre: 'Icegard Blu', precio: 55, imagenP: '../../../assets/Icegard Blu.png'},{nombre: 'Icegard Rosso', precio: 55, imagenP: '../../../assets/Icegard Rosso.png'}]
 
-  productosRes: any[] = [{nombre: 'destornillador', precio: 55}]
+  productosRes: any[] = []
 
   mensajes: any[] = [{asunto: 'Renovación de licencia', cuerpo: 'Se informa que el período de licencia está cercano a su fin', fecha: '20/05/2024', de: 'Distribuidor Oficial'}, 
   {asunto: 'Oferta en productos', cuerpo: 'Oferta semanal: 30% off en repuestos marca Agro', fecha: '27/05/2024', de: 'Distribuidor Oficial'}, 
@@ -145,5 +145,20 @@ export class ClienteComponent {
     this.seguimientoCurso = true
   }
 
+  carritoOn(){
+    this.mostrarCarro = true
+  }
+
+  carritoOff(){
+    this.mostrarCarro = false
+  }
+
+  cargarProd(indice: number){
+    this.productosRes.push(this.productos[indice])
+  }
+
+  borrarProd(indice: number){
+    this.productosRes.splice(indice, 1)
+  }
 
 }
