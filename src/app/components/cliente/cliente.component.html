@@ -56,7 +56,7 @@
                         <div class="contenedorCard">
                             <div *ngFor="let producto of productos">
                                 <div class="card">
-                                    <img src="../../../assets/car.png">
+                                    <img src="{{producto.imagenP}}">
                                     <h5>{{producto.nombre}}</h5>
                                     <h6>Precio: {{producto.precio}}</h6>
                                     <button>Agregar a pedido</button>

@@ -30,8 +30,8 @@ export class ClienteComponent {
 
   selected: string = 'perfil'
   selectedPV: string = 'garantiaPV'
-  productos: any[] = [{nombre: 'Destornillador', precio: 55},{nombre: 'destornillador', precio: 55},{nombre: 'destornillador', precio: 55}
-  ,{nombre: 'destornillador', precio: 55},{nombre: 'destornillador', precio: 55},{nombre: 'Destornillador', precio: 55}]
+  productos: any[] = [{nombre: 'Icegard Oro', precio: 55, imagenP: '../../../assets/Icegard Oro.png'},{nombre: 'Rally Pro', precio: 55, imagenP: '../../../assets/Rally Pro.png'},{nombre: 'Icegard Verde', precio: 55, imagenP: '../../../assets/Icegard Verde.png'}
+  ,{nombre: 'Icegard Blu', precio: 55, imagenP: '../../../assets/Icegard Blu.png'},{nombre: 'Icegard Rosso', precio: 55, imagenP: '../../../assets/Icegard Rosso.png'}]
 
   productosRes: any[] = [{nombre: 'destornillador', precio: 55}]
 
