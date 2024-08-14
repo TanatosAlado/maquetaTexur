@@ -25,6 +25,7 @@ body{
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    background-image: url(../../../assets/TexurConsulting.svg);
 }
 
 h1{
@@ -54,7 +55,6 @@ h1{
 label{
     font-size: 1.3rem;
     padding: 0.3rem;
-    color: #905868;
     font-weight: bold;
 }
 
@@ -63,10 +63,10 @@ button{
     width: 19rem;
     height: 2.4rem;
     font-weight: bold;
-    border: 2px solid #905868;
+    border: 2px solid #054f71;
     border-radius: 1rem;
     font-size: 1rem;
-    background-color: #905868;
+    background-color: #054f71;
     color: #fff;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(76, 76, 76, 0.75);
@@ -78,7 +78,8 @@ button{
     justify-content: center; 
     position: relative; 
     height: 50px; 
-    background-color: lightblue;
+    background-color: #054f71;
+    color: white;
 }
 
 .membrete h2 {
@@ -95,10 +96,11 @@ button{
 }
 
 .footer{
-    background-color: lightskyblue;
+    background-color: #054f71;
     position: fixed;
     bottom: 0;
     width: 100%; 
     text-align: center;
     font-size: 15px;
+    color: white;
 }
