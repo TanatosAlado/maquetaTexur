@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit  } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ClienteComponent {
   mostrarCarro:boolean = false
+  // mostrarCarrusel:boolean=false
   perfil: boolean = true
   compras: boolean = false
   postventa: boolean = false
@@ -18,14 +19,19 @@ export class ClienteComponent {
   contratoPV: boolean = false
   hizoConsulta: boolean = false
   seguimientoCurso: boolean = false
-
-  currentStep = 0;
-
+   currentStep = 0;
   steps = [
     { name: 'Descripción', isDisabled: false },
     { name: 'Material', isDisabled: true },
     { name: 'Evaluación', isDisabled: true },
     { name: 'Encuesta', isDisabled: true }
+  ];
+  imagenesCarrusel = [
+    { src: '../../../assets/Rally Pro.png', alt: 'Foto 1' },
+    { src: '../../../assets/Icegard Oro.png', alt: 'Foto 2' },
+    { src: '../../../assets/Icegard Rosso.png', alt: 'Foto 3' },
+    { src: '../../../assets/Icegard Verde.png', alt: 'Foto 4' },
+    { src: '../../../assets/Icegard Blu.png', alt: 'Foto 5' }
   ];
 
   selected: string = 'perfil'
@@ -48,6 +54,8 @@ export class ClienteComponent {
   constructor(private router: Router){
 
   }
+  
+ 
 
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {
@@ -57,6 +65,7 @@ export class ClienteComponent {
       this.finalizar();
     }
   }
+  
 
   finalizar() {
     this.seguimientoCurso = false;

@@ -108,6 +108,19 @@ button{
     cursor: pointer;
     box-shadow: 0 0 5px rgba(76, 76, 76, 0.75);
 }
+.boton-carrusel{
+    width: 2rem;
+    margin-top: 50%;
+    height: 2.4rem;
+    font-weight: bold;
+    border: 2px solid #054f71;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: #054f71;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(76, 76, 76, 0.75);
+}
 
 .perfil h2{
     text-align: center;
@@ -417,10 +430,6 @@ i{
     position: absolute;
     right: 10px; 
     cursor: pointer;
-}
-
-.carritoIcon {
-    margin-right: 25px;
 }
 
 .footer{

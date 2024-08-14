@@ -27,6 +27,9 @@
         <div class="panelDer" style="background-color:grey;">
             <div *ngIf="perfil" class="perfil">
                 <h2>Perfil del cliente</h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carouselModal">
+                    Abrir Carrusel
+                  </button>
                 <div class="login">
                     <div class="imagen">
                         <img src="../../../assets/user.png">
@@ -332,6 +335,47 @@
             </div>
         </div>
     </div>
+   
     <div class="footer">
         <h4>Desarrollado por <span>EsteroTech</span></h4>
     </div>
+<!-- Modal -->
+<div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button style="width: 5%;height: 2%;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Carrusel -->
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button *ngFor="let image of imagenesCarrusel; let i = index" 
+                      type="button" 
+                      data-bs-target="#carouselExampleIndicators" 
+                      [attr.data-bs-slide-to]="i" 
+                      [class.active]="i === 0" 
+                      aria-current="true" 
+                      [attr.aria-label]="'Slide ' + (i + 1)">
+              </button>
+            </div>
+            <div class="carousel-inner">
+              <div *ngFor="let image of imagenesCarrusel; let i = index" 
+                   class="carousel-item" 
+                   [class.active]="i === 0">
+                <img [src]="image.src" class="d-block w-100" [alt]="image.alt">
+              </div>
+            </div>
+            <button class="carousel-control-prev boton-carrusel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next boton-carrusel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

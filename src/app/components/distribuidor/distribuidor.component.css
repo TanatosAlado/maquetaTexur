@@ -255,12 +255,13 @@ i{
 
 .footer{
    
-    background-color: lightskyblue;
+    background-color: #054f71;
     position: fixed;
     bottom: 0;
     width: 100%; 
     text-align: center;
     font-size: 15px;
+    color: white;
 }
 
 .table img{
