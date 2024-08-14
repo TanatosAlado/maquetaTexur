@@ -60,7 +60,7 @@
                                     <img src="{{producto.imagenP}}">
                                     <h5>{{producto.nombre}}</h5>
                                     <h6>Precio: {{producto.precio}}</h6>
-                                    <button>Ver detalles</button>
+                                    <button (click)="mostrarDetalle(i)">Ver detalles</button>
                                     <button (click)="cargarProd(i)">Agregar a pedido</button>
                                 </div>
                             </div>
@@ -333,6 +333,28 @@
             </div>
         </div>
     </div>
+    <div *ngIf="modalDetalle" class="confirmation-dialog">
+        <div class="dialog-content">
+            <div class="detalleModalP">
+                <div class="fotoYdesc">
+                    <h2>{{this.productos[this.indexProducto].nombre}}</h2>
+                    <img src="{{this.productos[this.indexProducto].imagenP}}" alt="">
+                    <!-- <p>{{this.productos[this.indexProducto].descripcion}}</p> -->
+                </div>
+                <div class="caracYfoto">
+                    <h3>Características</h3>
+                    <img src="{{this.productos[this.indexProducto].caracteristicas}}" alt="">
+                </div>
+            </div>
+
+            <div>
+                <p>{{this.productos[this.indexProducto].descripcion}}</p>
+            </div>
+            <button (click)="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
+
+
     <div class="footer">
         <h4>Desarrollado por <span>EsteroTech</span></h4>
     </div>
