@@ -90,7 +90,6 @@ h1{
 label{
     font-size: 1.3rem;
     padding: 0.3rem;
-    color: #905868;
     font-weight: bold;
 }
 
@@ -208,6 +207,9 @@ label{
 .formulario{
     display: flex;
     justify-content: center;
+}
+i{
+    color: white;
 }
 
 .membrete {
