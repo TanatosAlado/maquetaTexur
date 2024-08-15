@@ -1,4 +1,4 @@
-import { Component, AfterViewInit  } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ClienteComponent {
   modalDetalle: boolean = false
-  mostrarCarro:boolean = false
-  // mostrarCarrusel:boolean=false
+  mostrarCarro: boolean = false
   perfil: boolean = true
   compras: boolean = false
   postventa: boolean = false
@@ -21,10 +20,10 @@ export class ClienteComponent {
   hizoConsulta: boolean = false
   seguimientoCurso: boolean = false
   indexProducto: number = 0
-
+  modalCarrusel: boolean = false
   currentStep = 0;
 
-   
+
   steps = [
     { name: 'Descripción', isDisabled: false },
     { name: 'Material', isDisabled: true },
@@ -41,26 +40,36 @@ export class ClienteComponent {
 
   selected: string = 'perfil'
   selectedPV: string = 'garantiaPV'
-  productos: any[] = [{nombre: 'Icegard Oro', precio: 55, imagenP: '../../../assets/Icegard Oro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicasOro.png'},{nombre: 'Rally Pro', precio: 55, imagenP: '../../../assets/Rally Pro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRallyPro.png'},{nombre: 'Icegard Verde', precio: 55, imagenP: '../../../assets/Icegard Verde.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaVerde.png'}
-  ,{nombre: 'Icegard Blu', precio: 55, imagenP: '../../../assets/Icegard Blu.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaBlu.png'},{nombre: 'Icegard Rosso', precio: 55, imagenP: '../../../assets/Icegard Rosso.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRosso.png'}]
+  productos: any[] = [{ nombre: 'Icegard Oro', precio: 55, imagenP: '../../../assets/Icegard Oro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicasOro.png' }, { nombre: 'Rally Pro', precio: 55, imagenP: '../../../assets/Rally Pro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRallyPro.png' }, { nombre: 'Icegard Verde', precio: 55, imagenP: '../../../assets/Icegard Verde.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaVerde.png' }
+    , { nombre: 'Icegard Blu', precio: 55, imagenP: '../../../assets/Icegard Blu.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaBlu.png' }, { nombre: 'Icegard Rosso', precio: 55, imagenP: '../../../assets/Icegard Rosso.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRosso.png' }]
 
   productosRes: any[] = []
 
-  mensajes: any[] = [{asunto: 'Renovación de licencia', cuerpo: 'Se informa que el período de licencia está cercano a su fin', fecha: '20/05/2024', de: 'Distribuidor Oficial'}, 
-  {asunto: 'Oferta en productos', cuerpo: 'Oferta semanal: 30% off en repuestos marca Agro', fecha: '27/05/2024', de: 'Distribuidor Oficial'}, 
-  {asunto: 'Mantanimiento equipo XX', cuerpo: 'Se informa que el service deberá realizar en 30 días', fecha: '31/05/2024', de: 'Distribuidor Oficial'},
+  mensajes: any[] = [{ asunto: 'Renovación de licencia', cuerpo: 'Se informa que el período de licencia está cercano a su fin', fecha: '20/05/2024', de: 'Distribuidor Oficial' },
+  { asunto: 'Oferta en productos', cuerpo: 'Oferta semanal: 30% off en repuestos marca Agro', fecha: '27/05/2024', de: 'Distribuidor Oficial' },
+  { asunto: 'Mantanimiento equipo XX', cuerpo: 'Se informa que el service deberá realizar en 30 días', fecha: '31/05/2024', de: 'Distribuidor Oficial' },
   ]
 
-  materialLibre: any[] = [{nombre: 'Instructivo puesta en marcha', descripcion: 'Paso a paso para poner en marcha equipos XX', duracion: '30 minutos' , tipo: "../../../assets/pdf.png"},
-  {nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png"},
-  {nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos',  tipo: "../../../assets/video.png"}]
+  materialLibre: any[] = [{ nombre: 'Instructivo puesta en marcha', descripcion: 'Paso a paso para poner en marcha equipos XX', duracion: '30 minutos', tipo: "../../../assets/pdf.png" },
+  { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
+  { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
 
 
-  constructor(private router: Router){
+  constructor(private router: Router) {
 
   }
-  
- 
+
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.modalCarrusel = true; // Muestra el modal después de 2 segundos
+    }, 2000);
+  }
+
+  cerrarCarrusel(){
+    this.modalCarrusel=false
+  }
+
 
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {
@@ -70,7 +79,7 @@ export class ClienteComponent {
       this.finalizar();
     }
   }
-  
+
 
   finalizar() {
     this.seguimientoCurso = false;
@@ -86,27 +95,27 @@ export class ClienteComponent {
     alert('Curso finalizado exitosamente')
   }
 
-  cambio(parametro: string){
-    this.perfil= false
-    this.compras= false
-    this.postventa= false
-    this.elearning= false
-    this.mensajero= false
+  cambio(parametro: string) {
+    this.perfil = false
+    this.compras = false
+    this.postventa = false
+    this.elearning = false
+    this.mensajero = false
 
     switch (parametro) {
-      case 'perfil': 
+      case 'perfil':
         this.perfil = true
         break;
-      case 'compras': 
+      case 'compras':
         this.compras = true
         break;
-      case 'postventa': 
+      case 'postventa':
         this.postventa = true
         break;
-      case 'elearning': 
+      case 'elearning':
         this.elearning = true
         break;
-      case 'mensajero': 
+      case 'mensajero':
         this.mensajero = true
         break;
     }
@@ -120,67 +129,67 @@ export class ClienteComponent {
     this.selectedPV = seccion;
   }
 
-  cambioOpcionPV(parametro: string){
-    this.garantiaPV= false
-    this.serviciosPV= false
-    this.contratoPV= false
-    
+  cambioOpcionPV(parametro: string) {
+    this.garantiaPV = false
+    this.serviciosPV = false
+    this.contratoPV = false
+
 
     switch (parametro) {
-      case 'garantiaPV': 
+      case 'garantiaPV':
         this.garantiaPV = true
         break;
-      case 'serviciosPV': 
+      case 'serviciosPV':
         this.serviciosPV = true
         break;
-      case 'contratoPV': 
+      case 'contratoPV':
         this.contratoPV = true
         break;
     }
   }
 
-  actualizar(){
+  actualizar() {
 
   }
 
-  agendado(){
+  agendado() {
     alert('Turno agendado con exito. Numero de seguimiento: 1234')
   }
 
-  consultado(){
+  consultado() {
     this.hizoConsulta = true
   }
 
-  logout(){
+  logout() {
     this.router.navigate([''])
   }
 
-  habilitarDemo(){
+  habilitarDemo() {
     this.seguimientoCurso = true
   }
 
-  carritoOn(){
+  carritoOn() {
     this.mostrarCarro = true
   }
 
-  carritoOff(){
+  carritoOff() {
     this.mostrarCarro = false
   }
 
-  cargarProd(indice: number){
+  cargarProd(indice: number) {
     this.productosRes.push(this.productos[indice])
   }
 
-  borrarProd(indice: number){
+  borrarProd(indice: number) {
     this.productosRes.splice(indice, 1)
   }
 
-  mostrarDetalle(indice: number){
+  mostrarDetalle(indice: number) {
     this.indexProducto = indice
     this.modalDetalle = true
   }
 
-  cerrarDetalle(){
+  cerrarDetalle() {
     this.modalDetalle = false
   }
 

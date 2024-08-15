@@ -1,376 +1,404 @@
-    <div class="membrete">
-        <h2 style="text-align: center;color: white;">Aplicación Web Texur</h2>  
-        <i (click)="carritoOn()" class="fa fa-shopping-cart carritoIcon" aria-hidden="true"></i>
-        <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
-    </div>
-    <div class="cuerpo">
-        <div class="panelIzq menu" style="background-color: lightgrey;">
-            <h2>Carlos Perez</h2>
-            <div class="imagen">
-                <img src="../../../assets/user.png">
-            </div>
-            <div>
-                <ul>
-                    <li (click)="cambio('perfil'); seleccionar('perfil')" [class.active]="selected === 'perfil'">Perfil
-                    </li>
-                    <li (click)="cambio('compras'); seleccionar('compras')" [class.active]="selected === 'compras'">
-                        Compras</li>
-                    <li (click)="cambio('postventa'); seleccionar('postventa')"
-                        [class.active]="selected === 'postventa'">Post Venta</li>
-                    <li (click)="cambio('elearning'); seleccionar('elearning')"
-                        [class.active]="selected === 'elearning'">E-learning</li>
-                    <li (click)="cambio('mensajero'); seleccionar('mensajero')"
-                        [class.active]="selected === 'mensajero'">Mensajero</li>
-                </ul>
-            </div>
+<div class="membrete">
+    <h2 style="text-align: center;color: white;">Aplicación Web Texur</h2>
+    <i (click)="carritoOn()" class="fa fa-shopping-cart carritoIcon" aria-hidden="true"></i>
+    <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
+</div>
+<div class="cuerpo">
+    <div class="panelIzq menu" style="background-color: lightgrey;">
+        <h2>Carlos Perez</h2>
+        <div class="imagen">
+            <img src="../../../assets/user.png">
         </div>
-        <div class="panelDer" style="background-color:grey;">
-            <div *ngIf="perfil" class="perfil">
-                <h2>Perfil del cliente</h2>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carouselModal">
-                    Abrir Carrusel
-                  </button>
-                <div class="login">
-                    <div class="imagen">
-                        <img src="../../../assets/user.png">
-                    </div>
-                    <div class="formulario">
-                        <form class="form">
-                            <label>Usuario</label>
-                            <input type="text" placeholder="Ingrese su usuario"><br>
-                            <label>Password</label>
-                            <input type="password" placeholder="Ingrese su clave"><br>
-                            <label>CUIT</label>
-                            <input type="text" placeholder="Ingrese su CUIT"><br>
-                            <label>Razon Social</label>
-                            <input type="text" placeholder="Ingrese su Razon Social"><br>
-                            <label>CUIT Cliente</label>
-                            <input type="text" placeholder="CUIT"><br>
-                            <button (click)="actualizar()">ACTUALIZAR</button>
-                        </form>
-                    </div>
+        <div>
+            <ul>
+                <li (click)="cambio('perfil'); seleccionar('perfil')" [class.active]="selected === 'perfil'">Perfil
+                </li>
+                <li (click)="cambio('compras'); seleccionar('compras')" [class.active]="selected === 'compras'">
+                    Compras</li>
+                <li (click)="cambio('postventa'); seleccionar('postventa')" [class.active]="selected === 'postventa'">
+                    Post Venta</li>
+                <li (click)="cambio('elearning'); seleccionar('elearning')" [class.active]="selected === 'elearning'">
+                    E-learning</li>
+                <li (click)="cambio('mensajero'); seleccionar('mensajero')" [class.active]="selected === 'mensajero'">
+                    Mensajero</li>
+            </ul>
+        </div>
+    </div>
+    <div class="panelDer" style="background-color:grey;">
+        <div *ngIf="perfil" class="perfil">
+            <h2>Perfil del cliente</h2>
+            <div class="login">
+                <div class="imagen">
+                    <img src="../../../assets/user.png">
+                </div>
+                <div class="formulario">
+                    <form class="form">
+                        <label>Usuario</label>
+                        <input type="text" placeholder="Ingrese su usuario"><br>
+                        <label>Password</label>
+                        <input type="password" placeholder="Ingrese su clave"><br>
+                        <label>CUIT</label>
+                        <input type="text" placeholder="Ingrese su CUIT"><br>
+                        <label>Razon Social</label>
+                        <input type="text" placeholder="Ingrese su Razon Social"><br>
+                        <label>CUIT Cliente</label>
+                        <input type="text" placeholder="CUIT"><br>
+                        <button (click)="actualizar()">ACTUALIZAR</button>
+                    </form>
                 </div>
             </div>
-            <div *ngIf="compras" class="compras container">
-                <div class="cuerpoCompras">
-                    <div class="productos">
-                        <h2>
-                            Productos disponibles del distribuidor
-                        </h2>
-                        <div class="contenedorCard">
-                            <div *ngFor="let producto of productos; let i = index">
-                                <div class="card">
-                                    <img src="{{producto.imagenP}}">
-                                    <h5>{{producto.nombre}}</h5>
-                                    <h6>Precio: {{producto.precio}}</h6>
-                                    <button (click)="mostrarDetalle(i)">Ver detalles</button>
-                                    <button (click)="cargarProd(i)">Agregar a pedido</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf="mostrarCarro" class="resumen">
-                        <h4>Pedido actual</h4>
-                        <div *ngFor="let producto of productosRes; let i = index">
-                            <div class="cardRes">
+        </div>
+        <div *ngIf="compras" class="compras container">
+            <div class="cuerpoCompras">
+                <div class="productos">
+                    <h2>
+                        Productos disponibles del distribuidor
+                    </h2>
+                    <div class="contenedorCard">
+                        <div *ngFor="let producto of productos; let i = index">
+                            <div class="card">
                                 <img src="{{producto.imagenP}}">
                                 <h5>{{producto.nombre}}</h5>
                                 <h6>Precio: {{producto.precio}}</h6>
-                                <div class="botonera">
-                                    <a><strong>-</strong></a>
-                                    <p>Cantidad: 2</p>
-                                    <a><strong>+</strong></a>
-                                </div>
-                                <button (click)="borrarProd(i)">Eliminar</button>
+                                <button (click)="mostrarDetalle(i)">Ver detalles</button>
+                                <button (click)="cargarProd(i)">Agregar a pedido</button>
                             </div>
                         </div>
-                        <button>Realizar pedido</button>
-                        <button (click)="carritoOff()">Cerrar</button>
                     </div>
                 </div>
-            </div>
-            <div *ngIf="postventa" class="postventa container">
-                <div class="cuerpoPV">
-                    <div class="misProductos">
-                        <h4>Mis productos</h4>
-                        <div class="cardProd">
-                            <img src="../../../assets/car.png">
-                            <h5>Producto 1</h5>
-                            <button>Ver detalle</button>
-                        </div>
-                        <div class="cardProd">
-                            <img src="../../../assets/car.png">
-                            <h5>Producto 2</h5>
-                            <button>Ver detalle</button>
+                <div *ngIf="mostrarCarro" class="resumen">
+                    <h4>Pedido actual</h4>
+                    <div *ngFor="let producto of productosRes; let i = index">
+                        <div class="cardRes">
+                            <img src="{{producto.imagenP}}">
+                            <h5>{{producto.nombre}}</h5>
+                            <h6>Precio: {{producto.precio}}</h6>
+                            <div class="botonera">
+                                <a><strong>-</strong></a>
+                                <p>Cantidad: 2</p>
+                                <a><strong>+</strong></a>
+                            </div>
+                            <button (click)="borrarProd(i)">Eliminar</button>
                         </div>
                     </div>
-                    <div class="infoProductos">
-                        <div class="detallesProd">
-                            <div class="opcionesProd">
-                                <h4>Gestión producto</h4>
-                                <div class="cabecerasProd">
-                                    <ul class="opcionesPV">
-                                        <li (click)="cambioOpcionPV('garantiaPV'); seleccionarPV('garantiaPV')"
-                                            [class.active]="selectedPV === 'garantiaPV'">Garantía</li>
-                                        <li (click)="cambioOpcionPV('serviciosPV'); seleccionarPV('serviciosPV')"
-                                            [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
-                                        <li (click)="cambioOpcionPV('contratoPV'); seleccionarPV('contratoPV')"
-                                            [class.active]="selectedPV === 'contratoPV'">Contrato</li>
-                                    </ul>
+                    <button>Realizar pedido</button>
+                    <button (click)="carritoOff()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="postventa" class="postventa container">
+            <div class="cuerpoPV">
+                <div class="misProductos">
+                    <h4>Mis productos</h4>
+                    <div class="cardProd">
+                        <img src="../../../assets/car.png">
+                        <h5>Producto 1</h5>
+                        <button>Ver detalle</button>
+                    </div>
+                    <div class="cardProd">
+                        <img src="../../../assets/car.png">
+                        <h5>Producto 2</h5>
+                        <button>Ver detalle</button>
+                    </div>
+                </div>
+                <div class="infoProductos">
+                    <div class="detallesProd">
+                        <div class="opcionesProd">
+                            <h4>Gestión producto</h4>
+                            <div class="cabecerasProd">
+                                <ul class="opcionesPV">
+                                    <li (click)="cambioOpcionPV('garantiaPV'); seleccionarPV('garantiaPV')"
+                                        [class.active]="selectedPV === 'garantiaPV'">Garantía</li>
+                                    <li (click)="cambioOpcionPV('serviciosPV'); seleccionarPV('serviciosPV')"
+                                        [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                                    <li (click)="cambioOpcionPV('contratoPV'); seleccionarPV('contratoPV')"
+                                        [class.active]="selectedPV === 'contratoPV'">Contrato</li>
+                                </ul>
 
-                                </div>
                             </div>
-                            <div class="detallesCompletos">
-                                <div *ngIf="garantiaPV" class="garantiaProd">
-                                    <h4>
-                                        <p>Cobertura</p>
-                                    </h4>
-                                    <h6>
-                                        <p>La garantía de este producto cubre defectos de fabricación y materiales por
-                                            un período determinado. Incluye reparaciones o reemplazos sin costo
-                                            adicional para el cliente, siempre que se cumplan las condiciones del uso
-                                            adecuado y se presente el comprobante de compra. No cubre daños por mal uso
-                                            o desgaste normal.</p>
-                                    </h6>
-                                </div>
-                                <div *ngIf="serviciosPV">
-                                    <h4>
-                                        <p>Gestión de servicios</p>
-                                    </h4>
-                                    <div class="servicios">
-                                        <div class="solicitud">
-                                            <h5>
-                                                <p>Solicitud de servicio</p>
-                                            </h5>
-                                            <div class="container mt-3">
+                        </div>
+                        <div class="detallesCompletos">
+                            <div *ngIf="garantiaPV" class="garantiaProd">
+                                <h4>
+                                    <p>Cobertura</p>
+                                </h4>
+                                <h6>
+                                    <p>La garantía de este producto cubre defectos de fabricación y materiales por
+                                        un período determinado. Incluye reparaciones o reemplazos sin costo
+                                        adicional para el cliente, siempre que se cumplan las condiciones del uso
+                                        adecuado y se presente el comprobante de compra. No cubre daños por mal uso
+                                        o desgaste normal.</p>
+                                </h6>
+                            </div>
+                            <div *ngIf="serviciosPV">
+                                <h4>
+                                    <p>Gestión de servicios</p>
+                                </h4>
+                                <div class="servicios">
+                                    <div class="solicitud">
+                                        <h5>
+                                            <p>Solicitud de servicio</p>
+                                        </h5>
+                                        <div class="container mt-3">
 
-                                                <div class="form-group mr-2">
-                                                    <label for="tipoSolicitud" class="mr-2">Tipo</label>
-                                                    <select id="tipoSolicitud" class="form-control">
-                                                        <option value="Mantenimiento">Mantenimiento</option>
-                                                        <option value="Reparacion">Reparación</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group mr-2">
-                                                    <label for="descripcion" class="mr-2">Descripción</label>
-                                                    <input type="text" id="descripcion" class="form-control"
-                                                        placeholder="Descripción">
-                                                </div>
-                                                <button type="button" (click)="agendado()"
-                                                    class="btn btn-primary">Solicitar</button>
-
+                                            <div class="form-group mr-2">
+                                                <label for="tipoSolicitud" class="mr-2">Tipo</label>
+                                                <select id="tipoSolicitud" class="form-control">
+                                                    <option value="Mantenimiento">Mantenimiento</option>
+                                                    <option value="Reparacion">Reparación</option>
+                                                </select>
                                             </div>
+                                            <div class="form-group mr-2">
+                                                <label for="descripcion" class="mr-2">Descripción</label>
+                                                <input type="text" id="descripcion" class="form-control"
+                                                    placeholder="Descripción">
+                                            </div>
+                                            <button type="button" (click)="agendado()"
+                                                class="btn btn-primary">Solicitar</button>
+
                                         </div>
-                                        <div class="seguimiento">
-                                            <h5>
-                                                <p>Seguimiento de servicio</p>
-                                            </h5>
-                                            <div class="container mt-3">
-                                                <div class="form-group mr-2">
-                                                    <label for="descripcion" class="mr-2">Numero de seguimiento</label>
-                                                    <input type="text" id="descripcion" class="form-control"
-                                                        placeholder="Descripción" value="1234">
-                                                </div>
-                                                <button type="button" (click)="consultado()"
-                                                    class="btn btn-primary">Consulta</button>
-                                                <div *ngIf="hizoConsulta">
-                                                    <br>
-                                                    <p><strong>Estado: </strong>Pendiente</p>
-                                                    <p><strong>Fecha: </strong>01/07/2024</p>
-                                                    <p><strong>Costo: </strong>Sin costo - Corre por garantía</p>
-                                                </div>
+                                    </div>
+                                    <div class="seguimiento">
+                                        <h5>
+                                            <p>Seguimiento de servicio</p>
+                                        </h5>
+                                        <div class="container mt-3">
+                                            <div class="form-group mr-2">
+                                                <label for="descripcion" class="mr-2">Numero de seguimiento</label>
+                                                <input type="text" id="descripcion" class="form-control"
+                                                    placeholder="Descripción" value="1234">
+                                            </div>
+                                            <button type="button" (click)="consultado()"
+                                                class="btn btn-primary">Consulta</button>
+                                            <div *ngIf="hizoConsulta">
+                                                <br>
+                                                <p><strong>Estado: </strong>Pendiente</p>
+                                                <p><strong>Fecha: </strong>01/07/2024</p>
+                                                <p><strong>Costo: </strong>Sin costo - Corre por garantía</p>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                </div>
-                                <div *ngIf="contratoPV">
-                                    <h4>
-                                        <p>Contrato</p>
-                                    </h4>
-                                    <h6>
-                                        <p>El contrato de servicio incluye los términos y condiciones del servicio
-                                            prestado, plazos de entrega, responsabilidades de ambas partes, tarifas y
-                                            métodos de pago, así como las garantías ofrecidas. También detalla el
-                                            proceso para resolver disputas y las condiciones para la terminación del
-                                            contrato. Todo en conformidad con la legislación aplicable.</p>
-                                    </h6>
-                                </div>
+                            </div>
+                            <div *ngIf="contratoPV">
+                                <h4>
+                                    <p>Contrato</p>
+                                </h4>
+                                <h6>
+                                    <p>El contrato de servicio incluye los términos y condiciones del servicio
+                                        prestado, plazos de entrega, responsabilidades de ambas partes, tarifas y
+                                        métodos de pago, así como las garantías ofrecidas. También detalla el
+                                        proceso para resolver disputas y las condiciones para la terminación del
+                                        contrato. Todo en conformidad con la legislación aplicable.</p>
+                                </h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div *ngIf="elearning" class="elearning container">
-                <div class="docLibre container">
-                    <div class="cursosHH">
-                        <h2>Documentación libre</h2>
-                        <h6>(Esta documentación estará disponible para todos los clientes)</h6>
-                    </div>
-                    <div class="input-container table">
-                        <input class="table" type="text" placeholder="Ingrese el curso a buscar">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                    <div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th style="background-color:  #054f71;color: white;" scope="col">Nombre</th>
-                                    <th style="background-color:  #054f71;color: white;" scope="col">Descripción</th>
-                                    <th style="background-color:  #054f71;color: white;" scope="col">Tiempo estimado</th>
-                                    <th style="background-color:  #054f71;color: white;" scope="col">Tipo de material</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let material of materialLibre">
-                                    <td>{{material.nombre}}</td>
-                                    <td>{{material.descripcion}}</td>
-                                    <td>{{material.duracion}}</td>
-                                    <td><img src="{{material.tipo}}" alt=""></td>
-                                </tr>
-        
-                            </tbody>
-                        </table>
-                    </div>
-
+        </div>
+        <div *ngIf="elearning" class="elearning container">
+            <div class="docLibre container">
+                <div class="cursosHH">
+                    <h2>Documentación libre</h2>
+                    <h6>(Esta documentación estará disponible para todos los clientes)</h6>
                 </div>
-                <div class="cursos">
-                    <div class="cursosHH">
-                        <h2>Cursos</h2>
-                        <h6>(Estos cursos se habilitarán acorde a la membresía del cliente)</h6>
-                    </div>
-                    <div class="disponibles">
-                        <div class="cursoDisponible">
-                            <h5>Manejo equipo XX</h5>
-                            <div class="cuerpoCard">
-                                <div class="cuerpoI">
-                                    <img src="../../../assets/curso.png">
-                                </div>
-                                <div class="cuerpoD">
-                                    <h6>Certificado</h6>
-                                    <h6>Duración: 3 horas</h6>
-                                    <h6>Acumula: 3 estrellas</h6>
-                                    <p><button (click)="habilitarDemo()">Iniciar</button></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cursoDisponible">
-                            <h5>Prueba hidráulica compuesta</h5>
-                            <div class="cuerpoCard">
-                                <div class="cuerpoI">
-                                    <img src="../../../assets/curso.png">
-                                </div>
-                                <div class="cuerpoD">
-                                    <h6>Certificado</h6>
-                                    <h6>Duración: 6 horas</h6>
-                                    <h6>Acumula: 5 estrellas</h6>
-                                    <p><button (click)="habilitarDemo()">Iniciar</button></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf="seguimientoCurso" class="seguimientoCurso">
-                        <div *ngFor="let step of steps; let i = index" [ngClass]="{'disabled': step.isDisabled}" class="pasosCurso">
-                            <h5>{{ step.name }}</h5>
-                            <button (click)="nextStep()" [disabled]="step.isDisabled">
-                                {{ i === steps.length - 1 ? 'Finalizar' : 'Siguiente' }}
-                            </button>
-                        </div>
-                    </div>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el curso a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
-                <div class="estadisticasPersonales">
-                    <h2>
-                        Estadisticas
-                    </h2>
-                    <div class="resumenTotal">
-                        <div class="resumen uno">
-                            <h4>Tasa de progreso</h4>
-                            <h5>Cursos realizados: 4 de 6</h5>
-                            <h5>Estrellas acumuladas: 12</h5>
-                        </div>
-                        <div class="resumen">
-                            <img src="../../../assets/grafico.png">
-                        </div>
-                        <div class="resumen">
-                            <img src="../../../assets/metrica.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="mensajero" class="mensajero container">
-                <div class="tablaMensajes">
+                <div>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="background-color:   #054f71;color: white;" scope="col">De</th>
-                                <th style="background-color:   #054f71;color: white;" scope="col">Asunto</th>
-                                <th style="background-color:  #054f71;color: white;" scope="col">Cuerpo</th>
-                                <th style="background-color:  #054f71;color: white;" scope="col">Fecha</th>
-                                <th style="background-color:   #054f71;color: white;" scope="col">Acciones</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Nombre</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Descripción</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Tiempo estimado</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Tipo de material</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let mensaje of mensajes">
-                                <td>{{mensaje.de}}</td>
-                                <td>{{mensaje.asunto}}</td>
-                                <td>{{mensaje.cuerpo}}</td>
-                                <td>{{mensaje.fecha}}</td>
-                                <td style="cursor: pointer;"><i  class="fa fa-info-circle"
-                                        aria-hidden="true"></i>
-                                    <i  class="fa fa-trash-o" aria-hidden="true"></i>
-                                </td>
+                            <tr *ngFor="let material of materialLibre">
+                                <td>{{material.nombre}}</td>
+                                <td>{{material.descripcion}}</td>
+                                <td>{{material.duracion}}</td>
+                                <td><img src="{{material.tipo}}" alt=""></td>
                             </tr>
 
                         </tbody>
                     </table>
                 </div>
-                <div>
-                    <p>
-                        En esta sección el cliente recibirá las notifiaciones enviadas por el Distribuidor. 
-                    </p>
-                    <p>
-                        Aquí encontrará avisos de caducidad de membresías, avisos de service, ofertas de productos, etc
-                    </p>
-                </div>
 
+            </div>
+            <div class="cursos">
+                <div class="cursosHH">
+                    <h2>Cursos</h2>
+                    <h6>(Estos cursos se habilitarán acorde a la membresía del cliente)</h6>
+                </div>
+                <div class="disponibles">
+                    <div class="cursoDisponible">
+                        <h5>Manejo equipo XX</h5>
+                        <div class="cuerpoCard">
+                            <div class="cuerpoI">
+                                <img src="../../../assets/curso.png">
+                            </div>
+                            <div class="cuerpoD">
+                                <h6>Certificado</h6>
+                                <h6>Duración: 3 horas</h6>
+                                <h6>Acumula: 3 estrellas</h6>
+                                <p><button (click)="habilitarDemo()">Iniciar</button></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cursoDisponible">
+                        <h5>Prueba hidráulica compuesta</h5>
+                        <div class="cuerpoCard">
+                            <div class="cuerpoI">
+                                <img src="../../../assets/curso.png">
+                            </div>
+                            <div class="cuerpoD">
+                                <h6>Certificado</h6>
+                                <h6>Duración: 6 horas</h6>
+                                <h6>Acumula: 5 estrellas</h6>
+                                <p><button (click)="habilitarDemo()">Iniciar</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="seguimientoCurso" class="seguimientoCurso">
+                    <div *ngFor="let step of steps; let i = index" [ngClass]="{'disabled': step.isDisabled}"
+                        class="pasosCurso">
+                        <h5>{{ step.name }}</h5>
+                        <button (click)="nextStep()" [disabled]="step.isDisabled">
+                            {{ i === steps.length - 1 ? 'Finalizar' : 'Siguiente' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="estadisticasPersonales">
+                <h2>
+                    Estadisticas
+                </h2>
+                <div class="resumenTotal">
+                    <div class="resumen uno">
+                        <h4>Tasa de progreso</h4>
+                        <h5>Cursos realizados: 4 de 6</h5>
+                        <h5>Estrellas acumuladas: 12</h5>
+                    </div>
+                    <div class="resumen">
+                        <img src="../../../assets/grafico.png">
+                    </div>
+                    <div class="resumen">
+                        <img src="../../../assets/metrica.png">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div *ngIf="modalDetalle" class="confirmation-dialog">
-        <div class="dialog-content">
-            <div class="detalleModalP">
-                <div class="fotoYdesc">
-                    <h2>{{this.productos[this.indexProducto].nombre}}</h2>
-                    <img src="{{this.productos[this.indexProducto].imagenP}}" alt="">
-                    <!-- <p>{{this.productos[this.indexProducto].descripcion}}</p> -->
-                </div>
-                <div class="caracYfoto">
-                    <h3>Características</h3>
-                    <img src="{{this.productos[this.indexProducto].caracteristicas}}" alt="">
-                </div>
-            </div>
+        <div *ngIf="mensajero" class="mensajero container">
+            <div class="tablaMensajes">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:   #054f71;color: white;" scope="col">De</th>
+                            <th style="background-color:   #054f71;color: white;" scope="col">Asunto</th>
+                            <th style="background-color:  #054f71;color: white;" scope="col">Cuerpo</th>
+                            <th style="background-color:  #054f71;color: white;" scope="col">Fecha</th>
+                            <th style="background-color:   #054f71;color: white;" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let mensaje of mensajes">
+                            <td>{{mensaje.de}}</td>
+                            <td>{{mensaje.asunto}}</td>
+                            <td>{{mensaje.cuerpo}}</td>
+                            <td>{{mensaje.fecha}}</td>
+                            <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </td>
+                        </tr>
 
+                    </tbody>
+                </table>
+            </div>
             <div>
-                <p>{{this.productos[this.indexProducto].descripcion}}</p>
+                <p>
+                    En esta sección el cliente recibirá las notifiaciones enviadas por el Distribuidor.
+                </p>
+                <p>
+                    Aquí encontrará avisos de caducidad de membresías, avisos de service, ofertas de productos, etc
+                </p>
             </div>
-            <button (click)="cerrarDetalle()">Cerrar</button>
+
         </div>
     </div>
+</div>
+<div *ngIf="modalDetalle" class="confirmation-dialog">
+    <div class="dialog-content">
+        <div class="detalleModalP">
+            <div class="fotoYdesc">
+                <h2>{{this.productos[this.indexProducto].nombre}}</h2>
+                <img src="{{this.productos[this.indexProducto].imagenP}}" alt="">
+                <!-- <p>{{this.productos[this.indexProducto].descripcion}}</p> -->
+            </div>
+            <div class="caracYfoto">
+                <h3>Características</h3>
+                <img src="{{this.productos[this.indexProducto].caracteristicas}}" alt="">
+            </div>
+        </div>
 
-
-   
-    <div class="footer">
-        <h4>Desarrollado por <span>EsteroTech</span></h4>
+        <div>
+            <p>{{this.productos[this.indexProducto].descripcion}}</p>
+        </div>
+        <button (click)="cerrarDetalle()">Cerrar</button>
     </div>
+</div>
+
+
+
+<div class="footer">
+    <h4>Desarrollado por <span>EsteroTech</span></h4>
+</div>
 <!-- Modal -->
-<div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel" aria-hidden="true">
+<div *ngIf="modalCarrusel" class="confirmation-dialog-carrusel">
+  
+    <div class="dialog-content-carrusel">
+        <div class="detalleModalP-carrusel">
+            <div class="fotoYdesc-carrusel">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner fotoCarrusel">
+                        <h1 style="color: #054f71;">SECCION DE INTERES</h1>
+                        <div *ngFor="let item of imagenesCarrusel; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+                            <img [src]="item.src" class="d-block w-100" [alt]="item.alt">
+                          </div>
+                    </div>
+                    <button class="carousel-control-prev boton-carrusel " style="margin-left: 90%;" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button style="margin-right: -140%;" class="carousel-control-next boton-carrusel" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <button class="cerrarModal" (click)="cerrarCarrusel()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <button style="width: 5%;height: 2%;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Carrusel -->
+         
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button *ngFor="let image of imagenesCarrusel; let i = index" 
@@ -401,4 +429,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
