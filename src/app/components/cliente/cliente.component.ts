@@ -24,7 +24,7 @@ export class ClienteComponent {
 
   currentStep = 0;
 
-   currentStep = 0;
+   
   steps = [
     { name: 'Descripción', isDisabled: false },
     { name: 'Material', isDisabled: true },
