@@ -50,6 +50,7 @@
             </div>
         </div>
         <div *ngIf="compras" class="compras container">
+            <app-carrusel></app-carrusel>
             <div class="cuerpoCompras">
                 <div class="productos">
                     <img src="../../../assets/ISC.png" alt="">
@@ -97,7 +98,7 @@
         </div>
         <div *ngIf="postventa" class="postventa container">
             <div class="cuerpoPV">
-
+                <app-carrusel></app-carrusel>
                 <div class="misProductos">
                     <h2>Mis productos</h2>
                     <div class="cardsProductos">
@@ -353,6 +354,8 @@
             </div>
         </div>
         <div *ngIf="mensajero" class="mensajero container">
+            <app-carrusel></app-carrusel>
+            <br><br>
             <div class="tablaMensajes">
                 <table class="table">
                     <thead>
@@ -418,7 +421,7 @@
     <h4>Desarrollado por <span>EsteroTech</span></h4>
 </div>
 <!-- Modal -->
-<div *ngIf="modalCarrusel" class="confirmation-dialog-carrusel">
+<!-- <div *ngIf="modalCarrusel" class="confirmation-dialog-carrusel">
   
     <div class="dialog-content-carrusel">
         <div class="detalleModalP-carrusel">
@@ -445,7 +448,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 

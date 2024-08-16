@@ -9,6 +9,7 @@ import { DistribuidorComponent } from './components/distribuidor/distribuidor.co
 import { environment } from './environment/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { IndexComponent } from './components/index/index.component';
+import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { IndexComponent } from './components/index/index.component';
     ClienteComponent,
     DistribuidorComponent,
     IndexComponent,
+    CarruselComponent,
   ],
   imports: [
     BrowserModule,
