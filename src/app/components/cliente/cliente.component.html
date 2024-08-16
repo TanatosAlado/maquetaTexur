@@ -256,8 +256,12 @@
 
             </div>
         </div>
-        <div *ngIf="elearning" class="elearning container">
-            <div class="docLibre container">
+        <div *ngIf="elearning">
+            <div class="encabezadoElearning">
+                <h4>Encuentra aquí tu curso</h4>
+                <input type="text" ><i class="fa fa-search"></i>
+            </div>
+            <!-- <div class="docLibre container">
                 <div class="cursosHH">
                     <h2>Documentación libre</h2>
                     <h6>(Esta documentación estará disponible para todos los clientes)</h6>
@@ -351,7 +355,7 @@
                         <img src="../../../assets/metrica.png">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div *ngIf="mensajero" class="mensajero container">
             <app-carrusel></app-carrusel>

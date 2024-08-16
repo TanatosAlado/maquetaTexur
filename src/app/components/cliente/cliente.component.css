@@ -803,3 +803,16 @@ i{
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .encabezadoElearning{
+    width: 60%;
+    margin-left: 20%;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .encabezadoElearning input{
+    width: 50%;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
