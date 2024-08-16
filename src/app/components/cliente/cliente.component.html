@@ -261,6 +261,64 @@
                 <h4>Encuentra aquí tu curso</h4>
                 <input type="text" ><i class="fa fa-search"></i>
             </div>
+            <div class="principalE">
+                <div class="filtrosE">
+                    <h4>Filtros</h4>
+                    <div class="valoraciones">
+                        <h5>Valoraciones</h5>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(5)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/5de5.png " alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(4)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/4de5.png " alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(3)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/3de5.png " alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(2)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/2de5.png " alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(1)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/1de5.png " alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="cursosE">
+                    <h4>Cursos</h4>
+                    <div *ngFor="let curso of cursos; let i = index">
+                        <div class="cursoInd">
+                            <div class="cursoIndIzq">
+                                <img src="{{curso.imagen}}">
+                            </div>
+                            <div class="cursoIndCentro">
+                                <h4>{{curso.nombre}}</h4>
+                                <h5>{{curso.descripcion}}</h5>
+                                <button (click)="cargarProd(i)">Agregar a pedido</button>
+                            </div>
+                            <div class="cursoIndDer">
+                                <h6>Precio: U$S {{curso.precio}}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <!-- <div class="docLibre container">
                 <div class="cursosHH">
                     <h2>Documentación libre</h2>

@@ -56,6 +56,7 @@ export class ClienteComponent {
   { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
   { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
 
+  cursos: any[] = [{nombre:"Curso1", precio: 150, imagen:"../../../assets/pp.png", estrellas: 4}, {nombre:"Curso1", precio: 150, imagen:"../../../assets/pp.png", estrellas: 4}]
   gestionActiva: boolean = false
 
   productoGestion: string = ''
@@ -231,6 +232,10 @@ export class ClienteComponent {
     for(let i = 0; this.productosRes.length > i; i++){
       this.montoCompra = this.montoCompra + (this.productosRes[i].unidades * this.productosRes[i].precio)
     }
+  }
+
+  filtroE(cantidad: number){
+    console.log(cantidad)
   }
 
 }
