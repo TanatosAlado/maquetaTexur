@@ -22,6 +22,8 @@ export class ClienteComponent {
   indexProducto: number = 0
   modalCarrusel: boolean = false
   currentStep = 0;
+  hayProductos: boolean = false
+  montoCompra: number = 0
 
 
   steps = [
@@ -40,8 +42,8 @@ export class ClienteComponent {
 
   selected: string = 'perfil'
   selectedPV: string = 'garantiaPV'
-  productos: any[] = [{ nombre: 'Icegard Oro', precio: 55, imagenP: '../../../assets/Icegard Oro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicasOro.png' }, { nombre: 'Rally Pro', precio: 55, imagenP: '../../../assets/Rally Pro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRallyPro.png' }, { nombre: 'Icegard Verde', precio: 55, imagenP: '../../../assets/Icegard Verde.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaVerde.png' }
-    , { nombre: 'Icegard Blu', precio: 55, imagenP: '../../../assets/Icegard Blu.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaBlu.png' }, { nombre: 'Icegard Rosso', precio: 55, imagenP: '../../../assets/Icegard Rosso.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRosso.png' }]
+  productos: any[] = [{ unidades: 1, nombre: 'Icegard Oro', precio: 1000, imagenP: '../../../assets/Icegard Oro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicasOro.png' }, { unidades: 1, nombre: 'Rally Pro', precio: 1500, imagenP: '../../../assets/Rally Pro.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRallyPro.png' }, { unidades: 1, nombre: 'Icegard Verde', precio: 650, imagenP: '../../../assets/Icegard Verde.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaVerde.png' }
+    , { unidades: 1, nombre: 'Icegard Blu', precio: 800, imagenP: '../../../assets/Icegard Blu.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaBlu.png' }, { unidades: 1, nombre: 'Icegard Rosso', precio: 550, imagenP: '../../../assets/Icegard Rosso.png', descripcion: 'This service machine is the result of a 40-year journey merging experience, technical know-how and state-of-the-art solutions. There are two versions available, for R134a and for the latest R1234yf.', caracteristicas: '../../../assets/caracteristicaRosso.png' }]
 
   productosRes: any[] = []
 
@@ -172,6 +174,7 @@ export class ClienteComponent {
   }
 
   carritoOn() {
+    this.hayProductos = this.productosRes.length > 0
     this.mostrarCarro = true
   }
 
@@ -181,10 +184,14 @@ export class ClienteComponent {
 
   cargarProd(indice: number) {
     this.productosRes.push(this.productos[indice])
+    this.hayProductos = this.productosRes.length > 0
+    this.calcularMonto()
   }
 
   borrarProd(indice: number) {
     this.productosRes.splice(indice, 1)
+    this.hayProductos = this.productosRes.length > 0
+    this.calcularMonto()
   }
 
   mostrarDetalle(indice: number) {
@@ -204,6 +211,26 @@ export class ClienteComponent {
   cerrarGestion(){
     this.productoGestion = ''
     this.gestionActiva = false
+  }
+
+  restar(indice: number){
+    if(this.productosRes[indice].unidades > 1){
+      this.productosRes[indice].unidades --
+      this.calcularMonto()
+    }
+    
+  }
+
+  sumar(indice: number){
+    this.productosRes[indice].unidades ++
+    this.calcularMonto()
+  }
+
+  calcularMonto(){
+    this.montoCompra = 0
+    for(let i = 0; this.productosRes.length > i; i++){
+      this.montoCompra = this.montoCompra + (this.productosRes[i].unidades * this.productosRes[i].precio)
+    }
   }
 
 }

@@ -61,7 +61,7 @@
                             <div class="card">
                                 <img src="{{producto.imagenP}}">
                                 <h5>{{producto.nombre}}</h5>
-                                <h6>Precio: {{producto.precio}}</h6>
+                                <h6>Precio: U$S {{producto.precio}}</h6>
                                 <button (click)="mostrarDetalle(i)">Ver detalles</button>
                                 <button (click)="cargarProd(i)">Agregar a pedido</button>
                             </div>
@@ -69,21 +69,28 @@
                     </div>
                 </div>
                 <div *ngIf="mostrarCarro" class="resumen">
-                    <h4>Pedido actual</h4>
-                    <div *ngFor="let producto of productosRes; let i = index">
-                        <div class="cardRes">
-                            <img src="{{producto.imagenP}}">
-                            <h5>{{producto.nombre}}</h5>
-                            <h6>Precio: {{producto.precio}}</h6>
-                            <div class="botonera">
-                                <a><strong>-</strong></a>
-                                <p>Cantidad: 2</p>
-                                <a><strong>+</strong></a>
+                    <div *ngIf="hayProductos">
+                        <h4>Pedido actual</h4>
+                        <div *ngFor="let producto of productosRes; let i = index">
+                            <div class="cardRes">
+                                <img src="{{producto.imagenP}}">
+                                <h5>{{producto.nombre}}</h5>
+                                <h6>Precio: {{producto.precio}}</h6>
+                                <div class="botonera">
+                                    <a (click)="restar(i)"><strong>-</strong></a>
+                                    <p>Cantidad: {{producto.unidades}}</p>
+                                    <a (click)="sumar(i)"><strong>+</strong></a>
+                                </div>
+                                <button (click)="borrarProd(i)">Eliminar</button>
                             </div>
-                            <button (click)="borrarProd(i)">Eliminar</button>
                         </div>
+                        <h5>Monto Total: U$S {{montoCompra}}</h5>
+                        <button>Realizar pedido</button>
                     </div>
-                    <button>Realizar pedido</button>
+                    <div *ngIf="!hayProductos">
+                        <h3 class="container">No existen productos en el carrito</h3>
+                    </div>
+
                     <button (click)="carritoOff()">Cerrar</button>
                 </div>
             </div>
