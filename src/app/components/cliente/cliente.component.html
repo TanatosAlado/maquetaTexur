@@ -1,6 +1,7 @@
 <div class="membrete">
     <h2 style="text-align: center;color: white;">Aplicación Web Texur</h2>
     <i (click)="carritoOn()" class="fa fa-shopping-cart carritoIcon" aria-hidden="true"></i>
+    <i class="carritoIconNum">{{productosRes.length}}</i>
     <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
 </div>
 <div class="cuerpo">
@@ -51,8 +52,9 @@
         <div *ngIf="compras" class="compras container">
             <div class="cuerpoCompras">
                 <div class="productos">
+                    <img src="../../../assets/ISC.png" alt="">
                     <h2>
-                        Productos disponibles del distribuidor
+                        Productos disponibles
                     </h2>
                     <div class="contenedorCard">
                         <div *ngFor="let producto of productos; let i = index">
@@ -339,7 +341,6 @@
             <div class="fotoYdesc">
                 <h2>{{this.productos[this.indexProducto].nombre}}</h2>
                 <img src="{{this.productos[this.indexProducto].imagenP}}" alt="">
-                <!-- <p>{{this.productos[this.indexProducto].descripcion}}</p> -->
             </div>
             <div class="caracYfoto">
                 <h3>Características</h3>
@@ -347,8 +348,10 @@
             </div>
         </div>
 
-        <div>
+        <div class="description">
+            <h3>Descripción</h3>
             <p>{{this.productos[this.indexProducto].descripcion}}</p>
+            <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
         </div>
         <button (click)="cerrarDetalle()">Cerrar</button>
     </div>

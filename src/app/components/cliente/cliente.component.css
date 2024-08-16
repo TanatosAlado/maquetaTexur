@@ -13,6 +13,14 @@ li.active {
     font-weight: bold; 
 }
 
+.carritoIconNum{
+    margin-right: 25px;
+}
+
+.carritoIcon{
+    margin-right: 35px;
+}
+
 .imagen{
     width: 150px;
     height: 150px;
@@ -153,11 +161,18 @@ button{
 
 .productos{
     width: 80%;
+    text-align: center;
 }
 
 .productos h2{
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.productos img{
+    width: 350px;
+    height: 350px;
 }
 
 .resumen{
@@ -642,6 +657,11 @@ i{
     width: 70%;
   }
 
+  .caracYfoto img{
+    width: 350px;
+    height: 450px;
+  }
+
   .confirmation-dialog {
     z-index: 9;
     position: fixed;
@@ -658,10 +678,11 @@ i{
   }
 
   .dialog-content {
-    background-color: white;
+    /* background-color: white; */
+    background-color: lightgrey;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 2px 10px 10px #c7bebe59;
+    box-shadow: 2px 10px 10px rgb(199, 190, 190, 0.3);
     width: 70%;
     max-height: 90vh;
   }
@@ -729,4 +750,17 @@ i{
 
   .cerrarModal{
     margin-left: 120%;
+  }
+
+  .description{
+    margin-top: 25px;
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .description i{
+    margin-left: 10px;
+    background-color: red;
+    width: 20px;
+    height: 20px;
   }
