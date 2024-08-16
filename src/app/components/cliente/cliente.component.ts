@@ -67,7 +67,7 @@ export class ClienteComponent {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.modalCarrusel = true; // Muestra el modal después de 2 segundos
+      this.modalCarrusel = true; 
     }, 2000);
   }
 
