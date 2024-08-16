@@ -188,7 +188,7 @@ button{
 .cuerpoPV{
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .card{
@@ -268,19 +268,34 @@ button{
 }
 
 .misProductos{
-    width: 20%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.misProductos h4{
+.misProductos h2{
     text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.cardsProductos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .infoProductos{
     width: 80%;
-    background-color: bisque;
+    background-color: #c3a8aa;
+}
+
+.infoProductos button{
+    width: 30%;
+    
+    margin-bottom: 25px;
 }
 
 .postventa{
@@ -293,7 +308,7 @@ button{
 }
 
 .cardProd{
-    width: 90%;
+    width: 20%;
     margin-left: 5%;
     text-align: center;
     margin-bottom: 15px;
@@ -301,10 +316,15 @@ button{
     border-radius: 10px;
 }
 
+.cardProd h4{
+    color: white;
+    margin-top: 15px;
+}
+
 .cardProd img{
     width: 90%;
     height: auto;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 
 .cardProd button{
@@ -313,15 +333,19 @@ button{
     margin-bottom: 20px;
 }
 
+.cardProd i{
+    margin-left: 10px;
+}
+
 .detallesProd{
-    width: 90%;
-    margin-left: 5%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .opcionesProd h4{
     margin-top: 15px;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
 }
 
 .cabecerasProd{
@@ -763,4 +787,18 @@ i{
     background-color: red;
     width: 20px;
     height: 20px;
+  }
+
+  .estadoGar{
+    color: green
+  }
+
+  .estadoGarV{
+    color: rgb(255, 62, 62);
+  }
+
+  .estadoGarantia{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }

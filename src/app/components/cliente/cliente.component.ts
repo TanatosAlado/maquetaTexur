@@ -54,6 +54,9 @@ export class ClienteComponent {
   { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
   { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
 
+  gestionActiva: boolean = false
+
+  productoGestion: string = ''
 
   constructor(private router: Router) {
 
@@ -191,6 +194,16 @@ export class ClienteComponent {
 
   cerrarDetalle() {
     this.modalDetalle = false
+  }
+
+  mostrarGestion(producto: string){
+    this.productoGestion = producto
+    this.gestionActiva = true
+  }
+
+  cerrarGestion(){
+    this.productoGestion = ''
+    this.gestionActiva = false
   }
 
 }
