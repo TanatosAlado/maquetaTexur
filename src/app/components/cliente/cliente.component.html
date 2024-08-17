@@ -357,7 +357,7 @@
 
 
             
-            <!-- <div class="docLibre container">
+             <!-- <div class="docLibre container">
                 <div class="cursosHH">
                     <h2>Documentación libre</h2>
                     <h6>(Esta documentación estará disponible para todos los clientes)</h6>
@@ -388,53 +388,9 @@
                     </table>
                 </div>
 
-            </div>
-            <div class="cursos">
-                <div class="cursosHH">
-                    <h2>Cursos</h2>
-                    <h6>(Estos cursos se habilitarán acorde a la membresía del cliente)</h6>
-                </div>
-                <div class="disponibles">
-                    <div class="cursoDisponible">
-                        <h5>Manejo equipo XX</h5>
-                        <div class="cuerpoCard">
-                            <div class="cuerpoI">
-                                <img src="../../../assets/curso.png">
-                            </div>
-                            <div class="cuerpoD">
-                                <h6>Certificado</h6>
-                                <h6>Duración: 3 horas</h6>
-                                <h6>Acumula: 3 estrellas</h6>
-                                <p><button (click)="habilitarDemo()">Iniciar</button></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cursoDisponible">
-                        <h5>Prueba hidráulica compuesta</h5>
-                        <div class="cuerpoCard">
-                            <div class="cuerpoI">
-                                <img src="../../../assets/curso.png">
-                            </div>
-                            <div class="cuerpoD">
-                                <h6>Certificado</h6>
-                                <h6>Duración: 6 horas</h6>
-                                <h6>Acumula: 5 estrellas</h6>
-                                <p><button (click)="habilitarDemo()">Iniciar</button></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div *ngIf="seguimientoCurso" class="seguimientoCurso">
-                    <div *ngFor="let step of steps; let i = index" [ngClass]="{'disabled': step.isDisabled}"
-                        class="pasosCurso">
-                        <h5>{{ step.name }}</h5>
-                        <button (click)="nextStep()" [disabled]="step.isDisabled">
-                            {{ i === steps.length - 1 ? 'Finalizar' : 'Siguiente' }}
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="estadisticasPersonales">
+            </div> -->
+
+            <!-- <div class="estadisticasPersonales">
                 <h2>
                     Estadisticas
                 </h2>
@@ -451,7 +407,17 @@
                         <img src="../../../assets/metrica.png">
                     </div>
                 </div>
-            </div> -->
+            </div>  -->
+
+
+
+
+
+
+
+
+
+
         </div>
         <div *ngIf="mensajero" class="mensajero container">
             <app-carrusel></app-carrusel>
