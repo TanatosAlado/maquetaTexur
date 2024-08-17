@@ -261,8 +261,9 @@
             
             <div class="encabezadoElearning">
                 <h4>Encuentra aquí tu curso</h4>
-                <input type="text" ><i class="fa fa-search"></i>
-            </div>
+                <input type="text" #cursoInput>
+                <i (click)="buscarCurso(cursoInput.value)" class="fa fa-search"></i>
+              </div>
             <div class="principalE">
                 <div class="filtrosE">
                     <h4>Filtros</h4>

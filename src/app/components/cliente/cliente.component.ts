@@ -271,6 +271,13 @@ export class ClienteComponent {
     this.applyFilters();
   }
 
+  buscarCurso(cadena: string){
+    this.limpiarFiltros()
+    this.cursos = this.allCursos.filter(curso => 
+      curso.nombre.includes(cadena)
+    )
+  }
+
   applyFilters() {
     this.cursos = this.allCursos.filter(curso => {
       let matchesStars = true;
