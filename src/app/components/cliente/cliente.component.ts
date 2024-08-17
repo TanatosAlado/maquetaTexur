@@ -56,10 +56,22 @@ export class ClienteComponent {
   { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
   { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
 
-  cursos: any[] = [{nombre:"Curso1", precio: 150, imagen:"../../../assets/pp.png", estrellas: 4}, {nombre:"Curso1", precio: 150, imagen:"../../../assets/pp.png", estrellas: 4}]
+  allCursos: any[] = [{nombre:"Funcionamiento Icegard Oro", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Oro', precio: 140, imagen:"../../../assets/Icegard Oro.png", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'}, 
+    {nombre:"Funcionamiento Rally Pro", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Rally Pro', precio: 160, imagen:"../../../assets/Rally Pro.png", estrellas: 5, imagenEstrellas: '../../../assets/5de5.png'},
+    {nombre:"Funcionamiento Icegard Blu", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Blu', precio: 140, imagen:"../../../assets/Icegard Blu.png", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'},
+    {nombre:"Funcionamiento Icegard Rosso", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Rosso', precio: 140, imagen:"../../../assets/Icegard Rosso.png", estrellas: 3, imagenEstrellas: '../../../assets/3de5.png'},
+    {nombre:"Funcionamiento Icegard Verde", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Verde', precio: 140, imagen:"../../../assets/Icegard Verde.png", estrellas: 3, imagenEstrellas: '../../../assets/3de5.png'}
+  ]
   gestionActiva: boolean = false
 
   productoGestion: string = ''
+
+
+  cursos: any[] = [];
+  selectedStars: number | null = null;
+  selectedPriceRange: [number, number] | null = null;
+
+
 
   constructor(private router: Router) {
 
@@ -67,6 +79,7 @@ export class ClienteComponent {
 
 
   ngOnInit(): void {
+    this.cursos = [...this.allCursos];
     setTimeout(() => {
       this.modalCarrusel = true; 
     }, 2000);
@@ -234,8 +247,55 @@ export class ClienteComponent {
     }
   }
 
-  filtroE(cantidad: number){
-    console.log(cantidad)
+
+
+
+
+  filtroE(stars: number) {
+    this.selectedStars = stars;
+    this.applyFilters();
   }
+
+  filtroP(price: number) {
+    if (price === 50) {
+      this.selectedPriceRange = [1, 50];
+    } else if (price === 150) {
+      this.selectedPriceRange = [51, 100];
+    } else if (price === 300) {
+      this.selectedPriceRange = [101, 300];
+    } else if (price === 301) {
+      this.selectedPriceRange = [301, 999];
+    } else {
+      this.selectedPriceRange = null;
+    }
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    this.cursos = this.allCursos.filter(curso => {
+      let matchesStars = true;
+      let matchesPrice = true;
+
+      if (this.selectedStars !== null) {
+        matchesStars = curso.estrellas === this.selectedStars;
+      }
+
+      if (this.selectedPriceRange !== null) {
+        matchesPrice = curso.precio >= this.selectedPriceRange[0] && curso.precio <= this.selectedPriceRange[1];
+      }
+
+      return matchesStars && matchesPrice;
+    });
+  }
+
+  limpiarFiltros() {
+    this.selectedStars = null;
+    this.selectedPriceRange = null;
+    this.cursos = [...this.allCursos];
+    (document.querySelectorAll('input[type=radio]') as NodeListOf<HTMLInputElement>).forEach(input => input.checked = false);
+    // Limpiar selección de radios
+    //(document.querySelectorAll('input[type=radio]') asNodeListOf<HTMLInputElement>).forEach(input => input.checked = false);
+  }
+
 
 }

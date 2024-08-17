@@ -257,6 +257,8 @@
             </div>
         </div>
         <div *ngIf="elearning">
+
+            
             <div class="encabezadoElearning">
                 <h4>Encuentra aquí tu curso</h4>
                 <input type="text" ><i class="fa fa-search"></i>
@@ -275,7 +277,7 @@
                         <div>
                             <div class="form-check">
                                 <input (click)="filtroE(4)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <img src="../../../assets/4de5.png " alt="">
+                                <img src="../../../assets/4de5.png" alt="">
                             </div>
                         </div>
                         <div>
@@ -298,27 +300,63 @@
                         </div>
                         
                     </div>
+                    <div class="precios">
+                        <h5>Precio</h5>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(50)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 1 - U$S 50</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(150)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 51 - U$S 100</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(300)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 101 - U$S 300</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(301)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 301 - U$S 999</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="limpiezaFiltros">
+                        <button (click)="limpiarFiltros()">Limpiar filtros</button>
+                    </div>
                 </div>
                 <div class="cursosE">
                     <h4>Cursos</h4>
                     <div *ngFor="let curso of cursos; let i = index">
-                        <div class="cursoInd">
+                        <div class="cursoInd margenArriba">
                             <div class="cursoIndIzq">
                                 <img src="{{curso.imagen}}">
                             </div>
                             <div class="cursoIndCentro">
-                                <h4>{{curso.nombre}}</h4>
-                                <h5>{{curso.descripcion}}</h5>
-                                <button (click)="cargarProd(i)">Agregar a pedido</button>
+                                <h4><strong>{{curso.nombre}}</strong></h4>
+                                <h6>{{curso.descripcion}}</h6>
+                                <img src="{{curso.imagenEstrellas}}" alt="">
                             </div>
                             <div class="cursoIndDer">
                                 <h6>Precio: U$S {{curso.precio}}</h6>
+                                <button>Comprar</button>
+                                <h6>Incluído en Membresía Nivel 3</h6>
+                                <button>Solicitar</button>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+
+
+            
             <!-- <div class="docLibre container">
                 <div class="cursosHH">
                     <h2>Documentación libre</h2>

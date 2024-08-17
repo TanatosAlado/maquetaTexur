@@ -824,23 +824,32 @@ i{
     margin-left: 10%;
     margin-top: 50px;
     text-align: center;
+    margin-bottom: 100px;
+    
   }
 
 
   .filtrosE{
     width: 20%;
-    background-color: lightpink;
-    margin-right: 5%;
+    margin-right: 4%;
+    background-color: lightgrey;
   }
 
   .cursosE{
-    width: 75%;
-    background-color: lightcyan;
+    width: 73%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: white;
   }
 
   .valoraciones img{
     width: 50%;
     margin-top: 5px;
+  }
+
+  .valoraciones{
+    margin-top: 30px;
+    margin-bottom: 25px;
   }
 
   .form-check{
@@ -849,29 +858,69 @@ i{
     align-items: center;
   }
 
+  .form-check-b{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
 .cursoInd{
     width: 100%;
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
+    border: 2px solid black;
 }
 
 .cursoIndIzq{
-    width: 30%;
-    background-color: #905868;
+    width: 25%;
+    background-color: white;
 }
 
 .cursoIndIzq img{
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
 }
 
 .cursoIndCentro{
-    width: 50%;
-    background-color: #054f71;
+    width: 55%;
+    background-color:white;
+    color: black;
+}
+
+.cursoIndCentro img{
+    width: 30%;
+    margin-top: 50px;
+}
+
+.cursoIndCentro h4{
+    margin-top: 15px;
+}
+
+.cursoIndCentro h6{
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .cursoIndDer{
     width: 20%;
-    background-color: #905868;
+    background-color: rgb(211, 211, 211, 0.3)
+}
+
+.cursoIndDer button{
+    width: 60%;
+    margin-top: 0px;
+    margin-bottom: 35px;
+}
+
+.margenArriba{
+    margin-top: 25px;
+}
+
+.precios{
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.limpiezaFiltros button{
+    width: 70%;
 }
