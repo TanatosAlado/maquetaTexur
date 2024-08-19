@@ -290,7 +290,8 @@ button{
 
 .infoProductos{
     width: 80%;
-    background-color: #c3a8aa;
+    /* background-color: #c3a8aa; */
+    background-color: lightgrey;
 }
 
 .infoProductos button{

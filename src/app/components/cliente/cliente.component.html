@@ -1,7 +1,7 @@
 <div class="membrete">
     <h2 style="text-align: center;color: white;">Aplicación Web Texur</h2>
-    <i (click)="carritoOn()" class="fa fa-shopping-cart carritoIcon" aria-hidden="true"></i>
-    <i class="carritoIconNum">{{productosRes.length}}</i>
+    <i *ngIf="compras" (click)="carritoOn()" class="fa fa-shopping-cart carritoIcon" aria-hidden="true"></i>
+    <i *ngIf="compras" (click)="carritoOn()" class="carritoIconNum">{{productosRes.length}}</i>
     <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
 </div>
 <div class="cuerpo">
@@ -114,7 +114,7 @@
                                     Cobertura restante: 
                                 </h6>
                                 <h6>
-                                    25 días
+                                    132 días
                                 </h6>
                             </div>
                             <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
