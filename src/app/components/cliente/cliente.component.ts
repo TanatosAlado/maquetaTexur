@@ -24,6 +24,7 @@ export class ClienteComponent {
   currentStep = 0;
   hayProductos: boolean = false
   montoCompra: number = 0
+  modalCursosLibres:boolean=false
 
 
   steps = [
@@ -89,6 +90,13 @@ export class ClienteComponent {
     this.modalCarrusel=false
   }
 
+  showCursosLibres(){
+    this.modalCursosLibres=true
+  }
+
+  hideCursosLibres(){
+    this.modalCursosLibres=false
+  }
 
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {
