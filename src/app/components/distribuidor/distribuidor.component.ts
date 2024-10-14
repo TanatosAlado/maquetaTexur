@@ -16,9 +16,11 @@ export class DistribuidorComponent {
   compras: boolean = false
   ventas: boolean = false
   analisisDatos: boolean = false
+  agregarCliente:boolean=false
   suscripciones: boolean = false
   detallesDistribuidor: boolean = false
   compartirCurso: boolean = false
+  contratoPV: boolean = false
   almacenamientoDatos: boolean = true
   analisisDeDatos: boolean = false
   selected: string = 'perfilDistribuidor'
@@ -35,7 +37,7 @@ export class DistribuidorComponent {
   { ngarantia: '694', producto: 'Restablecedor señal', cliente: 'Service Haroldos', desde: '03/09/2023', hasta: '03/09/2024', condicion: 'Reubicación', cobertura: 'Defectos en fabricación' }]
   arrayPagos: any = [{ nroFactura: '13257498', fecha: '14/05/2021', proveedor: 'Taller Sanchez', monto: '$145874' }, { nroFactura: '8585744', fecha: '21/07/2022', proveedor: 'Taller Perez', monto: '$205878' }, { nroFactura: '1325487', fecha: '30/01/2023', proveedor: 'Taller Gutierrez', monto: '$587471' }, { nroFactura: '3698585', fecha: '08/04/2020', proveedor: 'Taller García', monto: '$25874' },]
   serviceAgenda: any[] = [{ fecha: '30/05/2024', tipo: 'Mantenimiento', cliente: 'Taller Galicia', estado: 'En Ejecución', tecnico: 'Carlos', recursos: 'En Stock' }, { fecha: '01/06/2024', tipo: 'Reparación', cliente: 'Taller privado', estado: 'En Espera', tecnico: 'Carlos', recursos: 'En Stock' }, { fecha: '7/6/2024', tipo: 'Mantenimiento', cliente: 'Taller MetroFe', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados' }, { fecha: '3/06/2024', tipo: 'Mantenimiento', cliente: 'Taller Lopez', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados' }]
-  listaRepuestos: any[] = [{ codigo: 'ar488', descripcion: 'Bobina XX', fabricante: 'Compañia Virtus', stock: '12' }, { codigo: 'ar490', descripcion: 'Contra bobina XX', fabricante: 'Compañia Virtus', stock: '12' }, { codigo: 'ag635', descripcion: 'Zonda XX', fabricante: 'Magallanes SRL', stock: '6' }]
+  listaRepuestos: any[] = [{ codigo: 'ar488', descripcion: 'Bobina XX', categoria:"ICEGARD ORO Full Metal", fabricante: 'Compañia Virtus', stock: '12' }, { codigo: 'ar490', descripcion: 'Contra bobina XX',categoria:"ICEGARD AGRO", fabricante: 'Compañia Virtus', stock: '12' }, { codigo: 'ag635', descripcion: 'Zonda XX',categoria:"Otros", fabricante: 'Magallanes SRL', stock: '6' }]
   instructivos: any[] = [{ titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png' }, { titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png' }, { titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png' }]
   faqListado: any[] = [{ pregunta: 'Puedo extender mi suscrpción?', respuesta: 'Las suscripciones pueden extenderse y  pueden cambiar el tipo de membresía' }, { pregunta: 'No puedo ver el material de E-Learning', respuesta: 'Los contenidos se retiran cuando el cliente no renovo su membresía' }, { pregunta: 'Como reservo un servicio', respuesta: 'En la sección Post Venta, apartado #Servicios, se puede generar la solicitud' }, { pregunta: 'Donde encuentro la garantía de mi producto?', respuesta: 'Puede consultar la garantía de un producto en la sección Post Venta, apartado Garantía y seleccionando el producto deseado.' }]
   arrayProveedores: any = [{ codigo: 14568, razon: 'Taller Perez', telefono: '1111111111', cuit: '11-111111111-1' }, { codigo: 47898, razon: 'Taller Gomez', telefono: '2222222222', cuit: '22-111111111-2' }, { codigo: 25478, razon: 'Taller Sanchez', telefono: '3333333333', cuit: '33-111111111-3' }, { codigo: 19872, razon: 'Taller Ortega', telefono: '4444444444', cuit: '44-111111111-4' }]
@@ -483,6 +485,10 @@ export class DistribuidorComponent {
 
   closeDetallarGar() {
     this.detallar = false
+  }
+
+  addCliente(){
+    this.agregarCliente=true
   }
 
   mensajeGar() {
