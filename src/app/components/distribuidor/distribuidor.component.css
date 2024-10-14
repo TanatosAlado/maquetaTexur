@@ -422,6 +422,71 @@ i{
     margin: 10px;
     height: 30px;
 }
+
+.misProductos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardProd{
+    width: 20%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cardProd h4{
+    color: white;
+    margin-top: 15px;
+}
+
+.cardProd img{
+    width: 90%;
+    height: auto;
+    /* margin-left: 5%; */
+}
+
+.cardProd button{
+    width: 80%;
+    margin-left: 1%;
+    margin-bottom: 20px;
+}
+
+.cardProd i{
+    margin-left: 10px;
+}
+
+.misProductos h2{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.cardsProductos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.postventa{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+    height: auto;
+}
+
+.cuerpoPV{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .pasosCurso{
     width: 150px;
     height: 150px;

@@ -152,11 +152,11 @@
             </div>
         </div>
 
-        <div *ngIf="postVenta">
+        <div *ngIf="postVenta"  class="postventa container">
             <div class="cuerpoPV">
                 <app-carrusel></app-carrusel>
                 <div class="misProductos">
-                    <h2>Mis productos</h2>
+                    <h2>Mis productos en Garantía</h2>
                     <div class="cardsProductos">
                         <div class="cardProd">
                             <h4>Icegard Oro</h4>
@@ -174,7 +174,7 @@
                                 </h6>
                             </div>
                             <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
-                            <button (click)="mostrarGestion('Icegard Oro')">Gestionar producto</button>
+                            <button (click)="mostrarGestion('Icegard Oro')">Gestionar Garantía</button>
                         </div>
                         <div class="cardProd">
                             <h4>Icegard Rosso</h4>
@@ -192,22 +192,25 @@
                                 </h6>
                             </div>
                             <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
-                            <button (click)="mostrarGestion('Icegard Rosso')">Gestionar producto</button>
+                            <button (click)="mostrarGestion('Icegard Rosso')">Gestionar Garantía</button>
                         </div>
                         <div class="cardProd">
                             <h4>Icegard Verde</h4>
                             <img src="../../../assets/Icegard Verde.png">
                             <div class="estadoGarantia">
                                 <h5>Garantía</h5>
-                                <h5 class="estadoGarV">Vencida</h5>    
+                                <h5 class="estadoGarV">Activa</h5>    
                             </div>
                             <div>
                                 <h6 class="estadoGarantia">
-                                    Sin cobertura
+                                    Cobertura restante:
+                                </h6>
+                                <h6>
+                                    55 días
                                 </h6>
                             </div>
                             <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
-                            <button (click)="mostrarGestion('Icegard Verde')">Gestionar producto</button>
+                            <button (click)="mostrarGestion('Icegard Verde')">Gestionar Garantía</button>
                         </div>
                     </div>
                 </div>
@@ -313,7 +316,7 @@
             </div>
         </div>
 
-        <!-- <div *ngIf="postVenta">
+        <!-- <div *ngIf="gestionActiva" class="confirmation-dialog">
             <ul class="menuPostVenta">
                 <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
                     [class.active]="selectedPV === 'garantiasPV'">Garantías</li>

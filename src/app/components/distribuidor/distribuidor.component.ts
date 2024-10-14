@@ -21,6 +21,8 @@ export class DistribuidorComponent {
   detallesDistribuidor: boolean = false
   compartirCurso: boolean = false
   contratoPV: boolean = false
+  hizoConsulta:boolean=false
+  garantiaPV:boolean=false
   almacenamientoDatos: boolean = true
   analisisDeDatos: boolean = false
   selected: string = 'perfilDistribuidor'
@@ -84,18 +86,36 @@ export class DistribuidorComponent {
   ventaAnalisis: boolean = false
   analisisGraficos: boolean = false
   fichaSuscripcion:boolean=false
-
+  gestionActiva:boolean=false
   campanasMK: boolean = true
   leadsMK: boolean = false
   contactosMK: boolean = false
   analisisMK: boolean = false
   automatizacionMK: boolean = false
-
+  productoGestion: string = ''
 
 
 
   constructor(private router: Router) {
 
+  }
+
+  mostrarGestion(producto: string){
+    this.productoGestion = producto
+    this.gestionActiva = true
+  }
+
+  agendado() {
+    alert('Turno agendado con exito. Numero de seguimiento: 1234')
+  }
+
+  consultado() {
+    this.hizoConsulta = true
+  }
+
+  cerrarGestion(){
+    this.productoGestion = ''
+    this.gestionActiva = false
   }
 
   cambioVenta(parametro: string) {
@@ -186,6 +206,26 @@ export class DistribuidorComponent {
         break;
       case 'analisis':
         this.analisisDeDatos = true
+        break;
+    }
+  }
+
+  
+  cambioOpcionPV(parametro: string) {
+    this.garantiaPV = false
+    this.serviciosPV = false
+    this.contratoPV = false
+
+
+    switch (parametro) {
+      case 'garantiaPV':
+        this.garantiaPV = true
+        break;
+      case 'serviciosPV':
+        this.serviciosPV = true
+        break;
+      case 'contratoPV':
+        this.contratoPV = true
         break;
     }
   }
