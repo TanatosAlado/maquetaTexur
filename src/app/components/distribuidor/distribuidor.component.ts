@@ -89,8 +89,10 @@ export class DistribuidorComponent {
   analisisMK: boolean = false
   automatizacionMK: boolean = false
 
+  proveedores: any[] = [{ razon: 'Magneti Marelli', nombre: 'Magneti Marelli', codigo: 'P1465', imagenP: '../../../assets/Magneti.png ', cuit: '30-33447534-4', telefono: '+549118464567', origen: 'Argentina' }, { razon: 'ST Scanitec', nombre: 'ST Scanitec', codigo: 'P1479', imagenP: '../../../assets/st.png', cuit: '30-70757014-4', telefono: '+549118464567', origen:'Brasil' }, { razon: 'ISC', nombre: 'ISC', codigo: 'P1499', imagenP: '../../../assets/ISC.png', cuit: '30-73532442-4', telefono: '+549118464567', origen: 'Italia' }]
 
-
+  modalDetalle: boolean = false
+  indexProveedor:number = 0
 
   constructor(private router: Router) {
 
@@ -566,4 +568,15 @@ export class DistribuidorComponent {
   habilitarDemo() {
     this.seguimientoEnvio = true
   }
+
+  cerrarDetalle(){
+    this.modalDetalle = false
+  }
+
+  showDetallesProveedores(indice: number){
+    this.indexProveedor = indice
+    this.modalDetalle = true
+  }
+
+
 }

@@ -831,7 +831,23 @@
             </ul>
         </div>
         <div *ngIf="proveedoresCompra" class="container">
-            <div class="addGarantia">
+            <div class="tituloProveed">
+                <h2>Nuestros proveedores</h2>
+            </div>
+            <div class="addProv">
+                <button>Agregar proveedor</button>
+            </div>
+            <div class="contenedorCard">
+                <div *ngFor="let producto of proveedores; let i = index">
+                    <div class="card">
+                        <img src="{{producto.imagenP}}">
+                        <h5>{{producto.nombre}}</h5>
+                        <button (click)="showDetallesProveedores(i)">Ver detalles</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="addGarantia">
                 <button>Agregar Proveedor</button>
             </div>
             <div class="input-container table">
@@ -871,7 +887,7 @@
                     "Estadisticas Proveedor"
                 </h2>
                 <img src="../../../assets/datos proveedores.jpg">
-            </div>
+            </div> -->
         </div>
         <div *ngIf="pedidosCompra" class="container">
             <div class="input-container table">
@@ -1540,6 +1556,29 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="modalDetalle" class="confirmation-dialog">
+        <div class="dialog-content">
+            <div class="detalleModalP">
+                <div class="fotoYdesc">
+                    <h3>{{this.proveedores[this.indexProveedor].nombre}}</h3>
+                    <img src="{{this.proveedores[this.indexProveedor].imagenP}}" alt="">
+                </div>
+                <div class="caracYfoto delProv">
+                    <h3>Datos Proveedor</h3>
+                    <p>Razón Social: {{this.proveedores[this.indexProveedor].razon}}</p>
+                    <p>Código proveedor: {{this.proveedores[this.indexProveedor].codigo}}</p>
+                    <p>Teléfono: {{this.proveedores[this.indexProveedor].telefono}}</p>
+                    <p>CUIT: {{this.proveedores[this.indexProveedor].cuit}}</p>
+                    <p>Origen: {{this.proveedores[this.indexProveedor].origen}}</p>
+                    <button>Dar de baja</button>
+                </div>
+            </div>
+    
+            <button (click)="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
+
     <div class="footer">
         <h4>Desarrollado por <span>EsteroTech</span></h4>
     </div>
