@@ -39,16 +39,28 @@ li.active {
     align-items: center;
 }
 
+.loginAddCliente{
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgb(0, 0, 0,0.75);
+    width: 25rem;
+    height: 35rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form{
     display: grid;
     place-content: center;
     box-sizing: border-box;
-    /* background-image: url(../assets/MGLDLRBRJVHNFJXBK5V3ATY2OM.avif); */
     background-size: cover;
-    height: 100%;
-    width: 100%;
+    height: 60%;
+    width: 60%;
     background-repeat: no-repeat;
     background-position: center;
+
 }
 
 .loginSuscripcion{
@@ -119,6 +131,12 @@ button{
     align-items: center;
     margin-bottom: 75px;
 }
+
+.detallesProd{
+    width: 80%;
+    margin-left: 10%;
+}
+
 
 .detalleDistribuidor{
     display: flex;
@@ -208,8 +226,14 @@ label{
     display: flex;
     justify-content: center;
 }
+.formularioAddCliente{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
 i{
-    color: white;
+    color: #054f71;
 }
 
 .membrete {
@@ -400,9 +424,109 @@ i{
 }
 
 .agendaServicioInput{
-    width: 20%;
+    width: 30%;
     margin: 10px;
     height: 30px;
+}
+
+.misProductos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardProd{
+    width: 20%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cardProd h4{
+    color: white;
+    margin-top: 15px;
+}
+.cabecerasProd{
+    display: flex;
+    justify-content: space-around;
+}
+
+.opcionesPV{
+    display: flex;
+    flex-direction: row;
+}
+
+.opcionesPV li{
+    margin: 40px;
+}
+
+.detallesCompletos h5{
+    text-align: center;
+}
+
+.detallesCompletos h4{
+    text-align: center;
+}
+
+.confirmation-dialog {
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   
+  }
+.cardProd img{
+    width: 90%;
+    height: auto;
+    /* margin-left: 5%; */
+}
+
+.cardProd button{
+    width: 80%;
+    margin-left: 1%;
+    margin-bottom: 20px;
+}
+
+.cardProd i{
+    margin-left: 10px;
+}
+
+.misProductos h2{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.cardsProductos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.postventa{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+    height: auto;
+}
+
+.cuerpoPV{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .pasosCurso{
     width: 150px;
@@ -493,6 +617,24 @@ i{
     text-align: center;
 }
 
+.opcionesProd h4{
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.infoProductos{
+    width: 80%;
+    /* background-color: #c3a8aa; */
+    background-color: lightgrey;
+}
+
+.infoProductos button{
+    width: 30%;
+    
+    margin-bottom: 25px;
+}
+
 .informacionPVTabla{
     width: 90%;
     margin-left: 5%;
@@ -540,6 +682,20 @@ i{
     text-align: center;
     margin-bottom: 50px;
 }
+.confirmation-dialog {
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   
+  }
 
 .contratosVencer button{
     width: 20%;

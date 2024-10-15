@@ -1,6 +1,6 @@
 <div class="membrete">
     <h2 style="text-align: center;color: white;">Aplicación Web Texur</h2>
-    <i (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
+    <i style="color: white;" (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></i>
 </div>
 <div class="cuerpo">
     <div class="panelIzq menu" style="background-color: lightgrey;">
@@ -67,6 +67,9 @@
                 </div>
 
                 <div>
+                    <div class="addGarantia">
+                        <button (click)="addCliente()">Nuevo Cliente</button>
+                    </div>
                     <table class="table">
                         <thead>
                             <tr>
@@ -74,7 +77,8 @@
                                 <th style="background-color:   #054f71;color: white" scope="col">Nombre</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Teléfono</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">CUIT</th>
-                                <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Acciones
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -129,8 +133,9 @@
                             <thead>
                                 <tr>
                                     <th style="background-color:  #054f71;color: white" scope="col">Fecha adquirido</th>
-                                    <th style="background-color:   #054f71;color: white"scope="col">Producto</th>
-                                    <th style="background-color:   #054f71;color: white"scope="col">Garantía activa</th>
+                                    <th style="background-color:   #054f71;color: white" scope="col">Producto</th>
+                                    <th style="background-color:   #054f71;color: white" scope="col">Garantía activa
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -147,22 +152,538 @@
             </div>
         </div>
 
-        <div *ngIf="postVenta">
-            <ul class="menuPostVenta">
-                <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
-                    [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
-                <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
-                    [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
-                <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
-                    [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
-                <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
-                    [class.active]="selectedPV === 'informacionPV'">Información</li>
-                <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
-                    [class.active]="selectedPV === 'contratosPV'">Contratos</li>
-                <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
-                    [class.active]="selectedPV === 'analisisPV'">Análisis</li>
-            </ul>
-            <div class="container">
+        <div *ngIf="postVenta" class="postventa container">
+            <div class="cuerpoPV">
+                <app-carrusel></app-carrusel>
+                <div class="misProductos">
+                    <h2>Mis productos en Garantía</h2>
+                    <div class="cardsProductos">
+                        <div class="cardProd">
+                            <h4>Icegard Oro</h4>
+                            <img src="../../../assets/Icegard Oro.png">
+                            <div class="estadoGarantia">
+                                <h5>Garantía</h5>
+                                <h5 class="estadoGar">Activa</h5>
+                            </div>
+                            <div class="estadoGarantia">
+                                <h6>
+                                    Cobertura restante:
+                                </h6>
+                                <h6>
+                                    132 días
+                                </h6>
+                            </div>
+                            <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
+                            <button (click)="mostrarGestion('Icegard Oro')">Gestionar Garantía</button>
+                        </div>
+                        <div class="cardProd">
+                            <h4>Icegard Rosso</h4>
+                            <img src="../../../assets/Icegard Rosso.png">
+                            <div class="estadoGarantia">
+                                <h5>Garantía</h5>
+                                <h5 class="estadoGar">Activa</h5>
+                            </div>
+                            <div class="estadoGarantia">
+                                <h6>
+                                    Cobertura restante:
+                                </h6>
+                                <h6>
+                                    25 días
+                                </h6>
+                            </div>
+                            <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
+                            <button (click)="mostrarGestion('Icegard Rosso')">Gestionar Garantía</button>
+                        </div>
+                        <div class="cardProd">
+                            <h4>Icegard Verde</h4>
+                            <img src="../../../assets/Icegard Verde.png">
+                            <div class="estadoGarantia">
+                                <h5>Garantía</h5>
+                                <h5 class="estadoGarV">Activa</h5>
+                            </div>
+                            <div>
+                                <h6 class="estadoGarantia">
+                                    Cobertura restante:
+                                </h6>
+                                <h6>
+                                    55 días
+                                </h6>
+                            </div>
+                            <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
+                            <button (click)="mostrarGestion('Icegard Verde')">Gestionar Garantía</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div *ngIf="gestionActiva" class="confirmation-dialog">
+                    <div class="infoProductos">
+                        <div class="detallesProd">
+                            <div class="opcionesProd">
+                                <h4>Gestión producto: {{productoGestion}}</h4>
+                                <div class="cabecerasProd">
+                                    <ul class="opcionesPV">
+                                        <li (click)="cambioOpcionPV('garantiaPV'); seleccionarPV('garantiaPV')"
+                                            [class.active]="selectedPV === 'garantiaPV'">Garantía</li>
+                                        <li (click)="cambioOpcionPV('serviciosPV'); seleccionarPV('serviciosPV')"
+                                            [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                                        <li (click)="cambioOpcionPV('contratoPV'); seleccionarPV('contratoPV')"
+                                            [class.active]="selectedPV === 'contratoPV'">Contrato</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <div class="detallesCompletos">
+                                <div *ngIf="garantiaPV" class="garantiaProd">
+                                    <h4>
+                                        <p>Cobertura</p>
+                                    </h4>
+                                    <h6>
+                                        <p>La garantía de este producto cubre defectos de fabricación y materiales por
+                                            un período determinado. Incluye reparaciones o reemplazos sin costo
+                                            adicional para el cliente, siempre que se cumplan las condiciones del uso
+                                            adecuado y se presente el comprobante de compra. No cubre daños por mal uso
+                                            o desgaste normal.</p>
+                                    </h6>
+                                </div>
+                                <div *ngIf="serviciosPV">
+                                    <h4>
+                                        <p>Gestión de servicios</p>
+                                    </h4>
+                                    <div class="servicios">
+                                        <div class="solicitud">
+                                            <h5>
+                                                <p>Solicitud de servicio</p>
+                                            </h5>
+                                            <div class="container mt-3">
+
+                                                <div class="form-group mr-2">
+                                                    <label for="tipoSolicitud" class="mr-2">Tipo</label>
+                                                    <select id="tipoSolicitud" class="form-control">
+                                                        <option value="Mantenimiento">Mantenimiento</option>
+                                                        <option value="Reparacion">Reparación</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mr-2">
+                                                    <label for="descripcion" class="mr-2">Descripción</label>
+                                                    <input type="text" id="descripcion" class="form-control"
+                                                        placeholder="Descripción">
+                                                </div>
+                                                <button type="button" (click)="agendado()"
+                                                    class="btn btn-primary">Solicitar</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="seguimiento">
+                                            <h5>
+                                                <p>Seguimiento de servicio</p>
+                                            </h5>
+                                            <div class="container mt-3">
+                                                <div class="form-group mr-2">
+                                                    <label for="descripcion" class="mr-2">Numero de seguimiento</label>
+                                                    <input type="text" id="descripcion" class="form-control"
+                                                        placeholder="Descripción" value="1234">
+                                                </div>
+                                                <button type="button" (click)="consultado()"
+                                                    class="btn btn-primary">Consulta</button>
+                                                <div *ngIf="hizoConsulta">
+                                                    <br>
+                                                    <p><strong>Estado: </strong>Pendiente</p>
+                                                    <p><strong>Fecha: </strong>01/09/2024</p>
+                                                    <p><strong>Costo: </strong>Sin costo - Corre por garantía</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div *ngIf="contratoPV">
+                                    <h4>
+                                        <p>Contrato</p>
+                                    </h4>
+                                    <h6>
+                                        <p>El contrato de servicio incluye los términos y condiciones del servicio
+                                            prestado, plazos de entrega, responsabilidades de ambas partes, tarifas y
+                                            métodos de pago, así como las garantías ofrecidas. También detalla el
+                                            proceso para resolver disputas y las condiciones para la terminación del
+                                            contrato. Todo en conformidad con la legislación aplicable.</p>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <button (click)="cerrarGestion()">Cerrar</button>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+        <div></div>
+        <div *ngIf="gestionActiva" class="confirmation-dialog">
+            <div class="infoProductos">
+                <div class="detallesProd">
+                    <div class="opcionesProd">
+                        <h4>Gestión producto: {{productoGestion}}</h4>
+                        <div class="cabecerasProd">
+                            <ul class="opcionesPV">
+                                <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
+                                [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
+                            <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
+                                [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                            <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
+                                [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
+                            <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
+                                [class.active]="selectedPV === 'informacionPV'">Información</li>
+                            <!-- <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
+                                [class.active]="selectedPV === 'contratosPV'">Contratos</li> -->
+                            <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
+                                [class.active]="selectedPV === 'analisisPV'">Análisis</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="detallesCompletos">
+                        <div *ngIf="garantiasPV" class="garantiaProd">
+                            <h3>Garantías - Productos vendidos</h3>
+                            <div class="addGarantia">
+                                <button>Agregar garantía</button>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:   #054f71;color: white" scope="col">N° Garantía</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Producto</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Cliente</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Inicio</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Fin</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Condiciones</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Cobertura</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let garantia of garantiasVendidas">
+                                        <td>{{garantia.ngarantia}}</td>
+                                        <td>{{garantia.producto}}</td>
+                                        <td>{{garantia.cliente}}</td>
+                                        <td>{{garantia.desde}}</td>
+                                        <td>{{garantia.hasta}}</td>
+                                        <td>{{garantia.condicion}}</td>
+                                        <td>{{garantia.cobertura}}</td>
+                                        <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
+                                                aria-hidden="true"></i>
+                                            <i (click)="borrarGarantia()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div *ngIf="detallar" class="detallarGarPvs">
+                                <div class="detalleGarPV">
+                                    <p>Estado de garantía: <strong>ACTIVA</strong></p>
+                                    <p>Cumplimiento de condiciones: <strong>Cumplido 100%</strong></p>
+                                    <p>Problemas con productos: <strong>No tuvo</strong></p>
+                                    <button (click)="closeDetallarGar()">Cerrar</button>
+                                </div>
+                                <div class="mensajeGarPV">
+                                    <p>Mensaje al cliente <strong>JUAN PEREZ</strong></p>
+                                    <p><input type="text" placeholder="Ingrese asunto"></p>
+                                    <p><input type="text" placeholder="Ingrese mensaje"></p>
+                                    <button (click)="mensajeGar()">Enviar y Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="serviciosPV" class="serviciosPV">
+                            <h3>Servicios en agenda</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Fecha</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Tipo</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Cliente</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Estado</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Técnico</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Recursos</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let service of serviceAgenda">
+                                        <td>{{service.fecha}}</td>
+                                        <td>{{service.tipo}}</td>
+                                        <td>{{service.cliente}}</td>
+                                        <td>{{service.estado}}</td>
+                                        <td>{{service.tecnico}}</td>
+                                        <td>{{service.recursos}}</td>
+                                        <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
+                                                aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="agendaServicio">
+                                <div>
+                                    <h4>Agendar nuevo servicio</h4>
+                                </div>
+                                <div>
+                                    <select class="agendaServicioInput">
+                                        <option value="">Reparación</option>
+                                        <option value="">Mantenimiento</option>
+                                    </select>
+                                    <input class="agendaServicioInput" type="text" placeholder="Cliente">
+                                    <input class="agendaServicioInput" type="text" placeholder="Trabajo a realizar">
+                                    <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
+                                </div>
+                                <div>
+                                    <button>Confirmar</button>
+                                </div>
+                            </div>
+                            <div class="serviciosPVfact">
+                                <h4>
+                                    Facturación
+                                </h4>
+                                <div class="facturasEnPv">
+                                    <div class="facturasEnPvI">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="background-color:   #054f71;color: white" scope="col">Fecha</th>
+                                                    <th style="background-color:   #054f71;color: white" scope="col">Cliente
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>31/05/2024</td>
+                                                    <td>Taller Privado</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>31/05/2024</td>
+                                                    <td>Carlos Lopez</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01/06/2024</td>
+                                                    <td>Cliente 25</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="facturasEnPvD">
+                                        <input type="text" placeholder="Cliente">
+                                        <input type="text" placeholder="Monto $$">
+                                        <input type="text" placeholder="Fecha">
+                                        <button>Cargar</button>
+                                    </div>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+                        <div *ngIf="contratoPV">
+                            <h4>
+                                <p>Contrato</p>
+                            </h4>
+                            <h6>
+                                <p>El contrato de servicio incluye los términos y condiciones del servicio
+                                    prestado, plazos de entrega, responsabilidades de ambas partes, tarifas y
+                                    métodos de pago, así como las garantías ofrecidas. También detalla el
+                                    proceso para resolver disputas y las condiciones para la terminación del
+                                    contrato. Todo en conformidad con la legislación aplicable.</p>
+                            </h6>
+                        </div>
+                        <div *ngIf="repuestosPV" class="repuestosPV">
+                            <h3>Repuestos en Stock</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Codigo</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Categoría</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Fabricante</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Stock</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let repuesto of listaRepuestos">
+                                        <td>{{repuesto.codigo}}</td>
+                                        <td>{{repuesto.descripcion}}</td>
+                                        <td>{{repuesto.categoria}}</td>
+                                        <td>{{repuesto.fabricante}}</td>
+                                        <td>{{repuesto.stock}}</td>
+                                        <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+        
+                            <div class="agendaServicio">
+                                <div>
+                                    <h4>Solicitud de repuesto</h4>
+                                </div>
+                                <div>
+                                    <select class="agendaServicioInput">
+                                        <option value="">Proveedor Urquiza</option>
+                                        <option value="">Proveedor Ramirez</option>
+                                        <option value="">Proveedor Gonzalez</option>
+                                    </select>
+                                    <select class="agendaServicioInput">
+                                        <option value="">ICEGARD ORO Full Metal </option>
+                                        <option value="">ICEGARD AGRO</option>
+                                        <option value="">Otros</option>
+                                    </select>
+                                    <input class="agendaServicioInput" type="text" placeholder="N° de parte">
+                                    <input class="agendaServicioInput" type="text" placeholder="Fabricante">
+                                    <input class="agendaServicioInput" type="text" placeholder="Cantidad">
+                                </div>
+                                <div>
+                                    <button>Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="informacionPV" class="informacionPV">
+                            <h3>
+                                Base de conomicimiento
+                            </h3>
+                            <table class="table informacionPVTabla">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Título</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Tipo</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let instructivo of instructivos">
+                                        <td>{{instructivo.titulo}}</td>
+                                        <td>{{instructivo.descripcion}}</td>
+                                        <td><img src="{{instructivo.tipo}}"></td>
+                                        <td style="cursor: pointer;">
+                                            <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="agendaServicio">
+                                <div>
+                                    <h4>Carga de material</h4>
+                                </div>
+                                <div>
+                                    <input class="agendaServicioInput" type="text" placeholder="Título">
+                                    <input class="agendaServicioInput" type="text" placeholder="Descripción">
+                                    <div class="input-container">
+                                        <input type="text" placeholder="Cargar Archivo"><br>
+                                        <i class="fa fa-upload " aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button>Confirmar</button>
+                                </div>
+                            </div>
+                            <div class="faq">
+                                <h3>FaQ</h3>
+                                <table class="table informacionPVTabla">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Preguntas</th>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Respuestas</th>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let faq of faqListado">
+                                            <td>{{faq.pregunta}}</td>
+                                            <td>{{faq.respuesta}}</td>
+                                            <td style="cursor: pointer;">
+                                                <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="agendaServicio">
+                                    <div>
+                                        <h4>Carga de FaQ</h4>
+                                    </div>
+                                    <div>
+                                        <input class="agendaServicioInput" type="text" placeholder="Pregunta">
+                                        <input class="agendaServicioInput" type="text" placeholder="Respuesta">
+                                    </div>
+                                    <div>
+                                        <button>Confirmar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="foro">
+                                <h3>
+                                    Foro
+                                </h3>
+                                <div>
+                                    Espacio reservado para el Foro de Preguntas y Respuestas
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="analisisPV" class="analisisPV">
+                            <h3>
+                                Informe y análisis
+                            </h3>
+                            <div class="graficosVentas">
+                                <div class="graficosVentasI"><img src="../../../assets/prodVentas.png"></div>
+                                <div class="graficosVentasI"><img src="../../../assets/servVentas.png"></div>
+                            </div>
+        
+                            <div class="informesPVf">
+                                <h5>Informes de rentabilidad del servicio</h5>
+                                <h6>Indicadores de ingresos (y resultados): <strong>80%</strong></h6>
+                                <h6>Indicador de desempeño: <strong>95% eficiencia</strong></h6>
+                                <h6>Indicadores de actividad: <strong>Crecimiento 12%</strong></h6>
+                            </div>
+        
+                            <div class="informesPVf">
+                                <h5>Informes de satisfacción del cliente</h5>
+                                <h6>Valuación promedio de servicio: <strong>7/10</strong></h6>
+                                <h6>Tasa de recomendación: <strong>25%</strong></h6>
+                                <h6>Tasa de retención de clientes: <strong>38%</strong></h6>
+                                <h6>Tiempo de respuesta efectivo: <strong>5 días</strong></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button (click)="cerrarGestion()">Cerrar</button>
+            </div>
+        </div>
+        <!-- <div *ngIf="gestionActiva" class="confirmation-dialog">
+            <div class="infoProductos">
+                <div class="detallesProd">
+                    <div class="opcionesProd">
+                        <ul class="opcionesPV">
+                            <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
+                                [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
+                            <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
+                                [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                            <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
+                                [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
+                            <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
+                                [class.active]="selectedPV === 'informacionPV'">Información</li>
+                            <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
+                                [class.active]="selectedPV === 'contratosPV'">Contratos</li>
+                            <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
+                                [class.active]="selectedPV === 'analisisPV'">Análisis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="detallesCompletos">
+                <div *ngIf="garantiasPV">
+                    <h4>
+                        <p>Cobertura</p>
+                    </h4>
+                    <h6>
+                        <p>La garantía de este producto cubre defectos de fabricación y materiales por
+                            un período determinado. Incluye reparaciones o reemplazos sin costo
+                            adicional para el cliente, siempre que se cumplan las condiciones del uso
+                            adecuado y se presente el comprobante de compra. No cubre daños por mal uso
+                            o desgaste normal.</p>
+                    </h6>
+                </div>
+            </div>  -->
+            <!-- <div class="container">
                 <div *ngIf="garantiasPV" class="garantiasPV">
                     <h3>Garantías - Productos vendidos</h3>
                     <div class="addGarantia">
@@ -274,7 +795,8 @@
                                     <thead>
                                         <tr>
                                             <th style="background-color:   #054f71;color: white" scope="col">Fecha</th>
-                                            <th style="background-color:   #054f71;color: white" scope="col">Cliente</th>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Cliente
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -311,6 +833,7 @@
                             <tr>
                                 <th style="background-color:   #054f71;color: white" scope="col">Codigo</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Categoría</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Fabricante</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Stock</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
@@ -320,6 +843,7 @@
                             <tr *ngFor="let repuesto of listaRepuestos">
                                 <td>{{repuesto.codigo}}</td>
                                 <td>{{repuesto.descripcion}}</td>
+                                <td>{{repuesto.categoria}}</td>
                                 <td>{{repuesto.fabricante}}</td>
                                 <td>{{repuesto.stock}}</td>
                                 <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -337,6 +861,11 @@
                                 <option value="">Proveedor Urquiza</option>
                                 <option value="">Proveedor Ramirez</option>
                                 <option value="">Proveedor Gonzalez</option>
+                            </select>
+                            <select class="agendaServicioInput">
+                                <option value="">ICEGARD ORO Full Metal </option>
+                                <option value="">ICEGARD AGRO</option>
+                                <option value="">Otros</option>
                             </select>
                             <input class="agendaServicioInput" type="text" placeholder="N° de parte">
                             <input class="agendaServicioInput" type="text" placeholder="Fabricante">
@@ -438,7 +967,8 @@
                                 <th style="background-color:   #054f71;color: white" scope="col">Cliente</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Condiciones</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Precio</th>
-                                <th style="background-color:   #054f71;color: white" scope="col">Fecha fin de contrato</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Fecha fin de contrato
+                                </th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -475,7 +1005,7 @@
                             <thead>
                                 <tr>
                                     <th style="background-color:   #054f71;color: white" scope="col">N°</th>
-                                    <th style="background-color:   #054f71;color: white"scope="col">Cliente</th>
+                                    <th style="background-color:   #054f71;color: white" scope="col">Cliente</th>
                                     <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
                                 </tr>
                             </thead>
@@ -485,7 +1015,7 @@
                                     <td>Taller Federal</td>
                                     <td style="cursor: pointer;">
                                         <button>Renovar</button>
-                                        <!-- <i class="fa fa-trash-o" aria-hidden="true"></i> -->
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -516,8 +1046,8 @@
                         <h6>Tiempo de respuesta efectivo: <strong>5 días</strong></h6>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
         <div *ngIf="eLearning" class="container eLearning">
             <h2 style="text-align: center;">
                 Cursos Disponibles
@@ -792,7 +1322,8 @@
                         <tr>
                             <th style="background-color:   #054f71;color: white" scope="col">Nombre</th>
                             <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Fecha ejecución</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Fecha ejecución
+                            </th>
                             <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -817,7 +1348,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div *ngIf="compras" class="elearning">
             <ul class="menuPostVenta">
                 <li (click)="cambioCompra('proveedoresCompra'); seleccionarCompra('proveedoresCompra')"
@@ -1112,9 +1643,14 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th style="background-color:   #054f71;color: white" scope="col">Fecha adquirido</th>
-                                    <th style="background-color:   #054f71;color: white" scope="col">Producto</th>
-                                    <th style="background-color:   #054f71;color: white" scope="col">Garantía activa</th>
+                                    <th style="background-color:   #054f71;color: white" scope="col">Fecha
+                                        adquirido
+                                    </th>
+                                    <th style="background-color:   #054f71;color: white" scope="col">Producto
+                                    </th>
+                                    <th style="background-color:   #054f71;color: white" scope="col">Garantía
+                                        activa
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1428,7 +1964,7 @@
                             <img src="../../../assets/tasaConversion.png">
                         </div>
                     </div>
-                
+
                     <div class="datosLinea">
                         <div class="losDatos">
                             <div class="datosKpi">
@@ -1442,7 +1978,7 @@
                             <img src="../../../assets/retorno.png">
                         </div>
                     </div>
-                
+
                     <div class="datosLinea">
                         <div class="losDatos">
                             <div class="datosKpi">
@@ -1476,7 +2012,8 @@
                                 <th style="background-color:   #054f71;color: white" scope="col">Nombre</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Teléfono</th>
                                 <th style="background-color:   #054f71;color: white" scope="col">CUIT</th>
-                                <th style="background-color:   #054f71;color: white" scope="col">Suscripción</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Suscripción
+                                </th>
                                 <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -1487,8 +2024,8 @@
                                 <td>{{clientes.telefono}}</td>
                                 <td>{{clientes.cuit}}</td>
                                 <td>{{clientes.nivel}}</td>
-                                <td style="cursor: pointer;"><i (click)="mostrarFichaSuscripcion()" class="fa fa-info-circle"
-                                        aria-hidden="true"></i>
+                                <td style="cursor: pointer;"><i (click)="mostrarFichaSuscripcion()"
+                                        class="fa fa-info-circle" aria-hidden="true"></i>
                                     <i (click)="borrarCliente()" class="fa fa-trash-o" aria-hidden="true"></i>
                                 </td>
                             </tr>
@@ -1531,14 +2068,17 @@
                 </div>
                 <div class="precioSuscripcion">
                     <div class="detalleproductosClientes">
-                        <div class="prodAdquiridos"style="text-align: center;">
-                            <h2 style="margin-top: -37px;" >Precios Suscripciones</h2>
+                        <div class="prodAdquiridos" style="text-align: center;">
+                            <h2 style="margin-top: -37px;">Precios Suscripciones</h2>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="background-color:   #054f71;color: white" scope="col">Nivel Suscripcion</th>
-                                        <th style="background-color:   #054f71;color: white" scope="col">Beneficios</th>
-                                        <th style="background-color:   #054f71;color: white" scope="col">Costo</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Nivel
+                                            Suscripcion</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">
+                                            Beneficios</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Costo
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1581,4 +2121,24 @@
 
     <div class="footer">
         <h4>Desarrollado por <span>EsteroTech</span></h4>
+    </div>
+
+    <!-- MODAL PARA AGREGAR CLIENTE -->
+    <div *ngIf="agregarCliente" class="confirmation-dialog">
+        <div class="loginAddCliente dialog-content" style="background-color: lightgray;">
+            <div class="formularioAddCliente">
+                <form class="form">
+                    <label>Apellido</label>
+                    <input type="text" placeholder="Ingrese su Apellido"><br>
+                    <label>Nombre</label>
+                    <input type="password" placeholder="Ingrese su nombre"><br>
+                    <label>CUIT</label>
+                    <input type="text" placeholder="Ingrese su CUIT"><br>
+                    <label>Razon Social</label>
+                    <input type="text" placeholder="CUIT"><br>
+                    <button (click)="actualizar()">Registrar Cliente</button>
+                    <button (click)="actualizar()">Cerrar</button>
+                </form>
+            </div>
+        </div>
     </div>
