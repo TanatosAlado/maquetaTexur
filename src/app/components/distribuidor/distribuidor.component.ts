@@ -29,8 +29,10 @@ export class DistribuidorComponent {
   selectedPV: string = 'garantiasPV'
   selectedVenta: string = 'ventaCliente'
   selectedMK: string = 'campanasMK'
+  selectOptionTablaOtros:string=''
   selectedCompra: string = 'proveedoresCompra'
   selectedAnalisis: string ='almacenamiento'
+  arrarPostVentaOtros:any[]=[{codeTexur:"TEX-0017874",code:"R730102545",descripcion:"77h4 ICEGARD ORO LOGIC BOARD",version:"R134a"},{codeTexur:"TEX-0017899",code:"R730102345",descripcion:"ICEGARD ORO LOGIC BOARD FRONT PANEL",version:"R123yf"},{codeTexur:"TEX-0017875",code:"R716102580",descripcion:"POE OIL EV GROUP",version:"m12-1/4"},{codeTexur:"TEX-1299874",code:"R73010000",descripcion:"RED HP FILING HOSE 3000 MM",version:"R13pu"}]
   arrayClientes: any[] = [{ nombre: 'Juan', apellido: 'Perez', cuit: '11-111111111-1', telefono: 123456789, nivel: 'Nivel 0' }, { nombre: 'Manuel', apellido: 'Gomez', cuit: '22-111111111-2', telefono: 987654321, nivel: 'Nivel 1' }, { nombre: 'Mauro', apellido: 'Garcia', cuit: '33-111111111-3', telefono: 789789788, nivel: 'Nivel 0' }, { nombre: 'Alberto', apellido: 'Sanchez', cuit: '44-111111111-4', telefono: 478885547, nivel: 'Nivel 2' },]
   arrayCursos: any[] = [{ nombrecurso: 'Curso 1', tipo: '../../../assets/video.png', duracion: '40 hs' }, { nombrecurso: 'Curso 2', tipo: '../../../assets/pdf.png', duracion: '5 hs' }, { nombrecurso: 'Curso 3', tipo: '../../../assets/pp.png', duracion: '16 hs' }, { nombrecurso: 'Curso 4', tipo: '../../../assets/video.png', duracion: '8 hs' }]
   prodAdquiridos: any[] = [{ fecha: '09/09/2021', producto: 'Tester hidráulico', garantia: 'No' }, { fecha: '03/10/2022', producto: 'Sopladora', garantia: 'No' }, { fecha: '09/01/2024', producto: 'Extractor', garantia: 'Si' }]
@@ -88,6 +90,7 @@ export class DistribuidorComponent {
   fichaSuscripcion:boolean=false
   gestionActiva:boolean=false
   campanasMK: boolean = true
+  tablaPostVentaOtros:boolean=true
   leadsMK: boolean = false
   contactosMK: boolean = false
   analisisMK: boolean = false

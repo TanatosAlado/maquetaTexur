@@ -211,7 +211,7 @@
                                     25 días
                                 </h6>
                             </div>
-                            
+
                             <button (click)="mostrarGestion('Icegard Rosso')">Gestionar Garantía</button>
                         </div>
                         <div class="cardProd">
@@ -239,7 +239,7 @@
                                     25 días
                                 </h6>
                             </div>
-                            
+
                             <button (click)="mostrarGestion('Icegard Rosso')">Gestionar Garantía</button>
                         </div>
                     </div>
@@ -354,17 +354,17 @@
                         <div class="cabecerasProd">
                             <ul class="opcionesPV">
                                 <li (click)="cambioPV('garantiasPV'); seleccionarPV('garantiasPV')"
-                                [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
-                            <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
-                                [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
-                            <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
-                                [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
-                            <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
-                                [class.active]="selectedPV === 'informacionPV'">Información</li>
-                            <!-- <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
+                                    [class.active]="selectedPV === 'garantiasPV'">Garantías</li>
+                                <li (click)="cambioPV('serviciosPV'); seleccionarPV('serviciosPV')"
+                                    [class.active]="selectedPV === 'serviciosPV'">Servicios</li>
+                                <li (click)="cambioPV('repuestosPV'); seleccionarPV('repuestosPV')"
+                                    [class.active]="selectedPV === 'repuestosPV'">Repuestos</li>
+                                <li (click)="cambioPV('informacionPV'); seleccionarPV('informacionPV')"
+                                    [class.active]="selectedPV === 'informacionPV'">Información</li>
+                                <!-- <li (click)="cambioPV('contratosPV'); seleccionarPV('garanticontratosPVasPV')"
                                 [class.active]="selectedPV === 'contratosPV'">Contratos</li> -->
-                            <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
-                                [class.active]="selectedPV === 'analisisPV'">Análisis</li>
+                                <li (click)="cambioPV('analisisPV'); seleccionarPV('analisisPV')"
+                                    [class.active]="selectedPV === 'analisisPV'">Análisis</li>
                             </ul>
 
                         </div>
@@ -378,12 +378,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="background-color:   #054f71;color: white" scope="col">N° Garantía</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">N° Garantía
+                                        </th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Producto</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Cliente</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Inicio</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Fin</th>
-                                        <th style="background-color:   #054f71;color: white" scope="col">Condiciones</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Condiciones
+                                        </th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Cobertura</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
                                     </tr>
@@ -397,8 +399,8 @@
                                         <td>{{garantia.hasta}}</td>
                                         <td>{{garantia.condicion}}</td>
                                         <td>{{garantia.cobertura}}</td>
-                                        <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
-                                                aria-hidden="true"></i>
+                                        <td style="cursor: pointer;"><i (click)="detallarGar()"
+                                                class="fa fa-info-circle" aria-hidden="true"></i>
                                             <i (click)="borrarGarantia()" class="fa fa-trash-o" aria-hidden="true"></i>
                                         </td>
                                     </tr>
@@ -441,8 +443,8 @@
                                         <td>{{service.estado}}</td>
                                         <td>{{service.tecnico}}</td>
                                         <td>{{service.recursos}}</td>
-                                        <td style="cursor: pointer;"><i (click)="detallarGar()" class="fa fa-info-circle"
-                                                aria-hidden="true"></i>
+                                        <td style="cursor: pointer;"><i (click)="detallarGar()"
+                                                class="fa fa-info-circle" aria-hidden="true"></i>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -473,8 +475,10 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th style="background-color:   #054f71;color: white" scope="col">Fecha</th>
-                                                    <th style="background-color:   #054f71;color: white" scope="col">Cliente
+                                                    <th style="background-color:   #054f71;color: white" scope="col">
+                                                        Fecha</th>
+                                                    <th style="background-color:   #054f71;color: white" scope="col">
+                                                        Cliente
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -501,9 +505,9 @@
                                         <button>Cargar</button>
                                     </div>
                                 </div>
-        
+
                             </div>
-        
+
                         </div>
                         <div *ngIf="contratoPV">
                             <h4>
@@ -523,7 +527,8 @@
                                 <thead>
                                     <tr>
                                         <th style="background-color:   #054f71;color: white" scope="col">Codigo</th>
-                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción
+                                        </th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Categoría</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Fabricante</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Stock</th>
@@ -537,12 +542,13 @@
                                         <td>{{repuesto.categoria}}</td>
                                         <td>{{repuesto.fabricante}}</td>
                                         <td>{{repuesto.stock}}</td>
-                                        <td style="cursor: pointer;"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        <td style="cursor: pointer;"><i class="fa fa-info-circle"
+                                                aria-hidden="true"></i>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-        
+
                             <div class="agendaServicio">
                                 <div>
                                     <h4>Solicitud de repuesto</h4>
@@ -553,19 +559,48 @@
                                         <option value="">Proveedor Ramirez</option>
                                         <option value="">Proveedor Gonzalez</option>
                                     </select>
-                                    <select class="agendaServicioInput">
-                                        <option value="">ICEGARD ORO Full Metal </option>
-                                        <option value="">ICEGARD AGRO</option>
-                                        <option value="">Otros</option>
+                                    <select class="agendaServicioInput" [(ngModel)]="selectOptionTablaOtros">
+                                        <option value="">ICEGARD ORO Full Metal</option>
+                                        <option value="ICEGARD_AGRO">ICEGARD AGRO</option>
+                                        <option value="Otros">Otros</option>
                                     </select>
                                     <input class="agendaServicioInput" type="text" placeholder="N° de parte">
                                     <input class="agendaServicioInput" type="text" placeholder="Fabricante">
                                     <input class="agendaServicioInput" type="text" placeholder="Cantidad">
                                 </div>
                                 <div>
+
                                     <button>Confirmar</button>
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <br>
+                            <table class="table" *ngIf="selectOptionTablaOtros==='Otros'">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Codigo Texur
+                                        </th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Código</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción
+                                        </th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Versión</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let repuesto of arrarPostVentaOtros">
+                                        <td>{{repuesto.codeTexur}}</td>
+                                        <td>{{repuesto.code}}</td>
+                                        <td>{{repuesto.descripcion}}</td>
+                                        <td>{{repuesto.version}}</td>
+                                        <td style="cursor: pointer;"><i class="fa fa-info-circle"
+                                                aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <div *ngIf="informacionPV" class="informacionPV">
                             <h3>
@@ -575,7 +610,8 @@
                                 <thead>
                                     <tr>
                                         <th style="background-color:   #054f71;color: white" scope="col">Título</th>
-                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                                        <th style="background-color:   #054f71;color: white" scope="col">Descripción
+                                        </th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Tipo</th>
                                         <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
                                     </tr>
@@ -612,9 +648,12 @@
                                 <table class="table informacionPVTabla">
                                     <thead>
                                         <tr>
-                                            <th style="background-color:   #054f71;color: white" scope="col">Preguntas</th>
-                                            <th style="background-color:   #054f71;color: white" scope="col">Respuestas</th>
-                                            <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Preguntas
+                                            </th>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Respuestas
+                                            </th>
+                                            <th style="background-color:   #054f71;color: white" scope="col">Acciones
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -657,14 +696,14 @@
                                 <div class="graficosVentasI"><img src="../../../assets/prodVentas.png"></div>
                                 <div class="graficosVentasI"><img src="../../../assets/servVentas.png"></div>
                             </div>
-        
+
                             <div class="informesPVf">
                                 <h5>Informes de rentabilidad del servicio</h5>
                                 <h6>Indicadores de ingresos (y resultados): <strong>80%</strong></h6>
                                 <h6>Indicador de desempeño: <strong>95% eficiencia</strong></h6>
                                 <h6>Indicadores de actividad: <strong>Crecimiento 12%</strong></h6>
                             </div>
-        
+
                             <div class="informesPVf">
                                 <h5>Informes de satisfacción del cliente</h5>
                                 <h6>Valuación promedio de servicio: <strong>7/10</strong></h6>
@@ -713,7 +752,7 @@
                     </h6>
                 </div>
             </div>  -->
-            <!-- <div class="container">
+        <!-- <div class="container">
                 <div *ngIf="garantiasPV" class="garantiasPV">
                     <h3>Garantías - Productos vendidos</h3>
                     <div class="addGarantia">
@@ -2127,6 +2166,7 @@
         </div>
     </div>
 
+
     <div *ngIf="modalDetalle" class="confirmation-dialog">
         <div class="dialog-content">
             <div class="detalleModalP">
@@ -2144,7 +2184,7 @@
                     <button>Dar de baja</button>
                 </div>
             </div>
-    
+
             <button (click)="cerrarDetalle()">Cerrar</button>
         </div>
     </div>
