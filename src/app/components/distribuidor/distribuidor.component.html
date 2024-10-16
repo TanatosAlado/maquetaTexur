@@ -555,9 +555,9 @@
                                 </div>
                                 <div>
                                     <select class="agendaServicioInput">
-                                        <option value="">Proveedor Urquiza</option>
-                                        <option value="">Proveedor Ramirez</option>
-                                        <option value="">Proveedor Gonzalez</option>
+                                        <option value="">Magneti Marelli</option>
+                                        <option value="">ST Scanitec</option>
+                                        <option value="">ISC</option>
                                     </select>
                                     <select class="agendaServicioInput" [(ngModel)]="selectOptionTablaOtros">
                                         <option value="">ICEGARD ORO Full Metal</option>
@@ -1452,7 +1452,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div> 
         <div *ngIf="compras" class="elearning">
             <ul class="menuPostVenta">
                 <li (click)="cambioCompra('proveedoresCompra'); seleccionarCompra('proveedoresCompra')"
@@ -1525,7 +1525,7 @@
             </div> -->
         </div>
         <div *ngIf="pedidosCompra" class="container">
-            <div class="input-container table">
+            <!-- <div class="input-container table">
 
                 <br>
                 <input class="table" type="text" placeholder="Ingrese el Proveedor a buscar">
@@ -1556,20 +1556,43 @@
                     </tr>
 
                 </tbody>
-            </table>
+            </table> -->
             <div class="agendaServicio">
                 <div>
-                    <h4>Solicitud de Pedido</h4>
+                    <h4>Solicitud de Productos</h4>
                 </div>
                 <div>
-                    <select class="agendaServicioInput">
-                        <option value="">Proveedor Urquiza</option>
-                        <option value="">Proveedor Ramirez</option>
-                        <option value="">Proveedor Gonzalez</option>
+                    <select class="agendaServicioInput" aria-placeholder="Seleccione proveedor" (change)="onSelectChange($event)">
+                        <option value="MM">Magneti Marelli</option>
+                        <option value="ST">ST Scanitec</option>
+                        <option value="ISC">ISC</option>
+                        <option value="OTRO">Otro</option>
                     </select>
-                    <input class="agendaServicioInput" type="text" placeholder="Nombre Repuesto">
-                    <input class="agendaServicioInput" type="text" placeholder="Fabricante">
-                    <input class="agendaServicioInput" type="text" placeholder="Cantidad">
+                </div>
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #054f71;color: white" scope="col">Item</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Code Texur</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Code</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Versión</th>
+                                <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of productosMostrar">
+                                <td>{{producto.item}}</td>
+                                <td>{{producto.codeTexur}}</td>
+                                <td>{{producto.code}}</td>
+                                <td>{{producto.descripcion}}</td>
+                                <td>{{producto.version}}</td>
+                                <td style="cursor: pointer;"><i class="fa fa-check-circle-o" aria-hidden="true"></i></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
                 <div>
                     <button>Confirmar</button>
@@ -1577,14 +1600,41 @@
             </div>
         </div>
         <div *ngIf="inventarioCompra" class="container">
-            <div class="input-container table">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:  #054f71;color: white" scope="col">Item</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Code Texur</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Code</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Descripción</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Versión</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Cantidad en Stock</th>
+                            <th style="background-color:   #054f71;color: white" scope="col">Proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let producto of productosInventario">
+                            <td>{{producto.item}}</td>
+                            <td>{{producto.codeTexur}}</td>
+                            <td>{{producto.code}}</td>
+                            <td>{{producto.descripcion}}</td>
+                            <td>{{producto.version}}</td>
+                            <td>{{producto.stock}}</td>
+                            <td>{{producto.prov}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="input-container table">
 
                 <br>
                 <input class="table" type="text" placeholder="Ingrese el Producto a buscar">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </div>
-            <br>
-            <table class="table">
+            <br> -->
+            <!-- <table class="table">
                 <thead>
                     <tr>
                         <th style="background-color:   #054f71;color: white" scope="col">Codigo</th>
@@ -1604,7 +1654,7 @@
                     </tr>
 
                 </tbody>
-            </table>
+            </table> -->
             <br><br>
             <h4 style="text-align: center;">Estadísticas productos</h4>
             <br>
@@ -1612,6 +1662,8 @@
                 <img src="../../../assets/grafico inventario 1.jpg">
                 <img src="../../../assets/grafico inventario 2.jpg">
             </div>
+            <br><br>
+            <br><br>
         </div>
         <div *ngIf="pagosCompra" class="container">
             <div class="input-container table">
