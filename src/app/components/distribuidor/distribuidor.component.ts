@@ -73,6 +73,7 @@ export class DistribuidorComponent {
   repuestosPV: boolean = false
   informacionPV: boolean = false
   contratosPV: boolean = false
+  modalCursosLibres:boolean=false
   analisisPV: boolean = false
   proveedoresCompra: boolean = false
   pedidosCompra: boolean = false
@@ -89,13 +90,23 @@ export class DistribuidorComponent {
   analisisGraficos: boolean = false
   fichaSuscripcion:boolean=false
   gestionActiva:boolean=false
+  elearning: boolean = true
   campanasMK: boolean = true
   tablaPostVentaOtros:boolean=true
   leadsMK: boolean = false
   contactosMK: boolean = false
+  agregarCurso:boolean=false
   analisisMK: boolean = false
   automatizacionMK: boolean = false
+  selectedStars: number | null = null;
+  selectedPriceRange: [number, number] | null = null;
+  modalCarrusel: boolean = false
+  cursos: any[] = [];
   productoGestion: string = ''
+  materialLibre: any[] = [{ nombre: 'Instructivo puesta en marcha', descripcion: 'Paso a paso para poner en marcha equipos XX', duracion: '30 minutos', tipo: "../../../assets/pdf.png" },
+    { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
+    { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
+  
 
   proveedores: any[] = [{ razon: 'Magneti Marelli', nombre: 'Magneti Marelli', codigo: 'P1465', imagenP: '../../../assets/Magneti.png ', cuit: '30-33447534-4', telefono: '+549118464567', origen: 'Argentina' }, { razon: 'ST Scanitec', nombre: 'ST Scanitec', codigo: 'P1479', imagenP: '../../../assets/st.png', cuit: '30-70757014-4', telefono: '+549118464567', origen:'Brasil' }, { razon: 'ISC', nombre: 'ISC', codigo: 'P1499', imagenP: '../../../assets/ISC.png', cuit: '30-73532442-4', telefono: '+549118464567', origen: 'Italia' }]
 
@@ -115,11 +126,88 @@ export class DistribuidorComponent {
 
   }
 
+  cerrarCrearCurso(){
+    this.agregarCurso=false
+  }
+
+  ngOnInit(): void {
+    this.cursos = [...this.allCursos];
+    setTimeout(() => {
+      this.modalCarrusel = true; 
+    }, 2000);
+  }
+
   mostrarGestion(producto: string){
     this.productoGestion = producto
     this.gestionActiva = true
   }
+  filtroP(price: number) {
+    if (price === 50) {
+      this.selectedPriceRange = [1, 50];
+    } else if (price === 150) {
+      this.selectedPriceRange = [51, 100];
+    } else if (price === 300) {
+      this.selectedPriceRange = [101, 300];
+    } else if (price === 301) {
+      this.selectedPriceRange = [301, 999];
+    } else {
+      this.selectedPriceRange = null;
+    }
+    this.applyFilters();
+  }
 
+  applyFilters() {
+    this.cursos = this.allCursos.filter(curso => {
+      let matchesStars = true;
+      let matchesPrice = true;
+
+      if (this.selectedStars !== null) {
+        matchesStars = curso.estrellas === this.selectedStars;
+      }
+
+      if (this.selectedPriceRange !== null) {
+        matchesPrice = curso.precio >= this.selectedPriceRange[0] && curso.precio <= this.selectedPriceRange[1];
+      }
+
+      return matchesStars && matchesPrice;
+    });
+  }
+
+  showCursosLibres(){
+    this.modalCursosLibres=true
+  }
+
+  showAgregarCursos(){
+this.agregarCurso=true
+  }
+
+
+  buscarCurso(cadena: string){
+    this.limpiarFiltros()
+    this.cursos = this.allCursos.filter(curso => 
+      curso.nombre.includes(cadena)
+    )
+  }
+
+  filtroE(stars: number) {
+    this.selectedStars = stars;
+    this.applyFilters();
+  }
+  limpiarFiltros() {
+    this.selectedStars = null;
+    this.selectedPriceRange = null;
+    this.cursos = [...this.allCursos];
+    (document.querySelectorAll('input[type=radio]') as NodeListOf<HTMLInputElement>).forEach(input => input.checked = false);
+    // Limpiar selección de radios
+    //(document.querySelectorAll('input[type=radio]') asNodeListOf<HTMLInputElement>).forEach(input => input.checked = false);
+  }
+
+
+  allCursos: any[] = [{nombre:"Aire Acondicionado avanzado y Gestión de Climatización", descripcion: 'Conocer la composición y el funcionamiento de un sistema de climatización automática vehicular, métodos de comprobación del sistema y diagnóstico.', precio: 70, imagen:"../../../assets/ejemplo1.jpg", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'}, 
+    {nombre:"Aire Acondicionado Automotriz", descripcion: 'Conocer conceptos básicos de refrigeración, su aplicación automotriz, diagnóstico y resolución de problemas.', precio: 50, imagen:"../../../assets/ejemplo2.jpg", estrellas: 5, imagenEstrellas: '../../../assets/5de5.png'},
+    {nombre:"Aire Acondicionado y Mediciones Eléctricas", descripcion: 'Conocer las magnitudes físicas para comprender los distintos tipos desensores y actuadores utilizados en la gestión de los sistemas de Aire Acondicionado y Climatización Automotriz.', precio: 100, imagen:"../../../assets/ejemplo3.jpg", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'},
+    {nombre:"Utilización de Máquina Recicladora de refrigerante HVAC", descripcion: 'Conocer conceptos básicos de las máquinas de reciclaje de gas de sistemas HVAC, su utilización en sistemas de AC de Autos, Camiones, y Máquinas Agrícolas.', precio: 170, imagen:"../../../assets/ejemplo4.jpg", estrellas: 3, imagenEstrellas: '../../../assets/3de5.png'},
+  ]
   agendado() {
     alert('Turno agendado con exito. Numero de seguimiento: 1234')
   }
@@ -498,7 +586,7 @@ export class DistribuidorComponent {
   }
 
   actualizar() {
-
+    alert("Curso creado correctamente")
   }
   mostrarDetalle() {
     // this.gestioncliente=false
@@ -544,6 +632,10 @@ export class DistribuidorComponent {
 
   addCliente(){
     this.agregarCliente=true
+  }
+
+  hideCursosLibres(){
+    this.modalCursosLibres=false
   }
 
   mensajeGar() {

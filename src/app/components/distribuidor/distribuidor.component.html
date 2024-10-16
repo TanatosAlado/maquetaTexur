@@ -1117,111 +1117,146 @@
                 </div>
             </div> -->
         <!-- </div> -->
-        <div *ngIf="eLearning" class="container eLearning">
-            <h2 style="text-align: center;">
-                Cursos Disponibles
-            </h2>
-            <div class="input-container table">
-                <input class="table" type="text" placeholder="Ingrese el curso a buscar">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-            <div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th style="background-color:   #054f71;color: white" scope="col">Nombre Curso</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Tipo Curso</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Duración</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let cursos of arrayCursos">
-                            <td>{{cursos.nombrecurso}}</td>
-                            <td><img src="{{cursos.tipo}}"></td>
-                            <td>{{cursos.duracion}}</td>
-                            <td style="cursor: pointer;">
-                                <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
-                                <i (click)="asignarcurso()" class="fa fa-share-alt" aria-hidden="true"></i>
-                            </td>
-                        </tr>
+        <div *ngIf="elearning">
 
-                    </tbody>
-                </table>
-            </div>
-
-            <h2 style="text-align: center;">
-                Cargar Curso
-            </h2>
-            <br>
-            <div style="border-radius: 1rem;
-            box-shadow: 0 0 10px rgb(0, 0, 0,0.75);">
-                <div class="formulario">
-                    <form class="form">
-                        <label>Curso</label>
-                        <input type="text" placeholder="Nombre Curso"><br>
-                        <label>Tipo</label>
-                        <input type="text" placeholder="Tipo Curso"><br>
-                        <label>Duración</label>
-                        <input type="text" placeholder="Duración curso"><br>
-                        <label>Cargar Archivo</label>
-                        <div class="input-container">
-                            <input type="text" placeholder="Cargar Archivo"><br>
-                            <i class="fa fa-upload " aria-hidden="true"></i>
+            
+            <div class="encabezadoElearning">
+                <h4>Encuentra aquí tu curso</h4>
+                <input type="text" #cursoInput>
+                <i (click)="buscarCurso(cursoInput.value)" class="fa fa-search"></i>
+                <div>
+                      <button (click)="showCursosLibres()" style="width:20%;margin-right: 20px;">Cursos Libres</button> 
+                      <button (click)="showAgregarCursos()" style="width:20%;">Agregar Cursos</button> 
+                </div>
+               
+              </div>
+            <div class="principalE">
+                <div class="filtrosE">
+                    <h4>Filtros</h4>
+                    <div class="valoraciones">
+                        <h5>Valoraciones</h5>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(5)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/5de5.png " alt="">
+                            </div>
                         </div>
-                    </form>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(4)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/4de5.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(3)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/3de5.png " alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(2)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/2de5.png " alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check">
+                                <input (click)="filtroE(1)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <img src="../../../assets/1de5.png " alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="precios">
+                        <h5>Precio</h5>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(50)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 1 - U$S 50</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(150)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 51 - U$S 100</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(300)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 101 - U$S 300</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-check-b">
+                                <input (click)="filtroP(301)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <h6>U$S 301 - U$S 999</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="limpiezaFiltros">
+                        <button (click)="limpiarFiltros()">Limpiar filtros</button>
+                    </div>
                 </div>
-                <div style="display: flex;
-            flex-direction: column;
-            align-items: center; padding-bottom: 1%;">
-                    <button>SUBIR CURSO</button>
+                <div class="cursosE">
+                    <h4>Cursos</h4>
+                    <div *ngFor="let curso of cursos; let i = index">
+                        <div class="cursoInd margenArriba">
+                            <div class="cursoIndIzq">
+                                <img style="width: 130px;height: 130px;margin-top: 25%;" src="{{curso.imagen}}">
+                            </div>
+                            <div class="cursoIndCentro">
+                                <h4><strong>{{curso.nombre}}</strong></h4>
+                                <h6>{{curso.descripcion}}</h6>
+                                <img src="{{curso.imagenEstrellas}}" alt="">
+                            </div>
+                            <div class="cursoIndDer">
+                                <h6>Precio: U$S {{curso.precio}}</h6>
+                                <button>Comprar</button>
+                                <h6>Incluído en Membresía Nivel 3</h6>
+                                <button>Solicitar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div *ngIf="modalCursosLibres" class="confirmation-dialog">
+                <div class="infoProductos">
+                      <div class="docLibre container">
+                <div class="cursosHH">
+                    <h2>Documentación libre</h2>
+                    <h6>(Esta documentación estará disponible para todos los clientes)</h6>
+                </div>
+                <div class="input-container table">
+                    <input class="table" type="text" placeholder="Ingrese el curso a buscar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Nombre</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Descripción</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Tiempo estimado</th>
+                                <th style="background-color:  #054f71;color: white;" scope="col">Tipo de material</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let material of materialLibre">
+                                <td>{{material.nombre}}</td>
+                                <td>{{material.descripcion}}</td>
+                                <td>{{material.duracion}}</td>
+                                <td><img src="{{material.tipo}}" alt=""></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
 
-            </div>
-        </div>
-        <div *ngIf="compartirCurso" class="container">
-            <h2 style="text-align: center;">
-                <br>
-                "Nombre Curso"
-            </h2>
-            <br>
-            <div class="input-container table">
-                <input class="table" type="text" placeholder="Ingrese el usuario a buscar">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-            <div style="border-radius: 1rem;
-            box-shadow: 0 0 10px rgb(0, 0, 0,0.75);">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th style="background-color:   #054f71;color: white" scope="col">Apellido</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Nombre</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Teléfono</th>
-                            <th style="background-color:  #054f71;color: white" scope="col">CUIT</th>
-                            <th style="background-color:   #054f71;color: white" scope="col">Asignar Curso</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let clientes of arrayClientes">
-                            <td>{{clientes.apellido}}</td>
-                            <td>{{clientes.nombre}}</td>
-                            <td>{{clientes.telefono}}</td>
-                            <td>{{clientes.cuit}}</td>
-                            <td>
-                                <div class="form-check">
-                                    <input type="checkbox" value="">
-
-                                </div>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <div style="display: flex;
-                flex-direction: column;
-                align-items: center; padding-bottom: 1%;">
-                    <button (click)="mensajeCurso()">ASIGNAR CURSO</button>
+            </div> 
+                    <button style="width: 10%;" (click)="hideCursosLibres()">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -2264,3 +2299,27 @@
             </div>
         </div>
     </div>
+
+     <!-- MODAL PARA AGREGAR CLIENTE -->
+ <div *ngIf="agregarCurso" class="confirmation-dialog">
+    <div class="loginAddCliente dialog-content" style="background-color: lightgray;">
+        <div class="formularioAddCliente">
+            <form class="form">
+                <label>Titulo Curso</label>
+                <input type="text" placeholder="Ingrese Titulo Curso"><br>
+                <label>Descripcion Curso</label>
+                <input type="password" placeholder="Ingrese descripcion Curso"><br>
+                <label>Tipo Curso</label>
+                <select class="form-control">
+                    <option value=" ">PDF</option>
+                    <option value=" ">Video</option>
+                    <option value=" ">Power Point</option>
+                </select>
+                <label>Enlace curso</label>
+                <input type="text" placeholder="Ingrese el enlace al curso"><br>
+                <button (click)="actualizar()">Registrar Curso</button>
+                <button (click)="cerrarCrearCurso()">Cerrar</button>
+            </form>
+        </div>
+    </div>
+</div>

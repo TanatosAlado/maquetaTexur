@@ -264,7 +264,8 @@
                 <input type="text" #cursoInput>
                 <i (click)="buscarCurso(cursoInput.value)" class="fa fa-search"></i>
                 <div>
-                      <button (click)="showCursosLibres()" style="width:20%;">Cursos Libres</button> 
+                      <button (click)="showCursosLibres()" style="width:20%;margin-right: 20px;">Cursos Libres</button> 
+                      <button (click)="showAgregarCursos()" style="width:20%;">Agregar Cursos</button> 
                 </div>
                
               </div>
@@ -341,7 +342,7 @@
                     <div *ngFor="let curso of cursos; let i = index">
                         <div class="cursoInd margenArriba">
                             <div class="cursoIndIzq">
-                                <img src="{{curso.imagen}}">
+                                <img style="width: 130px;height: 130px;margin-top: 25%;" src="{{curso.imagen}}">
                             </div>
                             <div class="cursoIndCentro">
                                 <h4><strong>{{curso.nombre}}</strong></h4>
@@ -528,6 +529,30 @@
 
 <div class="footer">
     <h4>Desarrollado por <span>EsteroTech</span></h4>
+</div>
+
+ <!-- MODAL PARA AGREGAR CLIENTE -->
+ <div *ngIf="agregarCurso" class="confirmation-dialog">
+    <div class="loginAddCliente dialog-content" style="background-color: lightgray;">
+        <div class="formularioAddCliente">
+            <form class="form">
+                <label>Titulo Curso</label>
+                <input type="text" placeholder="Ingrese Titulo Curso"><br>
+                <label>Descripcion Curso</label>
+                <input type="password" placeholder="Ingrese descripcion Curso"><br>
+                <label>Tipo Curso</label>
+                <select class="form-control">
+                    <option value=" ">PDF</option>
+                    <option value=" ">Video</option>
+                    <option value=" ">Power Point</option>
+                </select>
+                <label>Enlace curso</label>
+                <input type="text" placeholder="Ingrese el enlace al curso"><br>
+                <button (click)="actualizar()">Registrar Curso</button>
+                <button (click)="cerrarCrearCurso()">Cerrar</button>
+            </form>
+        </div>
+    </div>
 </div>
 <!-- Modal -->
 <!-- <div *ngIf="modalCarrusel" class="confirmation-dialog-carrusel">
