@@ -99,8 +99,17 @@ export class DistribuidorComponent {
 
   proveedores: any[] = [{ razon: 'Magneti Marelli', nombre: 'Magneti Marelli', codigo: 'P1465', imagenP: '../../../assets/Magneti.png ', cuit: '30-33447534-4', telefono: '+549118464567', origen: 'Argentina' }, { razon: 'ST Scanitec', nombre: 'ST Scanitec', codigo: 'P1479', imagenP: '../../../assets/st.png', cuit: '30-70757014-4', telefono: '+549118464567', origen:'Brasil' }, { razon: 'ISC', nombre: 'ISC', codigo: 'P1499', imagenP: '../../../assets/ISC.png', cuit: '30-73532442-4', telefono: '+549118464567', origen: 'Italia' }]
 
+  
+
+  productosMM: any[] = [{prov: 'Magneti Marelli',item: 1, codeTexur: 'TEX-0018', code: 'R392692', descripcion: '77H4 ICEGARD ORO LOGIC BOARD', version: 'R143f'}, {prov: 'Magneti Marelli',item: 2, codeTexur: 'TEX-001072', code: 'R7301202770', descripcion: 'ICEGARD ORO LOGIC BOARD', version: ''}, {prov: 'Magneti Marelli',item: 3, codeTexur: 'TEX-001073', code: 'D80', descripcion: 'LP MANOMETER QUICKLOCK', version: 'R143f'}, {prov: 'Magneti Marelli',item: 4, codeTexur: 'TEX-001074', code: 'R7301308090', descripcion: '80 HP MANOMETER QUICKLOCK', version: ''}]
+  productosISC: any[] = [{prov: 'ISC',item: 5, codeTexur: 'TEX-001076', code: 'R7400002012', descripcion: 'ANIFOLD 132 1CV 8EV PRES. SENS', version: ''}, {prov: 'ISC',item: 6, codeTexur: 'TEX-001077', code: 'R7410006225', descripcion: 'POE OIL EV GROUP', version: 'R143f'}, {prov: 'ISC',item: 7, codeTexur: 'TEX-001078', code: 'R7104000505', descripcion: 'RUBBER RING', version: ''}, {prov: 'ISC',item: 8, codeTexur: 'TEX-001079', code: 'R7450000825', descripcion: 'HP QUICK CONNECTOR R134A', version: 'R134a'}]
+  productosST: any[] = [{prov: 'ST Scanitec', item: 9, codeTexur: 'TEX-001080', code: 'R7450000847', descripcion: 'HP BRASS R1234 QUICK COUPLER', version: 'R1234yf'}, {prov: 'ST Scanitec', item: 10, codeTexur: 'TEX-001081', code: 'R7450000823', descripcion: 'LP QUICK CONNECTOR R134A', version: 'R134a'}, {prov: 'ST Scanitec', item: 11, codeTexur: 'TEX-001082', code: 'R7450000845', descripcion: 'LP BRASS R1234 QUICK COUPLER', version: 'R1234yf'}, {prov: 'ST Scanitec', item: 12, codeTexur: 'TEX-001083', code: 'R7100201300', descripcion: 'BLUE LP FILLING HOSE 3000 MM', version: 'R134a'}]
+
+  productosMostrar: any[] = [{item: 1, codeTexur: 'TEX-0018', code: 'R392692', descripcion: '77H4 ICEGARD ORO LOGIC BOARD', version: 'R143f'}, {item: 2, codeTexur: 'TEX-001072', code: 'R7301202770', descripcion: 'ICEGARD ORO LOGIC BOARD', version: ''}, {item: 3, codeTexur: 'TEX-001073', code: 'D80', descripcion: 'LP MANOMETER QUICKLOCK', version: 'R143f'}, {item: 4, codeTexur: 'TEX-001074', code: 'R7301308090', descripcion: '80 HP MANOMETER QUICKLOCK', version: ''}]
+  productosOtro: any[] = [{prov: 'Otro',item: 13, codeTexur: 'TEX-001101', code: 'R7301201136', descripcion: 'TRASFORMER 36VA 15V', version: ''}, {prov: 'Otro',item: 14, codeTexur: 'TEX-001102', code: 'R7450001515', descripcion: '1,5Kg SAMPLE WEIGHT', version: ''}, {prov: 'Otro',item: 15, codeTexur: 'TEX-001103', code: 'R7105007114', descripcion: ' EXSHAUST FILTER 1/4', version: ''}]
   modalDetalle: boolean = false
   indexProveedor:number = 0
+  productosInventario: any[] = [{prov: 'Magneti Marelli',item: 1, codeTexur: 'TEX-0018', code: 'R392692', descripcion: '77H4 ICEGARD ORO LOGIC BOARD', version: 'R143f', stock: 5}, {prov: 'Magneti Marelli',item: 2, codeTexur: 'TEX-001072', code: 'R7301202770', descripcion: 'ICEGARD ORO LOGIC BOARD', version: '', stock: 7}, {prov: 'Magneti Marelli',item: 3, codeTexur: 'TEX-001073', code: 'D80', descripcion: 'LP MANOMETER QUICKLOCK', version: 'R143f', stock: 11}, {prov: 'Magneti Marelli',item: 4, codeTexur: 'TEX-001074', code: 'R7301308090', descripcion: '80 HP MANOMETER QUICKLOCK', version: '', stock: 17}, {prov: 'ISC',item: 5, codeTexur: 'TEX-001076', code: 'R7400002012', descripcion: 'ANIFOLD 132 1CV 8EV PRES. SENS', version: '', stock: 6}, {prov: 'ISC',item: 6, codeTexur: 'TEX-001077', code: 'R7410006225', descripcion: 'POE OIL EV GROUP', version: 'R143f', stock: 7}, {prov: 'ISC',item: 7, codeTexur: 'TEX-001078', code: 'R7104000505', descripcion: 'RUBBER RING', version: '', stock: 7}, {prov: 'ISC',item: 8, codeTexur: 'TEX-001079', code: 'R7450000825', descripcion: 'HP QUICK CONNECTOR R134A', version: 'R134a', stock: 6}, {prov: 'ST Scanitec', item: 9, codeTexur: 'TEX-001080', code: 'R7450000847', descripcion: 'HP BRASS R1234 QUICK COUPLER', version: 'R1234yf', stock: 7}, {prov: 'ST Scanitec', item: 10, codeTexur: 'TEX-001081', code: 'R7450000823', descripcion: 'LP QUICK CONNECTOR R134A', version: 'R134a', stock: 6}, {prov: 'ST Scanitec', item: 11, codeTexur: 'TEX-001082', code: 'R7450000845', descripcion: 'LP BRASS R1234 QUICK COUPLER', version: 'R1234yf', stock: 7}, {prov: 'ST Scanitec', item: 12, codeTexur: 'TEX-001083', code: 'R7100201300', descripcion: 'BLUE LP FILLING HOSE 3000 MM', version: 'R134a', stock: 7},{prov: 'Otro',item: 13, codeTexur: 'TEX-001101', code: 'R7301201136', descripcion: 'TRASFORMER 36VA 15V', version: '', stock:8}, {prov: 'Otro',item: 14, codeTexur: 'TEX-001102', code: 'R7450001515', descripcion: '1,5Kg SAMPLE WEIGHT', version: '', stock:3}, {prov: 'Otro',item: 15, codeTexur: 'TEX-001103', code: 'R7105007114', descripcion: ' EXSHAUST FILTER 1/4', version: '', stock: 5}]
 
   constructor(private router: Router) {
 
@@ -628,5 +637,24 @@ export class DistribuidorComponent {
     this.modalDetalle = true
   }
 
+  onSelectChange(event: any) {
+    const selectedValue = event.target.value;
+    switch (selectedValue) {
+      case 'MM':
+        this.productosMostrar = this.productosMM
+        break;
+      case 'ST':
+        this.productosMostrar = this.productosST
+        break;
+      case 'ISC':
+        this.productosMostrar = this.productosISC
+        break;
+      case 'OTRO':
+        this.productosMostrar = this.productosOtro
+        break;
+    }
+  }
+  }
 
-}
+
+
