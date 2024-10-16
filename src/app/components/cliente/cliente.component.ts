@@ -25,7 +25,7 @@ export class ClienteComponent {
   hayProductos: boolean = false
   montoCompra: number = 0
   modalCursosLibres:boolean=false
-
+  agregarCurso:boolean=false
 
   steps = [
     { name: 'Descripción', isDisabled: false },
@@ -57,11 +57,10 @@ export class ClienteComponent {
   { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
   { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
 
-  allCursos: any[] = [{nombre:"Funcionamiento Icegard Oro", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Oro', precio: 140, imagen:"../../../assets/Icegard Oro.png", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'}, 
-    {nombre:"Funcionamiento Rally Pro", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Rally Pro', precio: 160, imagen:"../../../assets/Rally Pro.png", estrellas: 5, imagenEstrellas: '../../../assets/5de5.png'},
-    {nombre:"Funcionamiento Icegard Blu", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Blu', precio: 140, imagen:"../../../assets/Icegard Blu.png", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'},
-    {nombre:"Funcionamiento Icegard Rosso", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Rosso', precio: 140, imagen:"../../../assets/Icegard Rosso.png", estrellas: 3, imagenEstrellas: '../../../assets/3de5.png'},
-    {nombre:"Funcionamiento Icegard Verde", descripcion: 'Funcionamiento, mantenimiento y servicios para equipo Icegard Verde', precio: 140, imagen:"../../../assets/Icegard Verde.png", estrellas: 3, imagenEstrellas: '../../../assets/3de5.png'}
+  allCursos: any[] = [{nombre:"Aire Acondicionado avanzado y Gestión de Climatización", descripcion: 'Conocer la composición y el funcionamiento de un sistema de climatización automática vehicular, métodos de comprobación del sistema y diagnóstico.', precio: 70, imagen:"../../../assets/ejemplo1.jpg", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'}, 
+    {nombre:"Aire Acondicionado Automotriz", descripcion: 'Conocer conceptos básicos de refrigeración, su aplicación automotriz, diagnóstico y resolución de problemas.', precio: 50, imagen:"../../../assets/ejemplo2.jpg", estrellas: 5, imagenEstrellas: '../../../assets/5de5.png'},
+    {nombre:"Aire Acondicionado y Mediciones Eléctricas", descripcion: 'Conocer las magnitudes físicas para comprender los distintos tipos desensores y actuadores utilizados en la gestión de los sistemas de Aire Acondicionado y Climatización Automotriz.', precio: 100, imagen:"../../../assets/ejemplo3.jpg", estrellas: 4, imagenEstrellas: '../../../assets/4de5.png'},
+    {nombre:"Utilización de Máquina Recicladora de refrigerante HVAC", descripcion: 'Conocer conceptos básicos de las máquinas de reciclaje de gas de sistemas HVAC, su utilización en sistemas de AC de Autos, Camiones, y Máquinas Agrícolas.', precio: 170, imagen:"../../../assets/ejemplo4.jpg", estrellas: 3, imagenEstrellas: '../../../assets/3de5.png'},
   ]
   gestionActiva: boolean = false
 
@@ -90,8 +89,14 @@ export class ClienteComponent {
     this.modalCarrusel=false
   }
 
+  
+
   showCursosLibres(){
     this.modalCursosLibres=true
+  }
+
+  showAgregarCursos(){
+this.agregarCurso=true
   }
 
   hideCursosLibres(){
@@ -176,7 +181,10 @@ export class ClienteComponent {
   }
 
   actualizar() {
-
+alert("Curso creado correctamente")
+  }
+  cerrarCrearCurso(){
+    this.agregarCurso=false
   }
 
   agendado() {
