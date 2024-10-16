@@ -90,7 +90,6 @@ export class DistribuidorComponent {
   analisisGraficos: boolean = false
   fichaSuscripcion:boolean=false
   gestionActiva:boolean=false
-  elearning: boolean = true
   campanasMK: boolean = true
   tablaPostVentaOtros:boolean=true
   leadsMK: boolean = false
