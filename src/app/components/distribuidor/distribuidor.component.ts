@@ -50,7 +50,7 @@ export class DistribuidorComponent {
   arrayPedidos: any = [{ codigo: '36589', nombre: 'Bujias', cantidad: '45', precio: '$45874', entrega: 'Retiro', cliente: 'Taller Sanchez' }, { codigo: '14587', nombre: 'Sondas', cantidad: '30', precio: '$75894', entrega: 'Retiro', cliente: 'Taller Perez' }, { codigo: '33699', nombre: 'Aceites', cantidad: '4', precio: '$12125', entrega: 'Envio', cliente: 'Taller Gomez' }, { codigo: '59874', nombre: 'Correas', cantidad: '10', precio: '$25478', entrega: 'Retiro', cliente: 'Taller Garcia' }]
   arrayAnalisisVentas: any = [{ codProducto: '455454', nombreProducto: 'Bujia', vtaMensual: 6, vtaSemestral: 65, vtaAnual: 8, totalFacturacion: '$145875' }, { codProducto: '878848', nombreProducto: 'Aceite', vtaMensual: 7, vtaSemestral: 14, vtaAnual: 3, totalFacturacion: '$9875' }, { codProducto: '11254', nombreProducto: 'Correas', vtaMensual: 47, vtaSemestral: 98, vtaAnual: 10, totalFacturacion: '$58747' }, { codProducto: '121245', nombreProducto: 'Poleas', vtaMensual: 20, vtaSemestral: 6, vtaAnual: 47, totalFacturacion: '$785874' }, { codProducto: '125444', nombreProducto: 'Placa', vtaMensual: 10, vtaSemestral: 49, vtaAnual: 61, totalFacturacion: '$398585' }]
   arrayFacturas: any = [{ nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva' }, { nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva' }, { nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva' }, { nroFactura: '12646', cliente: 'Taller Sanchez', monto: '$14587', tipoFactura: 'Exento Iva', }]
-  campanasLista: any[] = [{ titulo: 'Renovación anticipada', descripcion: 'Renovación de membresía anticipada con 15% de descuento', aplica: 'Membresia nivel 2' }, { titulo: 'Ofertas Salenko', descripcion: 'Descuento de 20% en repuestos marca Salenko', aplica: 'Todos' }]
+  campanasLista: any[] = [{ titulo: 'Renovación anticipada', descripcion: 'Renovación de membresía anticipada con 15% de descuento', aplica: 'Membresia nivel 2', tipo: 'Campaña por mail', objetivo: 'Aumentar el numero de renovaciones', presupuesto: '$25000', fecha: '15-09-2024' }, { titulo: 'Ofertas ISC', descripcion: 'Descuento de 20% en repuestos marca ISC', aplica: 'Todos', tipo: 'Campaña por RRSS', objetivo: 'Aumento puntual de venta', presupuesto: '$15000', fecha: '01-10-2024' }]
   leadsLista: any[] = [{ nombre: 'Rogelio Water', origen: 'RRSS', objetivo: 'Incorporación a clientes' }, { nombre: 'Jonnhy Cash', origen: 'RRSS', objetivo: 'Incorporación a clientes' }, { nombre: 'Mariano Mastrangelo', origen: 'RRSS', objetivo: 'Venta inmediata' }, { nombre: 'Taller Refugio', origen: 'Campaña', objetivo: 'Incorporación a clientes' }, { nombre: 'Taller Marijuan', origen: 'Campaña', objetivo: 'Incorporación a clientes' }]
   contratosListado: any[] = [{numero: '3465', cliente: 'Taller Federal', condicion: 'Cumplimiento de 3 service', precio: 'U$S 250', fecha:'30/06/2024'},{numero: '2385', cliente: 'Taller Continental', condicion: 'Cumplimiento de 3 service + mantenimiento', precio: 'U$S 450', fecha:'07/06/2025'}]
   automatizacionLista: any[] = [{nombre: 'Amigos referidos', descripcion: 'Traé un amigo y llevate 40% off en proximo service', fecha: '15/06/2024'},{nombre: 'Beneficio Sumatra', descripcion: '15% descuento en repuestos marca Sumatra', fecha: '21/06/2024'}]
@@ -123,9 +123,18 @@ export class DistribuidorComponent {
   productosMostrar: any[] = [{item: 1, codeTexur: 'TEX-0018', code: 'R392692', descripcion: '77H4 ICEGARD ORO LOGIC BOARD', version: 'R143f'}, {item: 2, codeTexur: 'TEX-001072', code: 'R7301202770', descripcion: 'ICEGARD ORO LOGIC BOARD', version: ''}, {item: 3, codeTexur: 'TEX-001073', code: 'D80', descripcion: 'LP MANOMETER QUICKLOCK', version: 'R143f'}, {item: 4, codeTexur: 'TEX-001074', code: 'R7301308090', descripcion: '80 HP MANOMETER QUICKLOCK', version: ''}]
   productosOtro: any[] = [{prov: 'Otro',item: 13, codeTexur: 'TEX-001101', code: 'R7301201136', descripcion: 'TRASFORMER 36VA 15V', version: ''}, {prov: 'Otro',item: 14, codeTexur: 'TEX-001102', code: 'R7450001515', descripcion: '1,5Kg SAMPLE WEIGHT', version: ''}, {prov: 'Otro',item: 15, codeTexur: 'TEX-001103', code: 'R7105007114', descripcion: ' EXSHAUST FILTER 1/4', version: ''}]
   modalDetalle: boolean = false
+  modalDetalleCampania: boolean = false
   indexProveedor:number = 0
+  indexCampania: number = 0
   productosInventario: any[] = [{prov: 'Magneti Marelli',item: 1, codeTexur: 'TEX-0018', code: 'R392692', descripcion: '77H4 ICEGARD ORO LOGIC BOARD', version: 'R143f', stock: 5}, {prov: 'Magneti Marelli',item: 2, codeTexur: 'TEX-001072', code: 'R7301202770', descripcion: 'ICEGARD ORO LOGIC BOARD', version: '', stock: 7}, {prov: 'Magneti Marelli',item: 3, codeTexur: 'TEX-001073', code: 'D80', descripcion: 'LP MANOMETER QUICKLOCK', version: 'R143f', stock: 11}, {prov: 'Magneti Marelli',item: 4, codeTexur: 'TEX-001074', code: 'R7301308090', descripcion: '80 HP MANOMETER QUICKLOCK', version: '', stock: 17}, {prov: 'ISC',item: 5, codeTexur: 'TEX-001076', code: 'R7400002012', descripcion: 'ANIFOLD 132 1CV 8EV PRES. SENS', version: '', stock: 6}, {prov: 'ISC',item: 6, codeTexur: 'TEX-001077', code: 'R7410006225', descripcion: 'POE OIL EV GROUP', version: 'R143f', stock: 7}, {prov: 'ISC',item: 7, codeTexur: 'TEX-001078', code: 'R7104000505', descripcion: 'RUBBER RING', version: '', stock: 7}, {prov: 'ISC',item: 8, codeTexur: 'TEX-001079', code: 'R7450000825', descripcion: 'HP QUICK CONNECTOR R134A', version: 'R134a', stock: 6}, {prov: 'ST Scanitec', item: 9, codeTexur: 'TEX-001080', code: 'R7450000847', descripcion: 'HP BRASS R1234 QUICK COUPLER', version: 'R1234yf', stock: 7}, {prov: 'ST Scanitec', item: 10, codeTexur: 'TEX-001081', code: 'R7450000823', descripcion: 'LP QUICK CONNECTOR R134A', version: 'R134a', stock: 6}, {prov: 'ST Scanitec', item: 11, codeTexur: 'TEX-001082', code: 'R7450000845', descripcion: 'LP BRASS R1234 QUICK COUPLER', version: 'R1234yf', stock: 7}, {prov: 'ST Scanitec', item: 12, codeTexur: 'TEX-001083', code: 'R7100201300', descripcion: 'BLUE LP FILLING HOSE 3000 MM', version: 'R134a', stock: 7},{prov: 'Otro',item: 13, codeTexur: 'TEX-001101', code: 'R7301201136', descripcion: 'TRASFORMER 36VA 15V', version: '', stock:8}, {prov: 'Otro',item: 14, codeTexur: 'TEX-001102', code: 'R7450001515', descripcion: '1,5Kg SAMPLE WEIGHT', version: '', stock:3}, {prov: 'Otro',item: 15, codeTexur: 'TEX-001103', code: 'R7105007114', descripcion: ' EXSHAUST FILTER 1/4', version: '', stock: 5}]
 
+  titulo: string = '';
+  descripcion: string = '';
+  membresiaNivel: string = '';
+  tipoCampania: string = '';
+  objetivo: string = '';
+  presupuesto: string = '';
+  fechaPactada: string = '';
   constructor(private router: Router) {
 
   }
@@ -790,7 +799,44 @@ this.agregarCurso=true
         break;
     }
   }
+
+  showDetallesCampania(indice: number){
+    this.indexCampania = indice
+    this.modalDetalleCampania = true
   }
+
+  cerrarDetallesCampania(){
+    this.modalDetalleCampania = false
+  }
+
+  eliminarCampania(indexCampania: number){
+    this.campanasLista.splice(indexCampania, 1)
+    this.modalDetalleCampania = false
+  }
+
+  crear() {
+    const nuevaCampania = {
+      titulo: this.titulo,
+      descripcion: this.descripcion,
+      aplica: this.membresiaNivel,
+      tipo: this.tipoCampania,
+      objetivo: this.objetivo,
+      presupuesto: this.presupuesto,
+      fecha: this.fechaPactada
+    };
+    this.campanasLista.push(nuevaCampania)
+    this.titulo = '';
+    this.descripcion = '';
+    this.membresiaNivel = '';
+    this.tipoCampania = '';
+    this.objetivo = '';
+    this.presupuesto = '';
+    this.fechaPactada = '';
+  }
+
+
+
+}
 
 
 
