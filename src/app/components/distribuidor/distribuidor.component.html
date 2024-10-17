@@ -606,97 +606,39 @@
                             <h3>
                                 Base de conomicimiento
                                 <br>
-                                <div class="misProductos">
-                                    <h2>Mis productos en Garantía</h2>
-                                    <div class="cardsProductos">
-                                        <div class="cardProd">
-                                            <h4>Icegard Oro</h4>
-                                            <img src="../../../assets/Icegard Oro.png">
-                                            <div class="estadoGarantia">
-                                                <h5>Garantía</h5>
-                                                <h5 class="estadoGar">Activa</h5>
-                                            </div>
-                                            <div class="estadoGarantia">
+                                <button style="text-align: center;" (click)="cargarDoc()">Cargar Documentación</button>
+                                <br>
+
+                                <div style="border: 1px black solid;max-height: 400px">
+                                    <div class="misProductos">
+                                        <div class="cardsProductos">
+                                            <div class="cardProd" style="border: none;">
                                                 <br>
-                                                <h6>
-                                                    Motivo Service:
-                                                </h6>
-                                                <h6>
-                                                    Regulación Válculas
-                                                </h6>
-                                            </div>
-                                            <br>
-                
-                                            <div class="estadoGarantia">
-                                                <h6>
-                                                    Cobertura restante:
-                                                </h6>
-                                                <h6>
-                                                    25 días
-                                                </h6>
-                                            </div>
-                                            <button (click)="mostrarGestion('Icegard Oro')">Gestionar Garantía</button>
-                                        </div>
-                                        <div class="cardProd">
-                                            <h4>Icegard Rosso</h4>
-                                            <img src="../../../assets/Icegard Rosso.png">
-                                            <div class="estadoGarantia">
-                                                <h5>Garantía</h5>
-                                                <h5 class="estadoGar">Activa</h5>
-                                            </div>
-                                            <div class="estadoGarantia">
+                                                <h4 style="color: black">Desarme frente maquina XX</h4>
+                                                <img style="width: 70%;" src="../../../assets/carpeta.png">
                                                 <br>
-                                                <h6>
-                                                    Motivo Service:
-                                                </h6>
-                                                <h6>
-                                                    Regulación Válvulas
-                                                </h6>
+                                                <button style="width:100px;height: 50px;" (click)="mostrarGestion('Icegard Oro')">Ver Detalle</button>
                                             </div>
-                                            <div class="estadoGarantia">
+                                            <div class="cardProd" style="border: none;">
                                                 <br>
-                                                <h6>
-                                                    Cobertura restante:
-                                                </h6>
-                                                <h6>
-                                                    25 días
-                                                </h6>
-                                            </div>
-                
-                                            <button (click)="mostrarGestion('Icegard Rosso')">Ver</button>
-                                        </div>
-                                        <div class="cardProd">
-                                            <h4>Icegard Rosso</h4>
-                                            <img src="../../../assets/carpeta.png">
-                                            <div class="estadoGarantia">
-                                                <h5>Garantía</h5>
-                                                <h5 class="estadoGar">Activa</h5>
-                                            </div>
-                                            <div class="estadoGarantia">
+                                                <h4 style="color: black;">Desarme frente maquina XX</h4>
+                                                <img style="width: 70%;" src="../../../assets/carpeta.png">
                                                 <br>
-                                                <h6>
-                                                    Motivo Service:
-                                                </h6>
-                                                <h6>
-                                                    Regulación Válvulas
-                                                </h6>
+                                                <button style="width:100px;height: 50px;" (click)="mostrarGestion('Icegard Rosso')">Ver Detalle</button>
                                             </div>
-                                            <div class="estadoGarantia">
+                                            <div class="cardProd" style="border: none;">
                                                 <br>
-                                                <h6>
-                                                    Cobertura restante:
-                                                </h6>
-                                                <h6>
-                                                    25 días
-                                                </h6>
+                                                <h4 style="color: black;">Desarme frente maquina XX</h4>
+                                                <img style="width: 70%;" src="../../../assets/carpeta.png">
+                                                <br>
+                                                <button style="width:100px;height: 50px;" (click)="mostrarGestion('Icegard Rosso')">Ver Detalle</button>
                                             </div>
-                
-                                            <button (click)="mostrarGestion('Icegard Rosso')">Gestionar Garantía</button>
                                         </div>
                                     </div>
                                 </div>
-                                
                             </h3>
+
+
                             <!-- <table class="table informacionPVTabla">
                                 <thead>
                                     <tr>
@@ -718,24 +660,10 @@
                                     </tr>
                                 </tbody>
                             </table> -->
-                            <div class="agendaServicio">
-                                <div>
-                                    <h4>Carga de material</h4>
-                                </div>
-                                <div>
-                                    <input class="agendaServicioInput" type="text" placeholder="Título">
-                                    <input class="agendaServicioInput" type="text" placeholder="Descripción">
-                                    <div class="input-container">
-                                        <input type="text" placeholder="Cargar Archivo"><br>
-                                        <i class="fa fa-upload " aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button>Confirmar</button>
-                                </div>
-                            </div>
                             <div class="faq">
                                 <h3>FaQ</h3>
+
+                                <button style="text-align: center;" (click)="cargarFq()">Cargar Documentación</button>
                                 <table class="table informacionPVTabla">
                                     <thead>
                                         <tr>
@@ -757,18 +685,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="agendaServicio">
-                                    <div>
-                                        <h4>Carga de FaQ</h4>
-                                    </div>
-                                    <div>
-                                        <input class="agendaServicioInput" type="text" placeholder="Pregunta">
-                                        <input class="agendaServicioInput" type="text" placeholder="Respuesta">
-                                    </div>
-                                    <div>
-                                        <button>Confirmar</button>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="foro">
                                 <h3>
@@ -805,23 +722,23 @@
                         </div>
                     </div>
                 </div>
-                <button (click)="cerrarGestion()">Cerrarr</button>
+                <button (click)="cerrarGestion()">Cerrar</button>
             </div>
         </div>
-            
+
         <div *ngIf="eLearning">
 
-            
+
             <div class="encabezadoElearning">
                 <h4>Encuentra aquí tu curso</h4>
                 <input type="text" #cursoInput>
                 <i (click)="buscarCurso(cursoInput.value)" class="fa fa-search"></i>
                 <div>
-                      <button (click)="showCursosLibres()" style="width:20%;margin-right: 20px;">Cursos Libres</button> 
-                      <button (click)="showAgregarCursos()" style="width:20%;">Agregar Cursos</button> 
+                    <button (click)="showCursosLibres()" style="width:20%;margin-right: 20px;">Cursos Libres</button>
+                    <button (click)="showAgregarCursos()" style="width:20%;">Agregar Cursos</button>
                 </div>
-               
-              </div>
+
+            </div>
             <div class="principalE">
                 <div class="filtrosE">
                     <h4>Filtros</h4>
@@ -829,59 +746,68 @@
                         <h5>Valoraciones</h5>
                         <div>
                             <div class="form-check">
-                                <input (click)="filtroE(5)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input (click)="filtroE(5)" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault1">
                                 <img src="../../../assets/5de5.png " alt="">
                             </div>
                         </div>
                         <div>
                             <div class="form-check">
-                                <input (click)="filtroE(4)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input (click)="filtroE(4)" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault1">
                                 <img src="../../../assets/4de5.png" alt="">
                             </div>
                         </div>
                         <div>
                             <div class="form-check">
-                                <input (click)="filtroE(3)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input (click)="filtroE(3)" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault1">
                                 <img src="../../../assets/3de5.png " alt="">
                             </div>
                         </div>
                         <div>
                             <div class="form-check">
-                                <input (click)="filtroE(2)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input (click)="filtroE(2)" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault1">
                                 <img src="../../../assets/2de5.png " alt="">
                             </div>
                         </div>
                         <div>
                             <div class="form-check">
-                                <input (click)="filtroE(1)" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input (click)="filtroE(1)" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault1">
                                 <img src="../../../assets/1de5.png " alt="">
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="precios">
                         <h5>Precio</h5>
                         <div>
                             <div class="form-check-b">
-                                <input (click)="filtroP(50)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <input (click)="filtroP(50)" class="form-check-input" type="radio"
+                                    name="flexRadioDefaultPrecio" id="flexRadioDefault2">
                                 <h6>U$S 1 - U$S 50</h6>
                             </div>
                         </div>
                         <div>
                             <div class="form-check-b">
-                                <input (click)="filtroP(150)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <input (click)="filtroP(150)" class="form-check-input" type="radio"
+                                    name="flexRadioDefaultPrecio" id="flexRadioDefault2">
                                 <h6>U$S 51 - U$S 100</h6>
                             </div>
                         </div>
                         <div>
                             <div class="form-check-b">
-                                <input (click)="filtroP(300)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <input (click)="filtroP(300)" class="form-check-input" type="radio"
+                                    name="flexRadioDefaultPrecio" id="flexRadioDefault2">
                                 <h6>U$S 101 - U$S 300</h6>
                             </div>
                         </div>
                         <div>
                             <div class="form-check-b">
-                                <input (click)="filtroP(301)" class="form-check-input" type="radio" name="flexRadioDefaultPrecio" id="flexRadioDefault2">
+                                <input (click)="filtroP(301)" class="form-check-input" type="radio"
+                                    name="flexRadioDefaultPrecio" id="flexRadioDefault2">
                                 <h6>U$S 301 - U$S 999</h6>
                             </div>
                         </div>
@@ -916,38 +842,41 @@
 
             <div *ngIf="modalCursosLibres" class="confirmation-dialog">
                 <div class="infoProductos">
-                      <div class="docLibre container">
-                <div class="cursosHH">
-                    <h2>Documentación libre</h2>
-                    <h6>(Esta documentación estará disponible para todos los clientes)</h6>
-                </div>
-                <div class="input-container table">
-                    <input class="table" type="text" placeholder="Ingrese el curso a buscar">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th style="background-color:  #054f71;color: white;" scope="col">Nombre</th>
-                                <th style="background-color:  #054f71;color: white;" scope="col">Descripción</th>
-                                <th style="background-color:  #054f71;color: white;" scope="col">Tiempo estimado</th>
-                                <th style="background-color:  #054f71;color: white;" scope="col">Tipo de material</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let material of materialLibre">
-                                <td>{{material.nombre}}</td>
-                                <td>{{material.descripcion}}</td>
-                                <td>{{material.duracion}}</td>
-                                <td><img src="{{material.tipo}}" alt=""></td>
-                            </tr>
+                    <div class="docLibre container">
+                        <div class="cursosHH">
+                            <h2>Documentación libre</h2>
+                            <h6>(Esta documentación estará disponible para todos los clientes)</h6>
+                        </div>
+                        <div class="input-container table">
+                            <input class="table" type="text" placeholder="Ingrese el curso a buscar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:  #054f71;color: white;" scope="col">Nombre</th>
+                                        <th style="background-color:  #054f71;color: white;" scope="col">Descripción
+                                        </th>
+                                        <th style="background-color:  #054f71;color: white;" scope="col">Tiempo estimado
+                                        </th>
+                                        <th style="background-color:  #054f71;color: white;" scope="col">Tipo de
+                                            material</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let material of materialLibre">
+                                        <td>{{material.nombre}}</td>
+                                        <td>{{material.descripcion}}</td>
+                                        <td>{{material.duracion}}</td>
+                                        <td><img src="{{material.tipo}}" alt=""></td>
+                                    </tr>
 
-                        </tbody>
-                    </table>
-                </div>
+                                </tbody>
+                            </table>
+                        </div>
 
-            </div> 
+                    </div>
                     <button style="width: 10%;" (click)="hideCursosLibres()">Cerrar</button>
                 </div>
             </div>
@@ -1144,7 +1073,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div *ngIf="compras" class="elearning">
             <ul class="menuPostVenta">
                 <li (click)="cambioCompra('proveedoresCompra'); seleccionarCompra('proveedoresCompra')"
@@ -1254,7 +1183,8 @@
                     <h4>Solicitud de Productos</h4>
                 </div>
                 <div>
-                    <select class="agendaServicioInput" aria-placeholder="Seleccione proveedor" (change)="onSelectChange($event)">
+                    <select class="agendaServicioInput" aria-placeholder="Seleccione proveedor"
+                        (change)="onSelectChange($event)">
                         <option value="MM">Magneti Marelli</option>
                         <option value="ST">ST Scanitec</option>
                         <option value="ISC">ISC</option>
@@ -1280,7 +1210,8 @@
                                 <td>{{producto.code}}</td>
                                 <td>{{producto.descripcion}}</td>
                                 <td>{{producto.version}}</td>
-                                <td style="cursor: pointer;"><i class="fa fa-check-circle-o" aria-hidden="true"></i></td>
+                                <td style="cursor: pointer;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                </td>
                             </tr>
 
                         </tbody>
@@ -1986,32 +1917,68 @@
                     <label>Razon Social</label>
                     <input type="text" placeholder="CUIT"><br>
                     <button (click)="actualizar()">Registrar Cliente</button>
-                    <button (click)="actualizar()">Cerrar</button>
+                    <button (click)="cerrarRegistro()">Cerrar</button>
                 </form>
             </div>
         </div>
     </div>
 
-     <!-- MODAL PARA AGREGAR CLIENTE -->
- <div *ngIf="agregarCurso" class="confirmation-dialog">
-    <div class="loginAddCliente dialog-content" style="background-color: lightgray;">
-        <div class="formularioAddCliente">
-            <form class="form">
-                <label>Titulo Curso</label>
-                <input type="text" placeholder="Ingrese Titulo Curso"><br>
-                <label>Descripcion Curso</label>
-                <input type="password" placeholder="Ingrese descripcion Curso"><br>
-                <label>Tipo Curso</label>
-                <select class="form-control">
-                    <option value=" ">PDF</option>
-                    <option value=" ">Video</option>
-                    <option value=" ">Power Point</option>
-                </select>
-                <label>Enlace curso</label>
-                <input type="text" placeholder="Ingrese el enlace al curso"><br>
-                <button (click)="actualizar()">Registrar Curso</button>
-                <button (click)="cerrarCrearCurso()">Cerrar</button>
-            </form>
+    <!-- MODAL PARA AGREGAR CLIENTE -->
+    <div *ngIf="agregarCurso" class="confirmation-dialog">
+        <div class="loginAddCliente dialog-content" style="background-color: lightgray;">
+            <div class="formularioAddCliente">
+                <form class="form">
+                    <label>Titulo Curso</label>
+                    <input type="text" placeholder="Ingrese Titulo Curso"><br>
+                    <label>Descripcion Curso</label>
+                    <input type="password" placeholder="Ingrese descripcion Curso"><br>
+                    <label>Tipo Curso</label>
+                    <select class="form-control">
+                        <option value=" ">PDF</option>
+                        <option value=" ">Video</option>
+                        <option value=" ">Power Point</option>
+                    </select>
+                    <label>Enlace curso</label>
+                    <input type="text" placeholder="Ingrese el enlace al curso"><br>
+                    <button (click)="actualizar()">Registrar Curso</button>
+                    <button (click)="cerrarCrearCurso()">Cerrar</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+
+
+    <div *ngIf="cargaDocumentacion" class=" confirmation-dialog">
+        <div class="infoProductos dialog-content" style="text-align: center;">
+
+            <div>
+                <h4>Carga de material</h4>
+            </div>
+            <div>
+                <input class="agendaServicioInput" type="text" placeholder="Título">
+                <input class="agendaServicioInput" type="text" placeholder="Descripción">
+                <div class="input-container">
+                    <input type="text" placeholder="Cargar Archivo"><br>
+                    <i class="fa fa-upload " aria-hidden="true"></i>
+                </div>
+            </div>
+            <div>
+                <button style="margin-right: 20px" (click)="alertaCurso()">Confirmar</button>
+                <button (click)="cerrarDoc()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="cargaFaq" class=" confirmation-dialog">
+    <div class="infoProductos dialog-content" style="text-align: center">
+        <div>
+            <h4>Carga de FaQ</h4>
+        </div>
+        <div>
+            <input class="agendaServicioInput" type="text" placeholder="Pregunta">
+            <input class="agendaServicioInput" type="text" placeholder="Respuesta">
+        </div>
+        <div>
+            <button (click)="alertaFaq()" style="margin-right: 20px" >Confirmar</button>
+            <button (click)="cerrarFaq()">Cerrar</button>
+        </div>
+    </div>

@@ -29,6 +29,7 @@ export class DistribuidorComponent {
   selectedPV: string = 'garantiasPV'
   selectedVenta: string = 'ventaCliente'
   selectedMK: string = 'campanasMK'
+  cargaDocumentacion:boolean=false
   selectOptionTablaOtros:string=''
   selectedCompra: string = 'proveedoresCompra'
   selectedAnalisis: string ='almacenamiento'
@@ -95,6 +96,7 @@ export class DistribuidorComponent {
   leadsMK: boolean = false
   contactosMK: boolean = false
   agregarCurso:boolean=false
+  cargaFaq:boolean=false
   analisisMK: boolean = false
   automatizacionMK: boolean = false
   selectedStars: number | null = null;
@@ -136,9 +138,37 @@ export class DistribuidorComponent {
     }, 2000);
   }
 
+  cargarFq(){
+    this.cargaFaq=true
+  }
+
+  alertaFaq(){
+    alert("FaQ cargada exitosamente")
+  }
+
+  cerrarFaq(){
+    this.cargaFaq=false
+  }
+
   mostrarGestion(producto: string){
     this.productoGestion = producto
     this.gestionActiva = true
+  }
+
+  cerrarRegistro(){
+    this.agregarCliente=false
+  }
+
+  alertaCurso(){
+    alert("Curso cargado correctamente")
+  }
+
+  cerrarDoc(){
+    this.cargaDocumentacion=false
+  }
+
+  cargarDoc(){
+    this.cargaDocumentacion=true
   }
   filtroP(price: number) {
     if (price === 50) {
