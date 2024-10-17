@@ -614,24 +614,27 @@
                                         <div class="cardsProductos">
                                             <div class="cardProd" style="border: none;">
                                                 <br>
-                                                <h4 style="color: black">Desarme frente maquina XX</h4>
-                                                <img style="width: 70%;" src="../../../assets/carpeta.png">
+                                                <h4 style="color: black">Desarme ICEGARD</h4>
+                                                <img style="width: 50%;" src="../../../assets/carpeta.png">
                                                 <br>
-                                                <button style="width:100px;height: 50px;" (click)="mostrarGestion('Icegard Oro')">Ver Detalle</button>
+                                                <button style="width:100px;height: 30px;"
+                                                    (click)="mostrarInfo(0)">Ver Detalle</button>
                                             </div>
                                             <div class="cardProd" style="border: none;">
                                                 <br>
-                                                <h4 style="color: black;">Desarme frente maquina XX</h4>
-                                                <img style="width: 70%;" src="../../../assets/carpeta.png">
+                                                <h4 style="color: black;">Cambio Valvulas</h4>
+                                                <img style="width: 50%;" src="../../../assets/carpeta.png">
                                                 <br>
-                                                <button style="width:100px;height: 50px;" (click)="mostrarGestion('Icegard Rosso')">Ver Detalle</button>
+                                                <button style="width:100px;height: 30px;"
+                                                    (click)="mostrarInfo(1)">Ver Detalle</button>
                                             </div>
                                             <div class="cardProd" style="border: none;">
                                                 <br>
-                                                <h4 style="color: black;">Desarme frente maquina XX</h4>
-                                                <img style="width: 70%;" src="../../../assets/carpeta.png">
+                                                <h4 style="color: black;">Motor a combustión</h4>
+                                                <img style="width: 50%;" src="../../../assets/carpeta.png">
                                                 <br>
-                                                <button style="width:100px;height: 50px;" (click)="mostrarGestion('Icegard Rosso')">Ver Detalle</button>
+                                                <button style="width:100px;height: 30px;"
+                                                    (click)="mostrarInfo(2)">Ver Detalle</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1968,17 +1971,43 @@
             </div>
         </div>
     </div>
+
     <div *ngIf="cargaFaq" class=" confirmation-dialog">
-    <div class="infoProductos dialog-content" style="text-align: center">
-        <div>
-            <h4>Carga de FaQ</h4>
-        </div>
-        <div>
-            <input class="agendaServicioInput" type="text" placeholder="Pregunta">
-            <input class="agendaServicioInput" type="text" placeholder="Respuesta">
-        </div>
-        <div>
-            <button (click)="alertaFaq()" style="margin-right: 20px" >Confirmar</button>
-            <button (click)="cerrarFaq()">Cerrar</button>
+        <div class="infoProductos dialog-content" style="text-align: center">
+            <div>
+                <h4>Carga de FaQ</h4>
+            </div>
+            <div>
+                <input class="agendaServicioInput" type="text" placeholder="Pregunta">
+                <input class="agendaServicioInput" type="text" placeholder="Respuesta">
+            </div>
+            <div>
+                <button (click)="alertaFaq()" style="margin-right: 20px">Confirmar</button>
+                <button (click)="cerrarFaq()">Cerrar</button>
+            </div>
         </div>
     </div>
+
+
+    <div class=" confirmation-dialog" *ngIf="modalInformacion">
+        <div class="infoProductos dialog-content" style="text-align: center">
+            <h4>
+                <p>Título</p>
+            </h4>
+            <h6>
+                <p>{{tituloInformacion}}</p>
+            </h6>
+            <br>
+            <h4>
+                <p>Descripción</p>
+            </h4>
+            <h6>
+                <p>{{descripcionInformacion}}</p>
+            </h6>
+            <br>
+            <br>
+            <p>Descargar tutorial<i class="fa fa-download" aria-hidden="true"></i></p>
+            <button (click)="cerrarInformacion()">Cerrar</button> 
+        </div>         
+    </div>
+

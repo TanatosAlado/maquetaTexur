@@ -29,6 +29,7 @@ export class DistribuidorComponent {
   selectedPV: string = 'garantiasPV'
   selectedVenta: string = 'ventaCliente'
   selectedMK: string = 'campanasMK'
+  modalInformacion:boolean=false
   cargaDocumentacion:boolean=false
   selectOptionTablaOtros:string=''
   selectedCompra: string = 'proveedoresCompra'
@@ -43,7 +44,7 @@ export class DistribuidorComponent {
   arrayPagos: any = [{ nroFactura: '13257498', fecha: '14/05/2021', proveedor: 'Taller Sanchez', monto: '$145874' }, { nroFactura: '8585744', fecha: '21/07/2022', proveedor: 'Taller Perez', monto: '$205878' }, { nroFactura: '1325487', fecha: '30/01/2023', proveedor: 'Taller Gutierrez', monto: '$587471' }, { nroFactura: '3698585', fecha: '08/04/2020', proveedor: 'Taller García', monto: '$25874' },]
   serviceAgenda: any[] = [{ fecha: '30/05/2024', tipo: 'Mantenimiento', cliente: 'Taller Galicia', estado: 'En Ejecución', tecnico: 'Carlos', recursos: 'En Stock' }, { fecha: '01/06/2024', tipo: 'Reparación', cliente: 'Taller privado', estado: 'En Espera', tecnico: 'Carlos', recursos: 'En Stock' }, { fecha: '7/6/2024', tipo: 'Mantenimiento', cliente: 'Taller MetroFe', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados' }, { fecha: '3/06/2024', tipo: 'Mantenimiento', cliente: 'Taller Lopez', estado: 'En Espera', tecnico: 'Carlos', recursos: 'Gestionados' }]
   listaRepuestos: any[] = [{ codigo: 'ar488', descripcion: 'Bobina XX', categoria:"ICEGARD ORO Full Metal", fabricante: 'Compañia Virtus', stock: '12' }, { codigo: 'ar490', descripcion: 'Contra bobina XX',categoria:"ICEGARD AGRO", fabricante: 'Compañia Virtus', stock: '12' }, { codigo: 'ag635', descripcion: 'Zonda XX',categoria:"Otros", fabricante: 'Magallanes SRL', stock: '6' }]
-  instructivos: any[] = [{ titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png' }, { titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png' }, { titulo: 'Desarme frente maquina XX', descripcion: 'Paso a paso del desarme con fotos', tipo: '../../../assets/pdf.png' }]
+  instructivos: any[] = [{ titulo: 'Desarme frente maquina ICEGARD v 2.0', descripcion: 'Paso a paso del desarme con fotos explicativos del modelo ICEGARD, el tutorial incluye ademas un video explicativo', tipo: '../../../assets/pdf.png' }, { titulo: 'Tutorial Cambio Valvulas Compresor', descripcion: 'Paso a paso del cambio de las valvulas principales del compresor para lograr un mejor afinamiento', tipo: '../../../assets/pdf.png' }, { titulo: 'Motor a combustión', descripcion: 'Paso a paso del desarme con fotos y videos del motro a combustion, tambien se incluye un video para la puesta a punto', tipo: '../../../assets/pdf.png' }]
   faqListado: any[] = [{ pregunta: 'Puedo extender mi suscrpción?', respuesta: 'Las suscripciones pueden extenderse y  pueden cambiar el tipo de membresía' }, { pregunta: 'No puedo ver el material de E-Learning', respuesta: 'Los contenidos se retiran cuando el cliente no renovo su membresía' }, { pregunta: 'Como reservo un servicio', respuesta: 'En la sección Post Venta, apartado #Servicios, se puede generar la solicitud' }, { pregunta: 'Donde encuentro la garantía de mi producto?', respuesta: 'Puede consultar la garantía de un producto en la sección Post Venta, apartado Garantía y seleccionando el producto deseado.' }]
   arrayProveedores: any = [{ codigo: 14568, razon: 'Taller Perez', telefono: '1111111111', cuit: '11-111111111-1' }, { codigo: 47898, razon: 'Taller Gomez', telefono: '2222222222', cuit: '22-111111111-2' }, { codigo: 25478, razon: 'Taller Sanchez', telefono: '3333333333', cuit: '33-111111111-3' }, { codigo: 19872, razon: 'Taller Ortega', telefono: '4444444444', cuit: '44-111111111-4' }]
   arrayPedidos: any = [{ codigo: '36589', nombre: 'Bujias', cantidad: '45', precio: '$45874', entrega: 'Retiro', cliente: 'Taller Sanchez' }, { codigo: '14587', nombre: 'Sondas', cantidad: '30', precio: '$75894', entrega: 'Retiro', cliente: 'Taller Perez' }, { codigo: '33699', nombre: 'Aceites', cantidad: '4', precio: '$12125', entrega: 'Envio', cliente: 'Taller Gomez' }, { codigo: '59874', nombre: 'Correas', cantidad: '10', precio: '$25478', entrega: 'Retiro', cliente: 'Taller Garcia' }]
@@ -104,6 +105,8 @@ export class DistribuidorComponent {
   modalCarrusel: boolean = false
   cursos: any[] = [];
   productoGestion: string = ''
+  tituloInformacion:string=''
+  descripcionInformacion:string=''
   materialLibre: any[] = [{ nombre: 'Instructivo puesta en marcha', descripcion: 'Paso a paso para poner en marcha equipos XX', duracion: '30 minutos', tipo: "../../../assets/pdf.png" },
     { nombre: 'Cambio aceite', descripcion: 'Guía paso a paso para cambiar aceite en equipos XX', duracion: '45 minutos', tipo: "../../../assets/pp.png" },
     { nombre: 'Limpieza fusor', descripcion: 'Video explicativo sobre limpieza de partes', duracion: '1 hora 30 minutos', tipo: "../../../assets/video.png" }]
@@ -130,6 +133,9 @@ export class DistribuidorComponent {
   cerrarCrearCurso(){
     this.agregarCurso=false
   }
+  cerrarInformacion(){
+    this.modalInformacion=false
+  }
 
   ngOnInit(): void {
     this.cursos = [...this.allCursos];
@@ -153,6 +159,7 @@ export class DistribuidorComponent {
   mostrarGestion(producto: string){
     this.productoGestion = producto
     this.gestionActiva = true
+    // this.modalInformacion=true
   }
 
   cerrarRegistro(){
@@ -620,6 +627,14 @@ this.agregarCurso=true
   mostrarDetalle() {
     // this.gestioncliente=false
     this.detallesDistribuidor = true
+  }
+
+  mostrarInfo(pos:number){
+    this.modalInformacion=true
+    console.log(pos)
+    console.log(this.instructivos)
+    this.tituloInformacion=this.instructivos[pos].titulo
+    this.descripcionInformacion=this.instructivos[pos].descripcion
   }
 
   borrarCliente() {
