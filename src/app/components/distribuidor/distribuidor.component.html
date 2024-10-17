@@ -1275,7 +1275,18 @@
             </ul>
             <div *ngIf="campanasMK" class="campanasMK">
                 <h2>Campañas lanzadas</h2>
-                <table class="table">
+
+                <div class="contenedorCard">
+                    <div *ngFor="let campania of campanasLista; let i = index">
+                        <div class="card">
+                            <img src="../../../assets/campania.png" alt="">
+                            <h5>{{campania.titulo}}</h5>
+                            <button (click)="showDetallesCampania(i)">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <table class="table">
                     <thead>
                         <tr>
                             <th style="background-color:   #054f71;color: white" scope="col">Título</th>
@@ -1292,31 +1303,31 @@
                             <td><i style="cursor: pointer;" class="fa fa-trash-o" aria-hidden="true"></i></td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
                 <div class="agendaServicio campanasL">
                     <div>
-                        <h4>Nueva Campaña</h4>
+                      <h4>Nueva Campaña</h4>
                     </div>
-                    <input class="agendaServicioInput" type="text" placeholder="Título">
-                    <input class="agendaServicioInput" type="text" placeholder="Descripción">
-                    <select class="agendaServicioInput">
-                        <option value="">Membresía Nivel 0</option>
-                        <option value="">Membresía Nivel 1</option>
-                        <option value="">Membresía Nivel 2</option>
-                        <option value="">Todos los niveles</option>
+                    <input [(ngModel)]="titulo" class="agendaServicioInput" type="text" placeholder="Título">
+                    <input [(ngModel)]="descripcion" class="agendaServicioInput" type="text" placeholder="Descripción">
+                    <select [(ngModel)]="membresiaNivel" class="agendaServicioInput" placeholder="Membresía">
+                      <option value="0">Membresía Nivel 0</option>
+                      <option value="1">Membresía Nivel 1</option>
+                      <option value="2">Membresía Nivel 2</option>
+                      <option value="todos">Todos los niveles</option>
                     </select>
-                    <select class="agendaServicioInput">
-                        <option value="">Campaña por mail</option>
-                        <option value="">Campaña por RRSS</option>
-                        <option value="">Campaña telefónica</option>
+                    <select [(ngModel)]="tipoCampania" class="agendaServicioInput" placeholder="Tipo campaña">
+                      <option value="mail">Campaña por mail</option>
+                      <option value="rrss">Campaña por RRSS</option>
+                      <option value="telefonica">Campaña telefónica</option>
                     </select>
-                    <input class="agendaServicioInput" type="text" placeholder="Objetivo">
-                    <input class="agendaServicioInput" type="text" placeholder="Presupuesto">
-                    <input class="agendaServicioInput" type="text" placeholder="Fecha pactada">
+                    <input [(ngModel)]="objetivo" class="agendaServicioInput" type="text" placeholder="Objetivo">
+                    <input [(ngModel)]="presupuesto" class="agendaServicioInput" type="text" placeholder="Presupuesto">
+                    <input [(ngModel)]="fechaPactada" class="agendaServicioInput" type="text" placeholder="Fecha pactada">
                     <div>
-                        <button>Confirmar</button>
+                      <button (click)="crear()">Confirmar</button>
                     </div>
-                </div>
+                  </div>
             </div>
             <div *ngIf="leadsMK" class="leadsMK">
                 <h2>Leads</h2>
@@ -2273,6 +2284,35 @@
             </div>
 
             <button (click)="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
+
+    //Modal para mostrar el detalle de una campaña de marketing
+    <div *ngIf="modalDetalleCampania" class="confirmation-dialog">
+        <div class="dialog-content">
+            <div class="detalleModalP">
+                <div class="fotoYdesc">
+                    <h3>Campaña de Marketing</h3>
+                    <img src="../../../assets/campania.png" alt="">
+                </div>
+                <div class="caracYfoto delProv">
+                    <h3>{{this.campanasLista[indexCampania].titulo}}</h3>
+                    <div class="container margenAlto">
+                        <p><strong>Descripción:</strong> {{this.campanasLista[indexCampania].descripcion}}</p>
+                        <p><strong>Aplicación:</strong> {{this.campanasLista[indexCampania].aplica}}</p>
+                        <p><strong>Tipo:</strong> {{this.campanasLista[indexCampania].tipo}}</p>
+                        <p><strong>Objetivo:</strong> {{this.campanasLista[indexCampania].objetivo}}</p>
+                        <p><strong>Presupuesto:</strong> {{this.campanasLista[indexCampania].presupuesto}}</p>
+                        <p><strong>Fecha lanzamiento:</strong> {{this.campanasLista[indexCampania].fecha}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <button (click)="cerrarDetallesCampania()">Cerrar</button>
+            <div class="posBoton">
+                <button (click)="eliminarCampania(indexCampania)">Eliminar</button>
+            </div>
+            
         </div>
     </div>
 
