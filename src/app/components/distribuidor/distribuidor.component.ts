@@ -125,7 +125,12 @@ export class DistribuidorComponent {
  faqMostrar: any[] = [{ pregunta: 'Puedo extender mi suscripción?', respuesta: 'Las suscripciones pueden extenderse y  pueden cambiar el tipo de membresía para el modelo ICEGARD ORO' }, { pregunta: 'No puedo Encender la máquina por primera vez', respuesta: 'Para la puesta en marcha del equipamiento por primera vez debera seguir los pasos indicados en el apartado "Puesta en marcha" del manual de usuario' }, { pregunta: 'Porque mi modelo ICEGAR AGRO consume tanto aceite?', respuesta: 'En caso de notar que el consumo de aceite es mayor al que deberia consumir, deberia dirigirse inmediatamente a alguno de los centros especializados para revisar el modelo y evitar daños mayores a futuro' }, { pregunta: 'Donde encuentro la garantía de mi producto?', respuesta: 'Puede consultar la garantía de un producto en la sección Post Venta, apartado Garantía y seleccionando el producto deseado.' }] 
  productosMostrar: any[] = [{item: 1, codeTexur: 'TEX-0018', code: 'R392692', descripcion: '77H4 ICEGARD ORO LOGIC BOARD', version: 'R143f'}, {item: 2, codeTexur: 'TEX-001072', code: 'R7301202770', descripcion: 'ICEGARD ORO LOGIC BOARD', version: ''}, {item: 3, codeTexur: 'TEX-001073', code: 'D80', descripcion: 'LP MANOMETER QUICKLOCK', version: 'R143f'}, {item: 4, codeTexur: 'TEX-001074', code: 'R7301308090', descripcion: '80 HP MANOMETER QUICKLOCK', version: ''}]  
   productosOtro: any[] = [{prov: 'Otro',item: 13, codeTexur: 'TEX-001101', code: 'R7301201136', descripcion: 'TRASFORMER 36VA 15V', version: ''}, {prov: 'Otro',item: 14, codeTexur: 'TEX-001102', code: 'R7450001515', descripcion: '1,5Kg SAMPLE WEIGHT', version: ''}, {prov: 'Otro',item: 15, codeTexur: 'TEX-001103', code: 'R7105007114', descripcion: ' EXSHAUST FILTER 1/4', version: ''}]
-  foroMostrar:any[]=[{imagen:'../../assets/ICEGARD ORO:png'}]
+  foroMostrar:any[]=[{imagen:"../../../assets/Icegard Oro.png",topico:'Foro ICEGARD ORO',temas:8,mensajes:7,ultimoMensaje:"10-09-24"},{imagen:"../../../assets/Icegard Blu.png",topico:'Foro ICEGARD AGRO',temas:4,mensajes:2,ultimoMensaje:"30-09-24"},{imagen:"../../../assets/Rally Pro.png",topico:'Foro OTROS',temas:16,mensajes:4,ultimoMensaje:"17-08-24"},{imagen:"../../../assets/ejemplo4.jpg",topico:'Foro TODOS',temas:3,mensajes:27,ultimoMensaje:"03-07-24"}]
+  foroMostrado:any[]=[{imagen:"../../../assets/Icegard Oro.png",topico:'Foro ICEGARD ORO',temas:8,mensajes:7,ultimoMensaje:"10-09-24"},{imagen:"../../../assets/Icegard Blu.png",topico:'Foro ICEGARD AGRO',temas:4,mensajes:2,ultimoMensaje:"30-09-24"},{imagen:"../../../assets/Rally Pro.png",topico:'Foro OTROS',temas:16,mensajes:4,ultimoMensaje:"17-08-24"},{imagen:"../../../assets/ejemplo4.jpg",topico:'Foro TODOS',temas:3,mensajes:27,ultimoMensaje:"03-07-24"}]
+  foroMostradoOro:any[]=[{imagen:"../../../assets/Icegard Oro.png",topico:'Foro ICEGARD ORO',temas:8,mensajes:7,ultimoMensaje:"10-09-24"}]
+  foroMostradoOtros:any[]=[{imagen:"../../../assets/Rally Pro.png",topico:'Foro OTROS',temas:16,mensajes:4,ultimoMensaje:"17-08-24"}]
+  foroMostradoAgro:any[]=[{imagen:"../../../assets/Icegard Blu.png",topico:'Foro ICEGARD AGRO',temas:4,mensajes:2,ultimoMensaje:"30-09-24"}]
+  foroMostradoTodos:any[]=[{imagen:"../../../assets/Icegard Oro.png",topico:'Foro ICEGARD ORO',temas:8,mensajes:7,ultimoMensaje:"10-09-24"},{imagen:"../../../assets/Icegard Blu.png",topico:'Foro ICEGARD AGRO',temas:4,mensajes:2,ultimoMensaje:"30-09-24"},{imagen:"../../../assets/Rally Pro.png",topico:'Foro OTROS',temas:16,mensajes:4,ultimoMensaje:"17-08-24"},{imagen:"../../../assets/ejemplo4.jpg",topico:'Foro TODOS',temas:3,mensajes:27,ultimoMensaje:"03-07-24"}]
   modalDetalle: boolean = false
   modalDetalleCampania: boolean = false
   indexProveedor:number = 0
@@ -822,9 +827,23 @@ this.agregarCurso=true
   }
 }
 
-onSelectChangeForo($event:any)
+onSelectChangeForo(event:any)
 {
-
+  const selectedValue = event.target.value;
+  switch (selectedValue) {
+    case 'ORO':
+      this.foroMostradoTodos = this.foroMostradoOro
+      break;
+    case 'AGRO':
+      this.foroMostradoTodos = this.foroMostradoAgro
+      break;
+     case 'OTROS':
+      this.foroMostradoTodos = this.foroMostradoOtros
+      break;
+  case 'TODOS':
+    this.foroMostradoTodos = this.foroMostrado
+    break;
+}
 }
 
   showDetallesCampania(indice: number){

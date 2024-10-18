@@ -743,9 +743,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let faq of foroMostrar">
-                                                <td>{{faq.imagen}}</td>
-                                                <!-- <td>{{faq.respuesta}}</td> -->
+                                            <tr *ngFor="let faq of foroMostradoTodos">
+                                                <img src={{faq.imagen}}>
+                                                <td>{{faq.topico}}</td>
+                                                <td>{{faq.temas}}</td>
+                                                <td>{{faq.mensajes}}</td>
+                                                <td>{{faq.ultimoMensaje}}</td>
                                                 <td style="cursor: pointer;">
                                                     <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </td>
