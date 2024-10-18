@@ -672,8 +672,8 @@
                                 <div>
                                     <select class="agendaServicioInput" aria-placeholder="Seleccione proveedor"
                                         (change)="onSelectChangePostVenta($event)">
-                                        <option value="AGRO">ICEGARD ORO FULL METAL</option>
-                                        <option value="ORO">ICEGARD AGRO</option>
+                                        <option value="ORO">ICEGARD ORO FULL METAL</option>
+                                        <option value="AGRO">ICEGARD AGRO</option>
                                         <option value="OTROS">Otros</option>
                                         <option value="TODOS">Todos</option>
                                     </select>
@@ -708,12 +708,54 @@
                                     <button>Confirmar</button>
                                 </div>
                             </div>
-                            <div class="foro">
-                                <h3>
-                                    Foro
-                                </h3>
+                            <br>
+                            <br>
+                            <h3>Foro</h3>
+                            <div class="agendaServicio">
+                                
                                 <div>
-                                    Espacio reservado para el Foro de Preguntas y Respuestas
+                                    <select class="agendaServicioInput" aria-placeholder="Seleccione proveedor"
+                                        (change)="onSelectChangeForo($event)">
+                                        <option value="ORO">FORO ICEGARD ORO FULL METAL</option>
+                                        <option value="AGRO">FORO ICEGARD AGRO</option>
+                                        <option value="OTROS">Otros</option>
+                                        <option value="TODOS">Todos</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="faq">
+                                   
+                                    <table class="table informacionPVTabla">
+                                        <thead>
+                                            <tr>
+                                                <th style="background-color:   #054f71;color: white" scope="col">Imagen
+                                                </th>
+                                                <th style="background-color:   #054f71;color: white" scope="col">Topico
+                                                </th>
+                                                <th style="background-color:   #054f71;color: white" scope="col">Temas
+                                                </th>
+                                                <th style="background-color:   #054f71;color: white" scope="col">Mensajes
+                                                </th>
+                                                <th style="background-color:   #054f71;color: white" scope="col">Ultimo Mensaje
+                                                </th>
+                                                <th style="background-color:   #054f71;color: white" scope="col">Acciones
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let faq of foroMostrar">
+                                                <td>{{faq.imagen}}</td>
+                                                <!-- <td>{{faq.respuesta}}</td> -->
+                                                <td style="cursor: pointer;">
+                                                    <i (click)="borrarCurso()" class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+    
+                                </div>
+                                <div>
+                                    <button>Confirmar</button>
                                 </div>
                             </div>
                         </div>
